@@ -40,8 +40,8 @@ public class PlayerAim : MonoBehaviour {
 		if (ballToLaunch != null) {
 			ballToLaunch.transform.position  = startLaunchLocation;
 			ballToLaunch.LaunchTowardsAngle(launchSpeed,launchDirection);
-			ReloadTime(2f);
-			ReloadBall();
+			ReloadTime(1f);
+			ballToLaunch = null;
 		}
 	}
 	public void ReloadBall() {
@@ -55,6 +55,7 @@ public class PlayerAim : MonoBehaviour {
 		}
 	}
 	IEnumerator ReloadTime(float inputTime) {
+		ReloadBall();
 		yield return new WaitForSeconds(inputTime);
 	}
 }
