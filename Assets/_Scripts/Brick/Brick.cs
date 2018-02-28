@@ -5,7 +5,6 @@ using UnityEngine;
 public class Brick : MonoBehaviour {
 	public int brickLife = 1;
 	private int currentBrickLife = 1;
-	public Vector2 spawnPosition;
 	public Transform bricksPool;
 	// Use this for initialization
 	void Start () {
@@ -27,14 +26,12 @@ public class Brick : MonoBehaviour {
 			RelocateBrick();
 		}
 	}
+	
 	void RelocateBrick() {
 		this.transform.SetParent(bricksPool);
 		this.transform.position = bricksPool.transform.position;
-		Spawn();
 	}
-	void Spawn() {
+	public void ReviveBrick() {
 		currentBrickLife = brickLife;
-		this.transform.SetParent(null);
-		this.transform.position = spawnPosition;
 	}
 }

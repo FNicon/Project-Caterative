@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 374568775}
   - component: {fileID: 374568776}
   - component: {fileID: 374568777}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BorderBottomModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -379,7 +379,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1645475956}
   m_Father: {fileID: 1521524847}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -580,6 +581,47 @@ Transform:
   m_Father: {fileID: 1521524847}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &509304345
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 509304347}
+  - component: {fileID: 509304346}
+  m_Layer: 0
+  m_Name: Wave Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &509304346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 509304345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad28457972b21704fa5b417ba8abc2bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brickSpawner: {fileID: 1245496639}
+--- !u!4 &509304347
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 509304345}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &556843914
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,7 +631,7 @@ GameObject:
   m_Component:
   - component: {fileID: 556843915}
   - component: {fileID: 556843916}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BorderLeftModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -644,7 +686,7 @@ GameObject:
   m_Component:
   - component: {fileID: 589070782}
   - component: {fileID: 589070783}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BorderRightModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -699,7 +741,7 @@ GameObject:
   m_Component:
   - component: {fileID: 611152553}
   - component: {fileID: 611152554}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BorderRightView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1005,7 +1047,7 @@ GameObject:
   m_Component:
   - component: {fileID: 649411000}
   - component: {fileID: 649411001}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BorderBottomView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1255,7 +1297,7 @@ GameObject:
   m_Component:
   - component: {fileID: 883311135}
   - component: {fileID: 883311136}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Brick View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1493,6 +1535,48 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &1245496637
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1245496638}
+  - component: {fileID: 1245496639}
+  m_Layer: 0
+  m_Name: Brick Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1245496638
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1245496637}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1245496639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1245496637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b3218c7889b01a4793e4cc445c3fa2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bricks:
+  - {fileID: 1645475955}
 --- !u!1 &1276516436
 GameObject:
   m_ObjectHideFlags: 0
@@ -1502,7 +1586,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1276516437}
   - component: {fileID: 1276516438}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BorderTopModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1631,7 +1715,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1476401663}
   - component: {fileID: 1476401664}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BorderTopView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1723,7 +1807,7 @@ Transform:
   - {fileID: 507102097}
   - {fileID: 415048046}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1603279219
 GameObject:
@@ -1808,7 +1892,7 @@ GameObject:
   - component: {fileID: 1645475956}
   - component: {fileID: 1645475957}
   - component: {fileID: 1645475958}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Brick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1821,13 +1905,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1645475955}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 883311135}
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 415048046}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1645475957
 BoxCollider2D:
@@ -1866,7 +1950,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brickLife: 5
-  spawnPosition: {x: 0, y: 0}
   bricksPool: {fileID: 415048046}
 --- !u!1 &1737180994
 GameObject:
@@ -1952,6 +2035,7 @@ GameObject:
   - component: {fileID: 1828358769}
   - component: {fileID: 1828358768}
   - component: {fileID: 1828358767}
+  - component: {fileID: 1828358771}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2022,6 +2106,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1828358771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1828358766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eff74901a1662d94391042b35231cf43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 48066906}
+  border: {fileID: 885784900}
 --- !u!1 &1828880876
 GameObject:
   m_ObjectHideFlags: 0
@@ -2410,7 +2507,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2077597211}
   - component: {fileID: 2077597212}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BorderLeftView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
