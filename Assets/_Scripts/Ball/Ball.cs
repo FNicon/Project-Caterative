@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Ball : MonoBehaviour {
-
 	public float maxSpeed;
 	public float minSpeed;
 	public int speedIterator;
 	private Rigidbody2D ballBody;
-	public Vector2 currentSpeed;
 	// Use this for initialization
 	void Start () {
 		ballBody = gameObject.GetComponent<Rigidbody2D>();
@@ -16,7 +14,6 @@ public class Ball : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		currentSpeed = ballBody.velocity;
 		if ((Mathf.Abs(ballBody.velocity.x) > maxSpeed) || (Mathf.Abs(ballBody.velocity.y) > maxSpeed)) {
 			ballBody.velocity = maxSpeed * (ballBody.velocity.normalized);
 			speedIterator = 0;
@@ -25,6 +22,9 @@ public class Ball : MonoBehaviour {
 			speedIterator = speedIterator + 1;
 		} else {
 			ballBody.velocity = new Vector2 (ballBody.velocity.x,ballBody.velocity.y);
+		}
+		if (speedIterator > 10) {
+			speedIterator = 0;
 		}
 	}
 
