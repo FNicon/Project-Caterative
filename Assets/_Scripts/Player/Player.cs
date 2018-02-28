@@ -7,6 +7,7 @@ public class Player : MonoBehaviour {
 	public float playerSpeed;
 	public PlayerController playerController;
 	public PlayerAim playerAim;
+	public PlayerLife playerLife;
 
 	// Use this for initialization
 	void Awake() {
@@ -15,9 +16,11 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		MoveHorizontal(playerController.InputHorizontal());
-		if (playerController.IsInputFire()) {
-			playerAim.Shoot();
+		if (playerLife.IsAlive()) {
+			MoveHorizontal(playerController.InputHorizontal());
+			if (playerController.IsInputFire()) {
+				playerAim.Shoot();
+			}
 		}
 	}
 	void MoveHorizontal(float inputHorizontal) {

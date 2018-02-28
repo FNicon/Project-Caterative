@@ -5,6 +5,7 @@ using UnityEngine;
 public class BallDestroyer : MonoBehaviour {
 	public Transform ballPools;
 	public PlayerAim aim;
+	public PlayerLife life;
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +19,7 @@ public class BallDestroyer : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.CompareTag("Ball")) {
+			life.GetDamage();
 			RelocateBall(other);
 			aim.ReloadBall();
 		}

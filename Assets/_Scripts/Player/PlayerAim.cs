@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAim : MonoBehaviour {
-	public Ball ballToLaunch;
+	private Ball ballToLaunch;
 	public LineRenderer targetLine;
 	private float launchDirection;
 	public float launchSpeed;
 	private Vector2 startLaunchLocation;
-	public GameObject ballPools;
+	public GameObject ballsPool;
 	// Use this for initialization
 	void Awake () {
 		targetLine.positionCount = 2;
@@ -46,8 +46,8 @@ public class PlayerAim : MonoBehaviour {
 		}
 	}
 	public void ReloadBall() {
-		if (ballPools.transform.childCount > 0) {
-			GameObject currentBall = ballPools.transform.GetChild(0).gameObject;
+		if (ballsPool.transform.childCount > 0) {
+			GameObject currentBall = ballsPool.transform.GetChild(0).gameObject;
 			ballToLaunch = currentBall.GetComponent<Ball> ();
 			currentBall.transform.SetParent(null);
 		} else {
