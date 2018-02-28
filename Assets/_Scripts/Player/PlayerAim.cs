@@ -12,6 +12,7 @@ public class PlayerAim : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 		targetLine.positionCount = 2;
+		ReloadBall();
 	}
 	
 	// Update is called once per frame
@@ -39,13 +40,21 @@ public class PlayerAim : MonoBehaviour {
 		if (ballToLaunch != null) {
 			ballToLaunch.transform.position  = startLaunchLocation;
 			ballToLaunch.LaunchTowardsAngle(launchSpeed,launchDirection);
-			if (ballPools.transform.childCount > 0) {
-				GameObject currentBall = ballPools.transform.GetChild(0).gameObject;
-				ballToLaunch = currentBall.GetComponent<Ball> ();
-				currentBall.transform.SetParent(null);
-			} else {
-				ballToLaunch = null;
-			}
+			ReloadTime(2f);
+			ReloadBall();
 		}
+	}
+	public void ReloadBall() {
+		if (ballPools.transform.childCount > 0) {
+			GameObject currentBall = ballPools.transform.GetChild(0).gameObject;
+			ballToLaunch = currentBall.GetComponent<Ball> ();
+			currentBall.transform.SetParent(null);
+		} else {
+			ballToLaunch = null;
+			targetLine.enabled = false;
+		}
+	}
+	IEnumerator ReloadTime(float inputTime) {
+		yield return new WaitForSeconds(inputTime);
 	}
 }

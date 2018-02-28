@@ -266,11 +266,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7c467fa2f508ec46a02310336df92a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballToLaunch: {fileID: 78464233}
+  ballToLaunch: {fileID: 0}
   targetLine: {fileID: 467068980}
-  launchDirection: 0
   launchSpeed: 5
-  startLaunchLocation: {x: 0, y: 0}
   ballPools: {fileID: 507102096}
 --- !u!1 &78464232
 GameObject:
@@ -357,7 +355,7 @@ Transform:
   m_Children:
   - {fileID: 426916118}
   m_Father: {fileID: 507102097}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &374568774
 GameObject:
@@ -778,8 +776,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 78464236}
   - {fileID: 1952582699}
+  - {fileID: 78464236}
   m_Father: {fileID: 1521524847}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2016,7 +2014,7 @@ Transform:
   m_Children:
   - {fileID: 619296552}
   m_Father: {fileID: 507102097}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1952582700
 MonoBehaviour:
