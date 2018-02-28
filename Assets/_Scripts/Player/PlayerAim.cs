@@ -38,9 +38,10 @@ public class PlayerAim : MonoBehaviour {
 	}
 	public void Shoot() {
 		if (ballToLaunch != null) {
+			ballToLaunch.GetComponentInChildren<TrailRenderer>().enabled = true;
 			ballToLaunch.transform.position  = startLaunchLocation;
 			ballToLaunch.LaunchTowardsAngle(launchSpeed,launchDirection);
-			ReloadTime(1f);
+			//ReloadTime(1f);
 			ballToLaunch = null;
 		}
 	}
@@ -55,7 +56,7 @@ public class PlayerAim : MonoBehaviour {
 		}
 	}
 	IEnumerator ReloadTime(float inputTime) {
-		ReloadBall();
+		//ReloadBall();
 		yield return new WaitForSeconds(inputTime);
 	}
 }
