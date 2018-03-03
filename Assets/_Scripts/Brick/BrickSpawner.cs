@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BrickSpawner : MonoBehaviour {
-	public GameObject[] Bricks;
+	public GameObject[] bricks;
+	public GameObject spawnArea;
+	public int spawnIndex;
 
 	// Use this for initialization
 	void Start () {
@@ -14,9 +16,9 @@ public class BrickSpawner : MonoBehaviour {
 	void Update () {
 		
 	}
-	public void Spawn(int spawnIndex) {
-		GameObject currentBrick = Bricks[spawnIndex];
-		currentBrick.transform.SetParent(this.transform);
+	public void Spawn() {
+		GameObject currentBrick = bricks[spawnIndex];
+		currentBrick.transform.SetParent(spawnArea.transform);
 		currentBrick.transform.position = this.transform.position;
 		if (currentBrick.GetComponent<Brick>() != null) {
 			currentBrick.GetComponent<Brick>().ReviveBrick();
@@ -26,7 +28,10 @@ public class BrickSpawner : MonoBehaviour {
 			}
 		}
 	}
+	public GameObject GetCurrentBrick() {
+		return (bricks[spawnIndex]);
+	}
 	public int CountBricksLeft() {
-		return (this.transform.childCount);
+		return (spawnArea.transform.childCount);
 	}
 }
