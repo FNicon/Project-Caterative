@@ -6,7 +6,7 @@ public class CameraMovement : MonoBehaviour
 {
     private bool noTarget;
     private Vector3 targetPosition;
-    public float maxDistancePerFrame = 8;
+    public float maxDistancePerSecond = 8;
     public float moveFactor = 0.1f;
     public List<GameObject> objectsRelativeToCamera;
     public Vector2[] relativeDistancesOfObjects;
@@ -22,31 +22,31 @@ public class CameraMovement : MonoBehaviour
     {
         if (!noTarget)
         {
-            MoveCamera(GetDistanceToTargetPerFrame());
+            MoveCamera(GetDistanceToTargetPerSecond());
             MoveObjectsRelativeToCamera();
         }
         UpdateTargetPosition();
     }
 	
-    private float GetDistanceToTargetPerFrame()
+    private float GetDistanceToTargetPerSecond()
     {
         float partialDistanceToTarget = Vector2.Distance(transform.position, targetPosition) * moveFactor;
-        float distancePerFrame;
-        if (partialDistanceToTarget > maxDistancePerFrame)
+        float distancePerSecond;
+        if (partialDistanceToTarget > maxDistancePerSecond)
         {
-            distancePerFrame = maxDistancePerFrame;
+            distancePerSecond = maxDistancePerSecond;
         }
         else
         {
-            distancePerFrame = partialDistanceToTarget;
+            distancePerSecond = partialDistanceToTarget;
         }
-        return (distancePerFrame);
+        return (distancePerSecond);
     }
-    private void MoveCamera(float distancePerFrame)
+    private void MoveCamera(float distancePerSecond)
     {
         Vector3 newPosition = Vector3.MoveTowards(
             transform.position, targetPosition,
-            distancePerFrame * Time.deltaTime
+            distancePerSecond * Time.deltaTime
         );
         transform.position = newPosition;
     }
@@ -65,7 +65,7 @@ public class CameraMovement : MonoBehaviour
 
     private void UpdateTargetPosition()
     {
-        GameObject target = spawner.bricks[0];
+        GameObject target = spawner.bricks[0].gameObject;
         if (target != null)
         {
             noTarget = false;

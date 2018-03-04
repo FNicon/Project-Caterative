@@ -1397,7 +1397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bricks:
-  - {fileID: 984950262}
+  - {fileID: 0}
   spawnArea: {fileID: 1616608378}
   spawnIndex: 0
 --- !u!4 &1000835987
@@ -1968,8 +1968,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10f1eff7682ecb147a092fdb6fb867e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistancePerFrame: 8
-  moveFactor: 0.1
+  maxDistancePerSecond: 1
+  moveFactor: 0.5
   objectsRelativeToCamera:
   - {fileID: 90253932}
   - {fileID: 1000835985}

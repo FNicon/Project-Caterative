@@ -9,7 +9,7 @@ public class WaveManager : MonoBehaviour {
 	void Start () {
 		brickSpawner.spawnIndex = currentWave;
 		brickSpawner.Spawn();
-		GameManager.Instance.RestartTheBall(null);
+		GameManager.Instance.ReadyTheBall();
 	}
 	
 	void Update () {
