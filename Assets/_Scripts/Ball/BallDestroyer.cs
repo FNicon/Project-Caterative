@@ -2,32 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BallDestroyer : MonoBehaviour {
-	public Transform ballPools;
-	public PlayerAim aim;
-	public PlayerLife life;
+namespace Caterative.Brick.Balls
+{
+    public class BallDestroyer : Singleton<BallDestroyer>
+    {
+		public delegate void BallDestroyEvent(Ball whichBall);
+		public event BallDestroyEvent OnBallDestroy;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-	void OnTriggerEnter2D(Collider2D other) {
-		if (other.CompareTag("Ball")) {
-			life.GetDamage();
-			RelocateBall(other);
-			aim.ReloadBall();
-		}
-	}
-	void RelocateBall(Collider2D ball) {
-		ball.transform.SetParent(ballPools);
-		ball.GetComponentInChildren<TrailRenderer>().enabled = false;
-		ball.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
-		ball.transform.position = ball.transform.parent.position;
-	}
+        void OnTriggerEnter2D(Collider2D other)
+        {
+			Ball ball = other.GetComponent<Ball>();
+            if (ball != null)
+            {
+				ball.Deactivate();
+				if (OnBallDestroy != null) {
+					OnBallDestroy(ball);
+				}
+            }
+        }
+    }
 }

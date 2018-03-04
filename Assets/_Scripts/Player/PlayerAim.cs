@@ -1,28 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Caterative.Brick.Balls;
 using UnityEngine;
 
 public class PlayerAim : MonoBehaviour
 {
     private Ball ballToLaunch;
-    public LineRenderer targetLine;
+    private LineRenderer targetLine;
     private float launchDirection;
     public float launchSpeed;
     private Vector2 startLaunchLocation;
-	private Vector2 targetLaunchLocation;
-    public GameObject ballsPool;
+    private Vector2 targetLaunchLocation;
 
     void Awake()
     {
+        targetLine = GetComponentInChildren<LineRenderer>();
         targetLine.positionCount = 2;
-        ReloadBall();
     }
 
     void Update()
     {
-        UpdateLaunchDirection();
+        if (ballToLaunch != null)
+        {
+            targetLine.positionCount = 2;
+            UpdateLaunchDirection();
+        } else {
+            targetLine.positionCount = 0;
+        }
     }
-	
+
     public void UpdateLaunchDirection()
     {
         launchDirection = 90 + ((transform.position.x / 2) * -45);
@@ -32,8 +38,8 @@ public class PlayerAim : MonoBehaviour
         );
         targetLine.SetPosition(0, startLaunchLocation);
         Vector2 launchVector = VectorRotation.RotateVector(Vector2.right, launchDirection);
-        int layerMask = LayerMask.GetMask("Bricks","Balls");
-        RaycastHit2D hit = Physics2D.Raycast(transform.position,launchVector, 20, layerMask);
+        int layerMask = LayerMask.GetMask("Bricks", "Balls");
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, launchVector, 20, layerMask);
         if (hit.collider != null)
         {
             targetLaunchLocation = hit.point;
@@ -42,32 +48,21 @@ public class PlayerAim : MonoBehaviour
         {
             targetLaunchLocation = startLaunchLocation + (launchVector * 20);
         }
-		targetLine.SetPosition(1, targetLaunchLocation);
+        targetLine.SetPosition(1, targetLaunchLocation);
     }
 
     public void Shoot()
     {
         if (ballToLaunch != null)
         {
-            ballToLaunch.GetComponentInChildren<TrailRenderer>().enabled = true;
             ballToLaunch.transform.position = startLaunchLocation;
             ballToLaunch.LaunchTowardsAngle(launchSpeed, launchDirection);
             ballToLaunch = null;
         }
     }
 
-    public void ReloadBall()
+    public void ReloadBall(Ball ball)
     {
-        if (ballsPool.transform.childCount > 0)
-        {
-            GameObject currentBall = ballsPool.transform.GetChild(0).gameObject;
-            ballToLaunch = currentBall.GetComponent<Ball>();
-            currentBall.transform.SetParent(null);
-        }
-        else
-        {
-            ballToLaunch = null;
-            targetLine.enabled = false;
-        }
+        ballToLaunch = ball;
     }
 }

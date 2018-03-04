@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour {
 	public float InputHorizontal() {
 		return (Input.GetAxis ("Horizontal"));
 	}
+
 	public bool IsInputFire() {
 		return (Input.GetAxis("Jump") != 0);
 	}

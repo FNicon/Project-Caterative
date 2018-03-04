@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textLife: {fileID: 1700693723}
-  maxLife: 1
+  maxLife: 5
   gameOverPanel: {fileID: 1387188270}
 --- !u!114 &90253934
 MonoBehaviour:
@@ -158,9 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7c467fa2f508ec46a02310336df92a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetLine: {fileID: 1888506543}
   launchSpeed: 5
-  ballsPool: {fileID: 1187962302}
 --- !u!4 &90253935
 Transform:
   m_ObjectHideFlags: 0
@@ -3213,9 +3211,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e4c4cbb661bf9a449ca14c08ed3d1b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballPools: {fileID: 1187962303}
-  aim: {fileID: 90253934}
-  life: {fileID: 90253933}
 --- !u!61 &2003608788
 BoxCollider2D:
   m_ObjectHideFlags: 0

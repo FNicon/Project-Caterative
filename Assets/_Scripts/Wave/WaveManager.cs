@@ -5,13 +5,13 @@ using UnityEngine;
 public class WaveManager : MonoBehaviour {
 	public BrickSpawner brickSpawner;
 	private int currentWave = 0;
-	// Use this for initialization
+	
 	void Start () {
 		brickSpawner.spawnIndex = currentWave;
 		brickSpawner.Spawn();
+		GameManager.Instance.RestartTheBall(null);
 	}
 	
-	// Update is called once per frame
 	void Update () {
 		if (brickSpawner.CountBricksLeft() <= 0) {
 			currentWave = currentWave + 1;
