@@ -9,19 +9,25 @@ public class CameraTargetTracker : MonoBehaviour
 
     void Awake()
     {
-		targets = new List<GameObject>();
+        targets = new List<GameObject>();
     }
 
-	void OnEnable() {
-		foreach (var brick in Resources.FindObjectsOfTypeAll<Brick>())
+    void OnEnable()
+    {
+        foreach (var brick in Resources.FindObjectsOfTypeAll<Brick>())
         {
             targets.Add(brick.gameObject);
         }
-        foreach (var ShieldBoss in Resources.FindObjectsOfTypeAll<ShieldBoss>())
-        {
-            targets.Add(ShieldBoss.gameObject);
+        ShieldBoss shieldBoss = FindObjectOfType<ShieldBoss>();
+        if (shieldBoss !=null) {
+            targets.Add(shieldBoss.gameObject);
         }
-	}
+        CameraEnd end = FindObjectOfType<CameraEnd>();
+        if (end != null)
+        {
+            targets.Add(end.gameObject);
+        }
+    }
 
     public GameObject GetClosestTarget()
     {
@@ -30,7 +36,7 @@ public class CameraTargetTracker : MonoBehaviour
         {
             if (targets[i].transform.position.y < closestTarget.transform.position.y)
             {
-				closestTarget = targets[i];
+                closestTarget = targets[i];
             }
         }
         return closestTarget;

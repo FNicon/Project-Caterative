@@ -663,6 +663,46 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &462869083
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 462869084}
+  - component: {fileID: 462869085}
+  m_Layer: 0
+  m_Name: Camera End
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &462869084
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 462869083}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 46, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1666651192}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &462869085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 462869083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56db913d177655142859ee1c13299369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &502422477
 Prefab:
   m_ObjectHideFlags: 0
@@ -740,6 +780,11 @@ Prefab:
     - target: {fileID: 4129088500728692, guid: c6f484b110062c347baacfc3f75afa56, type: 2}
       propertyPath: m_LocalRotation.w
       value: -0.38929406
+      objectReference: {fileID: 0}
+    - target: {fileID: 114029447365052916, guid: c6f484b110062c347baacfc3f75afa56,
+        type: 2}
+      propertyPath: health
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6f484b110062c347baacfc3f75afa56, type: 2}
@@ -3091,6 +3136,7 @@ Transform:
   - {fileID: 1253613608}
   - {fileID: 1388450557}
   - {fileID: 2003608786}
+  - {fileID: 462869084}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
