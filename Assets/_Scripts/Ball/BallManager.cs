@@ -9,8 +9,6 @@ namespace Caterative.Brick.Balls
     public class BallManager : Singleton<BallManager>
     {
         List<Ball> balls;
-        public delegate void BallCollideEvent(Ball whichBall, ICollidable whichCollidable);
-        public event BallCollideEvent OnBallCollide;
 
         void Awake()
         {
@@ -38,10 +36,7 @@ namespace Caterative.Brick.Balls
 
         internal void InvokeOnBallCollide(Ball ball, ICollidable collidable)
         {
-            if (OnBallCollide != null)
-            {
-                OnBallCollide(ball, collidable);
-            }
+            collidable.OnCollideWithBall(ball);
         }
     }
 }

@@ -55,5 +55,12 @@ namespace Caterative.Brick.Balls
 			active = false;
 			trail.enabled = false;
 		}
+
+        void OnCollisionEnter2D(Collision2D collision) {
+            ICollidable collidable = collision.gameObject.GetComponent<ICollidable>();
+            if (collidable != null) {
+                BallManager.Instance.InvokeOnBallCollide(this,collidable);
+            }
+        }
     }
 }
