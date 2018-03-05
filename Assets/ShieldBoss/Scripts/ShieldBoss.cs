@@ -20,13 +20,24 @@ namespace Caterative.Brick.TheShieldBoss
         public Ball targetBall;
         int redirectShieldCounter = 0;
         int stateCounter;
-        private float moveDistancePerSecond = 2;
+        public float moveDistancePerSecond = 2;
+        public float happyRotationPerSecond = 25;
 
         void Awake()
         {
             shield = GetComponentInChildren<Shield>();
             figure = GetComponentInChildren<ShieldBossFigure>();
             face = GetComponentInChildren<ShieldBossFace>();
+        }
+
+        void OnEnable()
+        {
+            BallDestroyer.Instance.OnBallDestroy += UpdateStateOnBallDestroy;
+        }
+
+        void OnDisable()
+        {
+            BallDestroyer.Instance.OnBallDestroy -= UpdateStateOnBallDestroy;
         }
 
         void Start()
@@ -44,12 +55,25 @@ namespace Caterative.Brick.TheShieldBoss
                     case State.Angry:
                         if (targetBall.transform.position.y > transform.position.y)
                         {
-                            shield.DirectTowards(90, 0.06f);
+                            if (targetBall.transform.position.x > transform.position.x)
+                            {
+                                shield.DirectTowards(87, 0.06f);
+                            } else {
+                                shield.DirectTowards(93, 0.06f);
+                            }
                         }
                         else
                         {
-                            shield.DirectTowards(270, 0.06f);
+                            if (targetBall.transform.position.x > transform.position.x)
+                            {
+                                shield.DirectTowards(273, 0.06f);
+                            } else {
+                                shield.DirectTowards(267, 0.06f);
+                            }
                         }
+                        break;
+                    case State.Happy:
+                        shield.transform.Rotate(0, 0, happyRotationPerSecond * Time.deltaTime);
                         break;
                 }
             }
@@ -58,30 +82,58 @@ namespace Caterative.Brick.TheShieldBoss
         void ICollidable.OnCollideWithBall(Ball ball)
         {
             targetBall = ball;
+            UpdateBossStateOnBallCollide();
+            health--;
+            figure.Hit();
+            face.SetHurtFace(state);
+            if (health <= 0)
+            {
+                Deactivate();
+            }
+            ResolveCurrentStateOnBallCollide(ball);
+            stateCounter++;
+        }
+
+        private void Deactivate()
+        {
+            transform.position = new Vector2(-10, 100);
+        }
+
+        private void UpdateStateOnBallDestroy(Ball whichBall)
+        {
+            if (BallManager.Instance.CountActiveBall() == 0)
+            {
+                state = State.Happy;
+                face.SetSurpriseHappyFace();
+            }
+        }
+
+        private void UpdateBossStateOnBallCollide()
+        {
             switch (state)
             {
+                case State.Happy:
+                    state = State.Annoyed;
+                    break;
                 case State.Annoyed:
-                    if (stateCounter == annoyedStateLength * subStateLength)
+                    if (stateCounter >= annoyedStateLength * subStateLength)
                     {
                         stateCounter = 0;
                         state = State.Angry;
                     }
                     break;
                 case State.Angry:
-                    if (stateCounter == angryStateLength * subStateLength)
+                    if (stateCounter >= angryStateLength * subStateLength)
                     {
                         stateCounter = 0;
                         state = State.Annoyed;
                     }
                     break;
             }
-            health--;
-            figure.Hit();
-            face.SetHurtFace(state);
-            if (health <= 0)
-            {
-                transform.position = new Vector2(-10,100);
-            }
+        }
+
+        private void ResolveCurrentStateOnBallCollide(Ball ball)
+        {
             switch (state)
             {
                 case State.Annoyed:
@@ -92,8 +144,8 @@ namespace Caterative.Brick.TheShieldBoss
                     AngryShieldMode(ball);
                     break;
             }
-            stateCounter++;
         }
+
 
         private void AnnoyedMode(Ball ball)
         {

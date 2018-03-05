@@ -34,6 +34,17 @@ namespace Caterative.Brick.Balls
             return availableBall;
         }
 
+        public int CountActiveBall() {
+            int count = 0;
+            foreach (var ball in balls)
+            {
+                if (ball.active) {
+                    count++;
+                }
+            }
+            return count;
+        }
+
         internal void InvokeOnBallCollide(Ball ball, ICollidable collidable)
         {
             collidable.OnCollideWithBall(ball);

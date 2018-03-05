@@ -16,13 +16,16 @@ namespace Caterative.Brick.TheShieldBoss
 		public Sprite angryPupil;
 		public Sprite hurtEye;
 		public Sprite hurtMouth;
+        public Sprite surpriseHappyEye;
+        public Sprite surpriseHappyMouth;
+        public Sprite happyEye;
+        public Sprite happyMouth;
 
 		ShieldEye eye;
 		ShieldPupil pupil;
 		ShieldMouth mouth;
-		
 
-		void Awake() {
+        void Awake() {
 			eye = GetComponentInChildren<ShieldEye>();
 			pupil = GetComponentInChildren<ShieldPupil>();
 			mouth = GetComponentInChildren<ShieldMouth>();
@@ -33,7 +36,7 @@ namespace Caterative.Brick.TheShieldBoss
 			StartCoroutine(HurtFaceCoroutine(bossState));
 		}
 
-        private IEnumerator HurtFaceCoroutine(State bossState)
+        public IEnumerator HurtFaceCoroutine(State bossState)
         {
             eye.SetSprite(hurtEye);
 			pupil.SetSprite(null);
@@ -62,5 +65,27 @@ namespace Caterative.Brick.TheShieldBoss
 			pupil.maxPupilPosition = new Vector2(0.05f,0.008f);
 			mouth.SetSprite(angryMouth);
 		}
+
+        public void SetSurpriseHappyFace()
+        {
+			StopAllCoroutines();
+			StartCoroutine(SurpriseHappyFaceCoroutine());
+        }
+
+        public IEnumerator SurpriseHappyFaceCoroutine()
+        {
+            eye.SetSprite(surpriseHappyEye);
+			pupil.SetSprite(null);
+			mouth.SetSprite(surpriseHappyMouth);
+			yield return new WaitForSeconds(1f);
+			SetHappyFace();
+        }
+
+        public void SetHappyFace()
+        {
+            eye.SetSprite(happyEye);
+			pupil.SetSprite(null);
+			mouth.SetSprite(happyMouth);
+        }
     }
 }

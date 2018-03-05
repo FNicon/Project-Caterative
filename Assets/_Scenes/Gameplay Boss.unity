@@ -142,6 +142,10 @@ MonoBehaviour:
   angryPupil: {fileID: 21300000, guid: 72f6c6d5726b8fc41b3c1b32e2a14f83, type: 3}
   hurtEye: {fileID: 21300000, guid: 447404b61a56833488585be3c8374a2f, type: 3}
   hurtMouth: {fileID: 21300000, guid: 1ab8e2d3c3d3ef14ca6b21e18a8dad89, type: 3}
+  surpriseHappyEye: {fileID: 21300000, guid: 0b74d0e84cd553445b65653e792888f1, type: 3}
+  surpriseHappyMouth: {fileID: 21300000, guid: 3e99da697d097fe4790c8dd41bfec86e, type: 3}
+  happyEye: {fileID: 21300000, guid: 95af0200e347e584f8082046ccc36b01, type: 3}
+  happyMouth: {fileID: 21300000, guid: c88d0dfa309bf4b4d94c6584dd1e71d9, type: 3}
 --- !u!1 &90253932
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,7 +788,7 @@ Prefab:
     - target: {fileID: 114029447365052916, guid: c6f484b110062c347baacfc3f75afa56,
         type: 2}
       propertyPath: health
-      value: 2
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6f484b110062c347baacfc3f75afa56, type: 2}

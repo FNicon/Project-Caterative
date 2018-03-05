@@ -7,6 +7,7 @@ namespace Caterative.Brick.TheShieldBoss
     public enum State
     {
         Annoyed,
-        Angry
+        Angry,
+        Happy
     }
 }
