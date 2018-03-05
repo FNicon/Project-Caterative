@@ -10,7 +10,12 @@ public class CameraMovement : MonoBehaviour
     public float moveFactor = 0.1f;
     public List<GameObject> objectsRelativeToCamera;
     public Vector2[] relativeDistancesOfObjects;
-    public BrickSpawner spawner;
+    public float lowestObjectPositionInCamera = 2f;
+    CameraTargetTracker tracker;
+
+    void Awake() {
+        tracker = GetComponent<CameraTargetTracker>();
+    }
 
     void Start()
     {
@@ -65,13 +70,13 @@ public class CameraMovement : MonoBehaviour
 
     private void UpdateTargetPosition()
     {
-        GameObject target = spawner.bricks[0].gameObject;
+        GameObject target = tracker.GetClosestTarget();
         if (target != null)
         {
             noTarget = false;
-            if (target.transform.position.y - transform.position.y > 2)
+            if (target.transform.position.y - transform.position.y > lowestObjectPositionInCamera)
             {
-                targetPosition = new Vector3(0, target.transform.position.y - 2, -10);
+                targetPosition = new Vector3(0, target.transform.position.y - lowestObjectPositionInCamera, -10);
             }
         }
         else

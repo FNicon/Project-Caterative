@@ -2020,9 +2020,9 @@ MonoBehaviour:
   relativeDistancesOfObjects:
   - {x: 0, y: -5}
   - {x: 0, y: 7}
-  - {x: 0, y: -6.5}
-  - {x: 0, y: 6.5}
-  spawner: {fileID: 1000835986}
+  - {x: 0, y: -6.25}
+  - {x: 0, y: 6.25}
+  lowestObjectPositionInCamera: 2
 --- !u!81 &1252191824
 AudioListener:
   m_ObjectHideFlags: 0
