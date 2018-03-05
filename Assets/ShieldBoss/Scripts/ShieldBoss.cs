@@ -11,16 +11,13 @@ namespace Caterative.Brick.TheShieldBoss
     {
         Shield shield;
         ShieldBossFigure figure;
+        ShieldBossFace face;
         public int health = 60;
-        public enum State
-        {
-            Annoyed,
-            Angry
-        }
         public int subStateLength = 3;
         public int annoyedStateLength = 2;
         public int angryStateLength = 1;
         public State state;
+        public Ball targetBall;
         int redirectShieldCounter = 0;
         int stateCounter;
         private float moveDistancePerSecond = 2;
@@ -29,15 +26,38 @@ namespace Caterative.Brick.TheShieldBoss
         {
             shield = GetComponentInChildren<Shield>();
             figure = GetComponentInChildren<ShieldBossFigure>();
+            face = GetComponentInChildren<ShieldBossFace>();
         }
 
         void Start()
         {
             shield.DirectTowards(225f);
+            face.SetAnnoyedFace();
+        }
+
+        void Update()
+        {
+            if (targetBall != null)
+            {
+                switch (state)
+                {
+                    case State.Angry:
+                        if (targetBall.transform.position.y > transform.position.y)
+                        {
+                            shield.DirectTowards(90, 0.06f);
+                        }
+                        else
+                        {
+                            shield.DirectTowards(270, 0.06f);
+                        }
+                        break;
+                }
+            }
         }
 
         void ICollidable.OnCollideWithBall(Ball ball)
         {
+            targetBall = ball;
             switch (state)
             {
                 case State.Annoyed:
@@ -57,13 +77,15 @@ namespace Caterative.Brick.TheShieldBoss
             }
             health--;
             figure.Hit();
+            face.SetHurtFace(state);
             if (health <= 0)
             {
-                enabled = false;
+                transform.position = new Vector2(-10,100);
             }
             switch (state)
             {
                 case State.Annoyed:
+                    RedirectShieldTowardsBall(ball);
                     AnnoyedMode(ball);
                     break;
                 case State.Angry:
@@ -92,15 +114,6 @@ namespace Caterative.Brick.TheShieldBoss
 
         private void AngryShieldMode(Ball ball)
         {
-            
-            if (ball.transform.position.y > transform.position.y)
-            {
-                shield.DirectTowards(90, 0.06f);
-            }
-            else
-            {
-                shield.DirectTowards(270, 0.06f);
-            }
             shield.setBoostDeflect(true);
             StopAllCoroutines();
             if (ball.transform.position.x > transform.position.x)
