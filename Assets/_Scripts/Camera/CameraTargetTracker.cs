@@ -3,19 +3,15 @@ using System.Collections.Generic;
 using Caterative.Brick.TheShieldBoss;
 using UnityEngine;
 
-public class CameraTargetTracker : MonoBehaviour
-{
+public class CameraTargetTracker : MonoBehaviour {
     List<GameObject> targets;
 
-    void Awake()
-    {
+    void Awake() {
         targets = new List<GameObject>();
     }
 
-    void OnEnable()
-    {
-        foreach (var brick in Resources.FindObjectsOfTypeAll<Brick>())
-        {
+    void OnEnable() {
+        foreach (var brick in Resources.FindObjectsOfTypeAll<Brick>()) {
             targets.Add(brick.gameObject);
         }
         ShieldBoss shieldBoss = FindObjectOfType<ShieldBoss>();
@@ -23,19 +19,15 @@ public class CameraTargetTracker : MonoBehaviour
             targets.Add(shieldBoss.gameObject);
         }
         CameraEnd end = FindObjectOfType<CameraEnd>();
-        if (end != null)
-        {
+        if (end != null) {
             targets.Add(end.gameObject);
         }
     }
 
-    public GameObject GetClosestTarget()
-    {
+    public GameObject GetClosestTarget() {
         GameObject closestTarget = targets[0];
-        for (int i = 1; i < targets.Count; i++)
-        {
-            if (targets[i].transform.position.y < closestTarget.transform.position.y)
-            {
+        for (int i = 1; i < targets.Count; i++) {
+            if (targets[i].transform.position.y < closestTarget.transform.position.y) {
                 closestTarget = targets[i];
             }
         }

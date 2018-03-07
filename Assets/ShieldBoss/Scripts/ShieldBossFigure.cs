@@ -2,19 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Caterative.Brick.TheShieldBoss
-{
-    public class ShieldBossFigure : MonoBehaviour
-    {
+namespace Caterative.Brick.TheShieldBoss {
+    public class ShieldBossFigure : MonoBehaviour {
         Animator animator;
 
-        void Awake()
-        {
+        void Awake() {
             animator = GetComponent<Animator>();
         }
 
-        public void Hit()
-        {
+        public void Hit() {
             animator.SetBool("isFigureHit", true);
         }
     }

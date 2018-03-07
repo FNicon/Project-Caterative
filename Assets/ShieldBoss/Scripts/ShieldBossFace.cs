@@ -3,10 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Caterative.Brick.TheShieldBoss
-{
-    public class ShieldBossFace : MonoBehaviour
-    {
+namespace Caterative.Brick.TheShieldBoss {
+	public class ShieldBossFace : MonoBehaviour {
 		public Sprite annoyedEye;
 		public Sprite annoyedPupil;
 		public Sprite annoyedMouth;
@@ -16,16 +14,16 @@ namespace Caterative.Brick.TheShieldBoss
 		public Sprite angryPupil;
 		public Sprite hurtEye;
 		public Sprite hurtMouth;
-        public Sprite surpriseHappyEye;
-        public Sprite surpriseHappyMouth;
-        public Sprite happyEye;
-        public Sprite happyMouth;
+		public Sprite surpriseHappyEye;
+		public Sprite surpriseHappyMouth;
+		public Sprite happyEye;
+		public Sprite happyMouth;
 
 		ShieldEye eye;
 		ShieldPupil pupil;
 		ShieldMouth mouth;
 
-        void Awake() {
+		void Awake() {
 			eye = GetComponentInChildren<ShieldEye>();
 			pupil = GetComponentInChildren<ShieldPupil>();
 			mouth = GetComponentInChildren<ShieldMouth>();
@@ -36,9 +34,8 @@ namespace Caterative.Brick.TheShieldBoss
 			StartCoroutine(HurtFaceCoroutine(bossState));
 		}
 
-        public IEnumerator HurtFaceCoroutine(State bossState)
-        {
-            eye.SetSprite(hurtEye);
+		public IEnumerator HurtFaceCoroutine(State bossState) {
+			eye.SetSprite(hurtEye);
 			pupil.SetSprite(null);
 			mouth.SetSprite(hurtMouth);
 			yield return new WaitForSeconds(0.4f);
@@ -50,7 +47,7 @@ namespace Caterative.Brick.TheShieldBoss
 					SetAnnoyedFace();
 					break;
 			}
-        }
+		}
 
 		public void SetAnnoyedFace() {
 			eye.SetSprite(annoyedEye);
@@ -66,26 +63,23 @@ namespace Caterative.Brick.TheShieldBoss
 			mouth.SetSprite(angryMouth);
 		}
 
-        public void SetSurpriseHappyFace()
-        {
+		public void SetSurpriseHappyFace() {
 			StopAllCoroutines();
 			StartCoroutine(SurpriseHappyFaceCoroutine());
-        }
+		}
 
-        public IEnumerator SurpriseHappyFaceCoroutine()
-        {
-            eye.SetSprite(surpriseHappyEye);
+		public IEnumerator SurpriseHappyFaceCoroutine() {
+			eye.SetSprite(surpriseHappyEye);
 			pupil.SetSprite(null);
 			mouth.SetSprite(surpriseHappyMouth);
 			yield return new WaitForSeconds(1f);
 			SetHappyFace();
-        }
+		}
 
-        public void SetHappyFace()
-        {
-            eye.SetSprite(happyEye);
+		public void SetHappyFace() {
+			eye.SetSprite(happyEye);
 			pupil.SetSprite(null);
 			mouth.SetSprite(happyMouth);
-        }
-    }
+		}
+	}
 }

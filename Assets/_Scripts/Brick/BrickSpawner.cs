@@ -7,9 +7,9 @@ public class BrickSpawner : MonoBehaviour {
 	public GameObject spawnArea;
 	public int spawnIndex;
 
-    void Awake() {
-        bricks = (Brick[]) Resources.FindObjectsOfTypeAll<Brick>();
-    }
+	void Awake() {
+		bricks = (Brick[]) Resources.FindObjectsOfTypeAll<Brick>();
+	}
 	
 	public void Spawn() {
 		Brick currentBrick = bricks[spawnIndex];

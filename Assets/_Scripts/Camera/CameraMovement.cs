@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraMovement : MonoBehaviour
-{
+public class CameraMovement : MonoBehaviour {
     private bool noTarget;
     private Vector3 targetPosition;
     public float maxDistancePerSecond = 8;
@@ -17,70 +16,54 @@ public class CameraMovement : MonoBehaviour
         tracker = GetComponent<CameraTargetTracker>();
     }
 
-    void Start()
-    {
+    void Start() {
         targetPosition = transform.position;
         UpdateTargetPosition();
     }
 
-    void Update()
-    {
-        if (!noTarget)
-        {
+    void Update() {
+        if (!noTarget) {
             MoveCamera(GetDistanceToTargetPerSecond());
             MoveObjectsRelativeToCamera();
         }
         UpdateTargetPosition();
     }
-	
-    private float GetDistanceToTargetPerSecond()
-    {
+
+    private float GetDistanceToTargetPerSecond() {
         float partialDistanceToTarget = Vector2.Distance(transform.position, targetPosition) * moveFactor;
         float distancePerSecond;
-        if (partialDistanceToTarget > maxDistancePerSecond)
-        {
+        if (partialDistanceToTarget > maxDistancePerSecond) {
             distancePerSecond = maxDistancePerSecond;
-        }
-        else
-        {
+        } else {
             distancePerSecond = partialDistanceToTarget;
         }
         return (distancePerSecond);
     }
-    private void MoveCamera(float distancePerSecond)
-    {
+    private void MoveCamera(float distancePerSecond) {
         Vector3 newPosition = Vector3.MoveTowards(
-            transform.position, targetPosition,
-            distancePerSecond * Time.deltaTime
+        transform.position, targetPosition,
+        distancePerSecond * Time.deltaTime
         );
         transform.position = newPosition;
     }
 
-    private void MoveObjectsRelativeToCamera()
-    {
-        for (int i = 0; i < objectsRelativeToCamera.Count; i++)
-        {
+    private void MoveObjectsRelativeToCamera() {
+        for (int i = 0; i < objectsRelativeToCamera.Count; i++) {
             Transform relativeObject = objectsRelativeToCamera[i].transform;
             relativeObject.position = new Vector2(
-                relativeObject.position.x,
-                transform.position.y + relativeDistancesOfObjects[i].y)
-            ;
+            relativeObject.position.x,
+            transform.position.y + relativeDistancesOfObjects[i].y);
         }
     }
 
-    private void UpdateTargetPosition()
-    {
+    private void UpdateTargetPosition() {
         GameObject target = tracker.GetClosestTarget();
-        if (target != null)
-        {
+        if (target != null) {
             noTarget = false;
-            if (target.transform.position.y - transform.position.y > lowestObjectPositionInCamera)
-            {
+            if (target.transform.position.y - transform.position.y > lowestObjectPositionInCamera) {
                 targetPosition = new Vector3(0, target.transform.position.y - lowestObjectPositionInCamera, -10);
             }
-        }
-        else
-        {
+        } else {
             noTarget = true;
             targetPosition = new Vector3(0, 0, -10);
         }
