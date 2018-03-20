@@ -49,5 +49,10 @@ namespace Caterative.Brick.Balls
         {
             collidable.OnCollideWithBall(ball);
         }
+
+		internal void InvokeOnBallTrigger(Ball ball, ICollidable collidable)
+		{
+			collidable.OnCollideWithBall(ball);
+		}
     }
 }
