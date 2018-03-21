@@ -7,19 +7,23 @@ public class WaveManager : MonoBehaviour {
 	private int currentWave = 0;
 	
 	void Start () {
-		brickSpawner.spawnIndex = currentWave;
-		brickSpawner.Spawn();
+		if (brickSpawner != null) {
+			brickSpawner.spawnIndex = currentWave;
+			brickSpawner.Spawn();
+		}
 		GameManager.Instance.ReadyTheBall();
 	}
 	
 	void Update () {
-		if (brickSpawner.CountBricksLeft() <= 0) {
-			currentWave = currentWave + 1;
-			if (currentWave > brickSpawner.bricks.Length - 1) {
-				currentWave = 0;
+		if (brickSpawner != null) {
+			if (brickSpawner.CountBricksLeft() <= 0) {
+				currentWave = currentWave + 1;
+				if (currentWave > brickSpawner.bricks.Length - 1) {
+					currentWave = 0;
+				}
+				brickSpawner.spawnIndex = currentWave;
+				brickSpawner.Spawn();
 			}
-			brickSpawner.spawnIndex = currentWave;
-			brickSpawner.Spawn();
 		}
 	}
 
