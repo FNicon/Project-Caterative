@@ -18,7 +18,7 @@ public class PlayerControllerAndroid : MonoBehaviour {
 	void Update () {
 		
 	}
-
+	/*
 	Vector2 ReadInput() {
 		Vector3 v3;
 		RaycastHit hit;
@@ -48,5 +48,5 @@ public class PlayerControllerAndroid : MonoBehaviour {
 			isDragging = false;
 			return (new Vector2 (0,0));
 		}
-	}
+	} */
 }

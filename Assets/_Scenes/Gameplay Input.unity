@@ -236,6 +236,9 @@ MonoBehaviour:
   playerController: {fileID: 90253936}
   playerAim: {fileID: 90253934}
   playerLife: {fileID: 90253933}
+  camera: {fileID: 1252191822}
+  playerMaxY: -1
+  playerMinY: -5
 --- !u!50 &90253939
 Rigidbody2D:
   serializedVersion: 4
@@ -2336,7 +2339,6 @@ MonoBehaviour:
   maxDistancePerSecond: 1
   moveFactor: 0.5
   objectsRelativeToCamera:
-  - {fileID: 90253932}
   - {fileID: 1000835985}
   - {fileID: 2003608785}
   - {fileID: 1388450556}

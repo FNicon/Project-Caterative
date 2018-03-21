@@ -62,16 +62,9 @@ public class CameraMovement : MonoBehaviour
         for (int i = 0; i < objectsRelativeToCamera.Count; i++)
         {
             Transform relativeObject = objectsRelativeToCamera[i].transform;
-			if (relativeObject.tag != "Player") {
 				relativeObject.position = new Vector2 (
 					relativeObject.position.x,
 					transform.position.y + relativeDistancesOfObjects [i].y);
-			} else {
-				relativeObject.position = new Vector2 (
-					relativeObject.position.x,
-					Mathf.Clamp(relativeObject.position.y + distancePerSecond * Time.deltaTime, -5f + transform.position.y, -1f + transform.position.y));
-			}
-            
         }
     }
 
