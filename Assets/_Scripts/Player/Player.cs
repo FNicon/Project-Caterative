@@ -26,7 +26,7 @@ public class Player : MonoBehaviour {
 	        }
 		#elif UNITY_ANDROID
 		if (playerLife.IsAlive()) {
-			MoveHorizontal(playerControllerAndroid.InputHorizontal());
+			Move(playerControllerAndroid.ReadInput());
 		}
 		#endif
     }
