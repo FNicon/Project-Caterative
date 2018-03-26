@@ -177,9 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77f3550859fc20f49a0a466ad9aafb10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textLife: {fileID: 1700693723}
   maxLife: 2
-  gameOverPanel: {fileID: 1387188270}
 --- !u!114 &90253934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -560,6 +558,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd774df9efc707d4f9540e389421954e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverPanel: {fileID: 1387188270}
+  textLife: {fileID: 1700693723}
 --- !u!4 &196379766
 Transform:
   m_ObjectHideFlags: 0
@@ -3364,8 +3364,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 90253933}
-        m_MethodName: Revive
+      - m_Target: {fileID: 196379765}
+        m_MethodName: RevivePlayer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
