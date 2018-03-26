@@ -35,7 +35,7 @@ namespace Caterative.Brick.TheShieldBoss
             BallDestroyer.Instance.OnBallDestroy += UpdateStateOnBallDestroy;
         }
 
-        void OnDisable()
+        void OnApplicationQuit()
         {
             BallDestroyer.Instance.OnBallDestroy -= UpdateStateOnBallDestroy;
         }

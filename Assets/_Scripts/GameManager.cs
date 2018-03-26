@@ -24,16 +24,23 @@ public class GameManager : Singleton<GameManager>
         BallDestroyer.Instance.OnBallDestroy += OnBallDestroy;
     }
 
-    void OnDisable()
+    void OnApplicationQuit()
     {
         BallDestroyer.Instance.OnBallDestroy -= OnBallDestroy;
     }
 
-    void Update() {
-        if (ball.active) {
-            pupil.SetTarget(ball.transform);
-        } else {
-            pupil.SetTarget(aim.transform);
+    void Update()
+    {
+        if (pupil != null)
+        {
+            if (ball.active)
+            {
+                pupil.SetTarget(ball.transform);
+            }
+            else
+            {
+                pupil.SetTarget(aim.transform);
+            }
         }
     }
 
