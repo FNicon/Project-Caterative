@@ -7,7 +7,7 @@ using Caterative.Brick.Balls;
 
 namespace Caterative.Brick.TheShieldBoss
 {
-    public class ShieldBoss : MonoBehaviour, ICollidable
+    public class ShieldBoss : MonoBehaviour
     {
         Shield shield;
         ShieldBossFigure figure;
@@ -58,7 +58,9 @@ namespace Caterative.Brick.TheShieldBoss
                             if (targetBall.transform.position.x > transform.position.x)
                             {
                                 shield.DirectTowards(87, 0.06f);
-                            } else {
+                            }
+                            else
+                            {
                                 shield.DirectTowards(93, 0.06f);
                             }
                         }
@@ -67,7 +69,9 @@ namespace Caterative.Brick.TheShieldBoss
                             if (targetBall.transform.position.x > transform.position.x)
                             {
                                 shield.DirectTowards(273, 0.06f);
-                            } else {
+                            }
+                            else
+                            {
                                 shield.DirectTowards(267, 0.06f);
                             }
                         }
@@ -79,19 +83,22 @@ namespace Caterative.Brick.TheShieldBoss
             }
         }
 
-        void ICollidable.OnCollideWithBall(Ball ball)
+        void OnCollisionEnter2D(Collision2D collision)
         {
-            targetBall = ball;
-            UpdateBossStateOnBallCollide();
-            health--;
-            figure.Hit();
-            face.SetHurtFace(state);
-            if (health <= 0)
+            if (collision.collider.CompareTag("Ball"))
             {
-                Deactivate();
+                targetBall = collision.collider.GetComponent<Ball>();
+                UpdateBossStateOnBallCollide();
+                health--;
+                figure.Hit();
+                face.SetHurtFace(state);
+                if (health <= 0)
+                {
+                    Deactivate();
+                }
+                ResolveCurrentStateOnBallCollide(targetBall);
+                stateCounter++;
             }
-            ResolveCurrentStateOnBallCollide(ball);
-            stateCounter++;
         }
 
         private void Deactivate()

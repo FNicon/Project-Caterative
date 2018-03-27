@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Caterative.Brick.TheShieldBoss
 {
-    public class Shield : MonoBehaviour, ICollidable
+    public class Shield : MonoBehaviour
     {
         ShieldObject shieldObject;
         Animator shieldObjectAnimator;
@@ -21,9 +21,12 @@ namespace Caterative.Brick.TheShieldBoss
             collider = GetComponent<Collider2D>();
         }
 
-        void ICollidable.OnCollideWithBall(Ball ball)
+        void OnCollisionEnter2D(Collision2D collision)
         {
-            shieldObjectAnimator.SetBool("isHit", true);
+            if (collision.collider.CompareTag("Ball"))
+            {
+                shieldObjectAnimator.SetBool("isHit", true);
+            }
         }
 
         public void DirectTowards(float angle)
@@ -61,7 +64,8 @@ namespace Caterative.Brick.TheShieldBoss
             DirectTowards(angle);
         }
 
-        public void setBoostDeflect(bool cond) {
+        public void setBoostDeflect(bool cond)
+        {
             boostDeflect = cond;
         }
     }
