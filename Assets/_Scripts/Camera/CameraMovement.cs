@@ -6,6 +6,7 @@ public class CameraMovement : MonoBehaviour
 {
     private bool noTarget;
     private Vector3 targetPosition;
+	private float distancePerSecond;
     public float maxDistancePerSecond = 8;
     public float moveFactor = 0.1f;
     public List<GameObject> objectsRelativeToCamera;
@@ -36,7 +37,7 @@ public class CameraMovement : MonoBehaviour
     private float GetDistanceToTargetPerSecond()
     {
         float partialDistanceToTarget = Vector2.Distance(transform.position, targetPosition) * moveFactor;
-        float distancePerSecond;
+        
         if (partialDistanceToTarget > maxDistancePerSecond)
         {
             distancePerSecond = maxDistancePerSecond;
@@ -61,10 +62,9 @@ public class CameraMovement : MonoBehaviour
         for (int i = 0; i < objectsRelativeToCamera.Count; i++)
         {
             Transform relativeObject = objectsRelativeToCamera[i].transform;
-            relativeObject.position = new Vector2(
-                relativeObject.position.x,
-                transform.position.y + relativeDistancesOfObjects[i].y)
-            ;
+				relativeObject.position = new Vector2 (
+					relativeObject.position.x,
+					transform.position.y + relativeDistancesOfObjects [i].y);
         }
     }
 

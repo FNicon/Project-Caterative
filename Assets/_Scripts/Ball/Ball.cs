@@ -10,14 +10,14 @@ namespace Caterative.Brick.Balls
         public float minSpeed;
         public int speedIterator;
         private Rigidbody2D ballBody;
-		private TrailRenderer trail;
-		public bool active {get; protected set;}
+        private TrailRenderer trail;
+        public bool active { get; protected set; }
 
         void Awake()
         {
             ballBody = GetComponent<Rigidbody2D>();
-			trail = GetComponentInChildren<TrailRenderer>();
-			active = false;
+            trail = GetComponentInChildren<TrailRenderer>();
+            active = false;
         }
 
         void FixedUpdate()
@@ -44,23 +44,27 @@ namespace Caterative.Brick.Balls
 
         public void LaunchTowardsAngle(float initialSpeed, float direction)
         {
-			active = true;
-			trail.enabled = true;
+            active = true;
+            trail.enabled = true;
             Vector2 directionVector = VectorRotation.RotateVector(Vector2.right, direction);
             Vector2 launchVelocity = (directionVector * initialSpeed);
             ballBody.velocity = launchVelocity;
         }
 
-		public void Deactivate() {
-			active = false;
-			trail.enabled = false;
-		}
+        public void Deactivate()
+        {
+            active = false;
+            trail.enabled = false;
+        }
 
-        void OnCollisionEnter2D(Collision2D collision) {
-            ICollidable collidable = collision.gameObject.GetComponent<ICollidable>();
-            if (collidable != null) {
-                BallManager.Instance.InvokeOnBallCollide(this,collidable);
-            }
+        void OnCollisionEnter2D(Collision2D collision)
+        {
+            BallManager.Instance.InvokeOnBallCollide(this);
+        }
+
+        void OnTriggerEnter2D(Collider2D collider)
+        {
+            BallManager.Instance.InvokeOnBallTrigger(this);
         }
     }
 }

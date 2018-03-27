@@ -7,7 +7,7 @@ using Caterative.Brick.Balls;
 
 namespace Caterative.Brick.TheShieldBoss
 {
-    public class ShieldMinionC : MonoBehaviour, ICollidable
+    public class ShieldMinionC : MonoBehaviour
     {
         Shield shield;
         ShieldBossFigure figure;
@@ -25,13 +25,16 @@ namespace Caterative.Brick.TheShieldBoss
             shield.transform.Rotate(0, 0, happyRotationPerSecond * Time.deltaTime);
         }
 
-        void ICollidable.OnCollideWithBall(Ball ball)
+        void OnCollisionEnter2D(Collision2D collision)
         {
-            health--;
-            figure.Hit();
-            if (health <= 0)
+            if (collision.collider.CompareTag("Ball"))
             {
-                Deactivate();
+                health--;
+                figure.Hit();
+                if (health <= 0)
+                {
+                    Deactivate();
+                }
             }
         }
 
