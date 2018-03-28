@@ -14,8 +14,7 @@ namespace Caterative.Brick.TheShieldBoss
         new Collider2D collider;
         public bool boostDeflect;
 
-        void Awake()
-        {
+        void Awake() {
             shieldObject = GetComponentInChildren<ShieldObject>();
             shieldObjectAnimator = shieldObject.GetComponent<Animator>();
             collider = GetComponent<Collider2D>();
@@ -29,27 +28,20 @@ namespace Caterative.Brick.TheShieldBoss
             }
         }
 
-        public void DirectTowards(float angle)
-        {
+        public void DirectTowards(float angle) {
             StopAllCoroutines();
             StartCoroutine(RotateCoroutine(angle));
         }
 
-        private IEnumerator RotateCoroutine(float targetAngle)
-        {
+        private IEnumerator RotateCoroutine(float targetAngle) {
             float currentAngle, clampedAngle, angleToRotate;
-            do
-            {
+            do {
                 currentAngle = transform.rotation.eulerAngles.z > 0 ? transform.rotation.eulerAngles.z % 360 : transform.rotation.eulerAngles.z + 360;
-                if (Mathf.Abs(currentAngle - targetAngle) > 0.01f)
-                {
+                if (Mathf.Abs(currentAngle - targetAngle) > 0.01f) {
                     clampedAngle = targetAngle % 360;
-                    if (Mathf.Abs(transform.rotation.eulerAngles.z - clampedAngle) < 180)
-                    {
+                    if (Mathf.Abs(transform.rotation.eulerAngles.z - clampedAngle) < 180) {
                         angleToRotate = (clampedAngle - transform.rotation.eulerAngles.z) * rotateFactor;
-                    }
-                    else
-                    {
+                    } else {
                         angleToRotate = (clampedAngle - (transform.rotation.eulerAngles.z - 360)) * rotateFactor;
                     }
                     transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + angleToRotate);
@@ -58,8 +50,7 @@ namespace Caterative.Brick.TheShieldBoss
             } while (Mathf.Abs(currentAngle - targetAngle) > 0.1f);
         }
 
-        internal void DirectTowards(float angle, float rotateFactor)
-        {
+        internal void DirectTowards(float angle, float rotateFactor) {
             this.rotateFactor = rotateFactor;
             DirectTowards(angle);
         }
