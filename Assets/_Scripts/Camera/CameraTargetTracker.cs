@@ -32,14 +32,20 @@ public class CameraTargetTracker : MonoBehaviour
 
     public GameObject GetClosestTarget()
     {
-        GameObject closestTarget = targets[0];
-        for (int i = 1; i < targets.Count; i++)
+        if (targets.Count > 0)
         {
-            if (targets[i].transform.position.y < closestTarget.transform.position.y)
+            GameObject closestTarget = targets[0];
+            for (int i = 1; i < targets.Count; i++)
             {
-                closestTarget = targets[i];
+                if (targets[i].transform.position.y < closestTarget.transform.position.y)
+                {
+                    closestTarget = targets[i];
+                }
             }
+            return closestTarget;
+        } else
+        {
+            return null;
         }
-        return closestTarget;
     }
 }
