@@ -4,18 +4,6 @@ using UnityEngine;
 
 public class DummyTrap : MonoBehaviour
 {
-
-	// Use this for initialization
-	void Start ()
-	{
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-		
-	}
 	private void OnCollisionEnter2D(Collision2D other)
 	{
 		if (other.collider.CompareTag("Player"))

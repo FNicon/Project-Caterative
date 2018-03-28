@@ -11,9 +11,9 @@ public class CameraTargetTracker : MonoBehaviour {
     }
 
     void OnEnable() {
-        foreach (var brick in Resources.FindObjectsOfTypeAll<Brick>()) {
+        /*foreach (var brick in Resources.FindObjectsOfTypeAll<Brick>()) {
             targets.Add(brick.gameObject);
-        }
+        }*/
         ShieldBoss shieldBoss = FindObjectOfType<ShieldBoss>();
         if (shieldBoss !=null) {
             targets.Add(shieldBoss.gameObject);

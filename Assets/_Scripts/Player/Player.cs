@@ -10,14 +10,14 @@ public class Player : MonoBehaviour {
 	//public PlayerControllerAndroid playerControllerAndroid;
 	public PlayerAim playerAim;
 	public PlayerLife playerLife;
-	public GameObject camera;
+	public GameObject currentCamera;
 	public float playerMaxY;
 	public float playerMinY;
 
 	// Use this for initialization
 	void Awake() {
 		playerBody = gameObject.GetComponent<Rigidbody2D>();
-		cameraTransform = camera.GetComponent<Transform> ();
+		cameraTransform = currentCamera.GetComponent<Transform> ();
 	}
 	
 	// Update is called once per frame
@@ -45,10 +45,10 @@ public class Player : MonoBehaviour {
 	void ConstraintPlayerMovement() {
 		float MaxY = playerMaxY + cameraTransform.position.y;
 		float MinY = playerMinY + cameraTransform.position.y;
-		Debug.Log ("Player pos = " + transform.position.y);
+		/*Debug.Log ("Player pos = " + transform.position.y);
 		Debug.Log ("Max Y = " + MaxY);
 		Debug.Log ("Min Y = " + MinY);
-		Debug.Log ("Camera pos " + cameraTransform.position.y);
+		Debug.Log ("Camera pos " + cameraTransform.position.y);*/
 		transform.position = new Vector2 (transform.position.x, Mathf.Clamp (transform.position.y, MinY, MaxY));
 	}
 }

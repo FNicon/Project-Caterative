@@ -8,14 +8,16 @@ public class BrickSpawner : MonoBehaviour {
 	public int spawnIndex;
 
 	void Awake() {
-		bricks = (Brick[]) Resources.FindObjectsOfTypeAll<Brick>();
+		//bricks = (Brick[]) Resources.FindObjectsOfTypeAll<Brick>();
 	}
 	
 	public void Spawn() {
-		Brick currentBrick = bricks[spawnIndex];
-		currentBrick.transform.SetParent(spawnArea.transform);
-		currentBrick.transform.position = this.transform.position;
-		currentBrick.ReviveBrick();
+		if (bricks.Length > 0) {
+			Brick currentBrick = bricks[spawnIndex];
+			currentBrick.transform.SetParent(spawnArea.transform);
+			currentBrick.transform.position = this.transform.position;
+			currentBrick.ReviveBrick();
+		}
 	}
 
 	public int CountBricksLeft() {
