@@ -13,18 +13,23 @@ namespace Caterative.Brick.Balls
         public event BallEvent OnBallTrigger;
         List<Ball> balls;
 
-        void Awake() {
+        void Awake()
+        {
             balls = new List<Ball>((Ball[])Resources.FindObjectsOfTypeAll(typeof(Ball)));
-            foreach (var ball in balls) {
-            ball.Deactivate();
+            foreach (var ball in balls)
+            {
+                ball.Deactivate();
             }
         }
 
-        public Ball GetAvailableBall() {
+        public Ball GetAvailableBall()
+        {
             Ball availableBall = null;
             int i = 0;
-            while (availableBall == null && i < balls.Count) {
-                if (balls[i].active == false) {
+            while (availableBall == null && i < balls.Count)
+            {
+                if (balls[i].active == false)
+                {
                     availableBall = balls[i];
                 }
                 i++;

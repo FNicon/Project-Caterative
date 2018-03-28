@@ -2,17 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BrickSpawner : MonoBehaviour {
+public class BrickSpawner : MonoBehaviour
+{
 	public Brick[] bricks;
 	public GameObject spawnArea;
 	public int spawnIndex;
 
-	void Awake() {
+	void Awake()
+	{
 		//bricks = (Brick[]) Resources.FindObjectsOfTypeAll<Brick>();
 	}
 	
-	public void Spawn() {
-		if (bricks.Length > 0) {
+	public void Spawn()
+	{
+		if (bricks.Length > 0)
+		{
 			Brick currentBrick = bricks[spawnIndex];
 			currentBrick.transform.SetParent(spawnArea.transform);
 			currentBrick.transform.position = this.transform.position;
@@ -20,7 +24,8 @@ public class BrickSpawner : MonoBehaviour {
 		}
 	}
 
-	public int CountBricksLeft() {
+	public int CountBricksLeft()
+	{
 		return (spawnArea.transform.childCount);
 	}
 }

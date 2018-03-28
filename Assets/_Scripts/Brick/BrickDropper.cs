@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BrickDropper : MonoBehaviour {
+public class BrickDropper : MonoBehaviour
+{
 	public GameObject[] thingsToDrop;
 	public void DropAll()
 	{

@@ -20,17 +20,22 @@ namespace Caterative.Brick.Balls
             active = false;
         }
 
-		void FixedUpdate() {
-			if ((Mathf.Abs(ballBody.velocity.x) > maxSpeed) || (Mathf.Abs(ballBody.velocity.y) > maxSpeed)) {
+		void FixedUpdate()
+        {
+			if ((Mathf.Abs(ballBody.velocity.x) > maxSpeed) || (Mathf.Abs(ballBody.velocity.y) > maxSpeed))
+            {
 				ballBody.velocity = maxSpeed * (ballBody.velocity.normalized);
 				speedIterator = 0;
-			} else if ((ballBody.velocity.x < minSpeed) || (ballBody.velocity.y < minSpeed)) {
+			} else if ((ballBody.velocity.x < minSpeed) || (ballBody.velocity.y < minSpeed))
+            {
 				ballBody.velocity = (minSpeed + speedIterator) * (ballBody.velocity.normalized);
 				speedIterator = speedIterator + 1;
-			} else {
+			} else
+            {
 				ballBody.velocity = new Vector2(ballBody.velocity.x, ballBody.velocity.y);
 			}
-			if (speedIterator > 10) {
+			if (speedIterator > 10)
+            {
 				speedIterator = 0;
 			}
 		}

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using Caterative.Brick.Balls;
 using UnityEngine;
 
-public class PlayerAim : MonoBehaviour {
+public class PlayerAim : MonoBehaviour
+{
     private Ball ballToLaunch;
     private LineRenderer targetLine;
     private float launchDirection;
@@ -11,21 +12,26 @@ public class PlayerAim : MonoBehaviour {
     private Vector2 startLaunchLocation;
     private Vector2 targetLaunchLocation;
 
-    void Awake() {
+    void Awake()
+    {
         targetLine = GetComponentInChildren<LineRenderer>();
         targetLine.positionCount = 2;
     }
 
-    void Update() {
-        if (ballToLaunch != null) {
+    void Update()
+    {
+        if (ballToLaunch != null)
+        {
             targetLine.positionCount = 2;
             UpdateLaunchDirection();
-        } else {
+        } else
+        {
             targetLine.positionCount = 0;
         }
     }
 
-    public void UpdateLaunchDirection() {
+    public void UpdateLaunchDirection()
+    {
         launchDirection = 90 + ((transform.position.x / 2) * -45);
         startLaunchLocation = new Vector2(
             transform.position.x * 1.25f,
@@ -34,23 +40,28 @@ public class PlayerAim : MonoBehaviour {
         Vector2 launchVector = VectorRotation.RotateVector(Vector2.right, launchDirection);
         int layerMask = LayerMask.GetMask("Bricks", "Balls");
         RaycastHit2D hit = Physics2D.Raycast(transform.position, launchVector, 20, layerMask);
-        if (hit.collider != null) {
+        if (hit.collider != null)
+        {
             targetLaunchLocation = hit.point;
-        } else {
+        } else
+        {
             targetLaunchLocation = startLaunchLocation + (launchVector * 20);
         }
         targetLine.SetPosition(1, targetLaunchLocation);
     }
 
-    public void Shoot() {
-    if (ballToLaunch != null) {
+    public void Shoot()
+    {
+    if (ballToLaunch != null)
+    {
         ballToLaunch.transform.position = startLaunchLocation;
         ballToLaunch.LaunchTowardsAngle(launchSpeed, launchDirection);
         ballToLaunch = null;
         }
     }
 
-    public void ReloadBall(Ball ball) {
+    public void ReloadBall(Ball ball)
+    {
         ballToLaunch = ball;
     }
 }

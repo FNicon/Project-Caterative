@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Caterative.Brick.TheShieldBoss {
-	public class ShieldBossFace : MonoBehaviour {
+namespace Caterative.Brick.TheShieldBoss
+{
+	public class ShieldBossFace : MonoBehaviour
+	{
 		public Sprite annoyedEye;
 		public Sprite annoyedPupil;
 		public Sprite annoyedMouth;
@@ -23,23 +25,27 @@ namespace Caterative.Brick.TheShieldBoss {
 		ShieldPupil pupil;
 		ShieldMouth mouth;
 
-		void Awake() {
+		void Awake()
+		{
 			eye = GetComponentInChildren<ShieldEye>();
 			pupil = GetComponentInChildren<ShieldPupil>();
 			mouth = GetComponentInChildren<ShieldMouth>();
 		}
 
-		public void SetHurtFace(State bossState) {
+		public void SetHurtFace(State bossState)
+		{
 			StopAllCoroutines();
 			StartCoroutine(HurtFaceCoroutine(bossState));
 		}
 
-		public IEnumerator HurtFaceCoroutine(State bossState) {
+		public IEnumerator HurtFaceCoroutine(State bossState)
+		{
 			eye.SetSprite(hurtEye);
 			pupil.SetSprite(null);
 			mouth.SetSprite(hurtMouth);
 			yield return new WaitForSeconds(0.4f);
-			switch(bossState) {
+			switch(bossState)
+			{
 				case State.Angry:
 					SetAngryFace();
 					break;
@@ -49,26 +55,30 @@ namespace Caterative.Brick.TheShieldBoss {
 			}
 		}
 
-		public void SetAnnoyedFace() {
+		public void SetAnnoyedFace()
+		{
 			eye.SetSprite(annoyedEye);
 			pupil.SetSprite(annoyedPupil);
 			pupil.maxPupilPosition = new Vector2(0.075f,0.01f);
 			mouth.SetSprite(annoyedMouth);
 		}
 
-		public void SetAngryFace() {
+		public void SetAngryFace()
+		{
 			eye.SetSprite(angryEye);
 			pupil.SetSprite(angryPupil);
 			pupil.maxPupilPosition = new Vector2(0.05f,0.008f);
 			mouth.SetSprite(angryMouth);
 		}
 
-		public void SetSurpriseHappyFace() {
+		public void SetSurpriseHappyFace()
+		{
 			StopAllCoroutines();
 			StartCoroutine(SurpriseHappyFaceCoroutine());
 		}
 
-		public IEnumerator SurpriseHappyFaceCoroutine() {
+		public IEnumerator SurpriseHappyFaceCoroutine()
+		{
 			eye.SetSprite(surpriseHappyEye);
 			pupil.SetSprite(null);
 			mouth.SetSprite(surpriseHappyMouth);
@@ -76,7 +86,8 @@ namespace Caterative.Brick.TheShieldBoss {
 			SetHappyFace();
 		}
 
-		public void SetHappyFace() {
+		public void SetHappyFace()
+		{
 			eye.SetSprite(happyEye);
 			pupil.SetSprite(null);
 			mouth.SetSprite(happyMouth);

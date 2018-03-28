@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyLife : MonoBehaviour {
+public class EnemyLife : MonoBehaviour
+{
 	public int maxLife;
 	private int currentLife;
 	public Transform enemiesPool;

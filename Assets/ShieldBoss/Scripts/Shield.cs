@@ -14,7 +14,8 @@ namespace Caterative.Brick.TheShieldBoss
         new Collider2D collider;
         public bool boostDeflect;
 
-        void Awake() {
+        void Awake()
+        {
             shieldObject = GetComponentInChildren<ShieldObject>();
             shieldObjectAnimator = shieldObject.GetComponent<Animator>();
             collider = GetComponent<Collider2D>();
@@ -28,12 +29,14 @@ namespace Caterative.Brick.TheShieldBoss
             }
         }
 
-        public void DirectTowards(float angle) {
+        public void DirectTowards(float angle)
+        {
             StopAllCoroutines();
             StartCoroutine(RotateCoroutine(angle));
         }
 
-        private IEnumerator RotateCoroutine(float targetAngle) {
+        private IEnumerator RotateCoroutine(float targetAngle)
+        {
             float currentAngle, clampedAngle, angleToRotate;
             do {
                 currentAngle = transform.rotation.eulerAngles.z > 0 ? transform.rotation.eulerAngles.z % 360 : transform.rotation.eulerAngles.z + 360;
@@ -50,7 +53,8 @@ namespace Caterative.Brick.TheShieldBoss
             } while (Mathf.Abs(currentAngle - targetAngle) > 0.1f);
         }
 
-        internal void DirectTowards(float angle, float rotateFactor) {
+        internal void DirectTowards(float angle, float rotateFactor)
+        {
             this.rotateFactor = rotateFactor;
             DirectTowards(angle);
         }
