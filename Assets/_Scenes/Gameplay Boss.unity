@@ -203,6 +203,9 @@ MonoBehaviour:
   playerController: {fileID: 90253936}
   playerAim: {fileID: 90253934}
   playerLife: {fileID: 90253933}
+  currentCamera: {fileID: 1252191822}
+  playerMaxY: 0
+  playerMinY: 0
 --- !u!50 &90253939
 Rigidbody2D:
   serializedVersion: 4
@@ -372,7 +375,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &220021622
 GameObject:
@@ -431,7 +434,7 @@ Transform:
   - {fileID: 1187962303}
   - {fileID: 220021623}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &303868330
 GameObject:
@@ -932,7 +935,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &569923366
 GameObject:
@@ -1541,7 +1544,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b1cb4f341521b44d876085fb02a1257, type: 3}
   m_Name: 
-  m_EditorClassIdentifier:
+  m_EditorClassIdentifier: 
 --- !u!1 &953088070
 GameObject:
   m_ObjectHideFlags: 0
@@ -1641,6 +1644,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brickLife: 1
   bricksPool: {fileID: 220021623}
+  dropper: {fileID: 0}
 --- !u!61 &984950265
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1693,8 +1697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b3218c7889b01a4793e4cc445c3fa2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bricks:
-  - {fileID: 0}
+  bricks: []
   spawnArea: {fileID: 1616608378}
   spawnIndex: 0
 --- !u!4 &1000835987
@@ -1708,7 +1711,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1004992493
 GameObject:
@@ -2324,6 +2327,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -2592,7 +2596,7 @@ Transform:
   - {fileID: 876496542}
   - {fileID: 2030908490}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1379968670
 GameObject:
@@ -3086,7 +3090,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1666651191
 GameObject:
@@ -3118,7 +3122,7 @@ Transform:
   - {fileID: 2003608786}
   - {fileID: 462869084}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1700693722
 GameObject:
@@ -3777,8 +3781,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 38217067}
-  m_RootOrder: 2
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2032802758
 SpriteRenderer:
@@ -3923,7 +3927,7 @@ RectTransform:
   - {fileID: 1190014521}
   - {fileID: 1387188271}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
