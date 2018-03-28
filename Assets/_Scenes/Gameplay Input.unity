@@ -157,6 +157,7 @@ GameObject:
   - component: {fileID: 90253939}
   - component: {fileID: 90253937}
   - component: {fileID: 90253936}
+  - component: {fileID: 90253938}
   - component: {fileID: 90253934}
   - component: {fileID: 90253933}
   m_Layer: 8
@@ -207,6 +208,7 @@ Transform:
   - {fileID: 861549750}
   - {fileID: 1408595856}
   - {fileID: 1888506545}
+  - {fileID: 1249293773}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -234,11 +236,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 5
   playerController: {fileID: 90253936}
+  playerControllerAndroid: {fileID: 90253938}
   playerAim: {fileID: 90253934}
   playerLife: {fileID: 90253933}
-  camera: {fileID: 1252191822}
   playerMaxY: -1
   playerMinY: -5
+--- !u!114 &90253938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 90253932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cd5630a2cb7b9b4c87302b9bc204c2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 1252191826}
 --- !u!50 &90253939
 Rigidbody2D:
   serializedVersion: 4
@@ -2305,6 +2319,47 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &1249293772
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1249293773}
+  - component: {fileID: 1249293774}
+  m_Layer: 8
+  m_Name: Player Control Trigger
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1249293773
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1249293772}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -0.13, y: 0.15, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 90253935}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+--- !u!65 &1249293774
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1249293772}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6892583, y: 1.4541624, z: 1}
+  m_Center: {x: 0.059758082, y: 0.13146812, z: 0}
 --- !u!1 &1252191822
 GameObject:
   m_ObjectHideFlags: 0
@@ -2331,7 +2386,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1252191822}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10f1eff7682ecb147a092fdb6fb867e9, type: 3}
   m_Name: 
@@ -2392,7 +2447,6 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -2416,7 +2470,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1252191822}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f3cbab3c1fb7d340aed705e40dbaad6, type: 3}
   m_Name: 
@@ -3013,7 +3067,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd3cfc5867de9ae43861a9d197986b02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
 --- !u!1 &1456865226
 GameObject:
   m_ObjectHideFlags: 0
