@@ -44,12 +44,18 @@ namespace Caterative.Brick.Balls {
 			active = false;
 			trail.enabled = false;
 		}
+        void OnCollisionEnter2D(Collision2D collision) {
+            ICollidable collidable = collision.gameObject.GetComponent<ICollidable>();
+            if (collidable != null) {
+                BallManager.Instance.InvokeOnBallCollide(this,collidable);
+            }
+        }
 
-		void OnCollisionEnter2D(Collision2D collision) {
-			ICollidable collidable = collision.gameObject.GetComponent<ICollidable>();
+		void OnTriggerEnter2D(Collider2D collider) {
+			ICollidable collidable = collider.gameObject.GetComponent<ICollidable> ();
 			if (collidable != null) {
-				BallManager.Instance.InvokeOnBallCollide(this,collidable);
+				BallManager.Instance.InvokeOnBallTrigger(this,collidable);
 			}
 		}
-	}
+    }
 }

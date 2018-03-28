@@ -13,8 +13,10 @@ public class PlayerController : MonoBehaviour {
 	void FixedUpdate () {
 		
 	}
-	public float InputHorizontal() {
-		return (Input.GetAxis ("Horizontal"));
+	public Vector2 ReadInput() {
+		Vector2 movement;
+		movement = new Vector2 (Input.GetAxis("Horizontal") , Input.GetAxis("Vertical"));
+		return movement;
 	}
 
 	public bool IsInputFire() {
