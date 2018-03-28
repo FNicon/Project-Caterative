@@ -4,8 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace Caterative.Brick.Balls {
-    public class BallManager : Singleton<BallManager> {
+namespace Caterative.Brick.Balls
+{
+    public class BallManager : Singleton<BallManager>
+    {
+        public delegate void BallEvent(Ball whichBall);
+        public event BallEvent OnBallCollide;
+        public event BallEvent OnBallTrigger;
         List<Ball> balls;
 
         void Awake() {
@@ -27,23 +32,33 @@ namespace Caterative.Brick.Balls {
             return availableBall;
         }
 
-        public int CountActiveBall() {
+        public int CountActiveBall()
+        {
             int count = 0;
-            foreach (var ball in balls) {
-                if (ball.active) {
+            foreach (var ball in balls)
+            {
+                if (ball.active)
+                {
                     count++;
                 }
             }
             return count;
         }
 
-        internal void InvokeOnBallCollide(Ball ball, ICollidable collidable) {
-            collidable.OnCollideWithBall(ball);
+        internal void InvokeOnBallCollide(Ball ball)
+        {
+            if (OnBallCollide != null)
+            {
+                OnBallCollide(ball);
+            }
         }
 
-		internal void InvokeOnBallTrigger(Ball ball, ICollidable collidable)
-		{
-			collidable.OnCollideWithBall(ball);
-		}
+        internal void InvokeOnBallTrigger(Ball ball)
+        {
+            if (OnBallTrigger != null)
+            {
+                OnBallTrigger(ball);
+            }
+        }
     }
 }

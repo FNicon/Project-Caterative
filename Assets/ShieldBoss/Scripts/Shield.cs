@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using Caterative.Brick.Balls;
 using UnityEngine;
 
-namespace Caterative.Brick.TheShieldBoss {
-    public class Shield : MonoBehaviour, ICollidable {
+namespace Caterative.Brick.TheShieldBoss
+{
+    public class Shield : MonoBehaviour
+    {
         ShieldObject shieldObject;
         Animator shieldObjectAnimator;
         public float rotateFactor = 0.1f;
@@ -18,8 +20,12 @@ namespace Caterative.Brick.TheShieldBoss {
             collider = GetComponent<Collider2D>();
         }
 
-        void ICollidable.OnCollideWithBall(Ball ball) {
-            shieldObjectAnimator.SetBool("isHit", true);
+        void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.collider.CompareTag("Ball"))
+            {
+                shieldObjectAnimator.SetBool("isHit", true);
+            }
         }
 
         public void DirectTowards(float angle) {
@@ -49,7 +55,8 @@ namespace Caterative.Brick.TheShieldBoss {
             DirectTowards(angle);
         }
 
-        public void setBoostDeflect(bool cond) {
+        public void setBoostDeflect(bool cond)
+        {
             boostDeflect = cond;
         }
     }

@@ -5,8 +5,10 @@ using System;
 
 using Caterative.Brick.Balls;
 
-namespace Caterative.Brick.TheShieldBoss {
-    public class ShieldBoss : MonoBehaviour, ICollidable {
+namespace Caterative.Brick.TheShieldBoss
+{
+    public class ShieldBoss : MonoBehaviour
+    {
         Shield shield;
         ShieldBossFigure figure;
         ShieldBossFace face;
@@ -47,13 +49,17 @@ namespace Caterative.Brick.TheShieldBoss {
                         if (targetBall.transform.position.y > transform.position.y) {
                             if (targetBall.transform.position.x > transform.position.x) {
                                 shield.DirectTowards(87, 0.06f);
-                            } else {
+                            }
+                            else
+                            {
                                 shield.DirectTowards(93, 0.06f);
                             }
                         } else {
                             if (targetBall.transform.position.x > transform.position.x) {
                                 shield.DirectTowards(273, 0.06f);
-                            } else {
+                            }
+                            else
+                            {
                                 shield.DirectTowards(267, 0.06f);
                             }
                         }
@@ -65,17 +71,22 @@ namespace Caterative.Brick.TheShieldBoss {
             }
         }
 
-        void ICollidable.OnCollideWithBall(Ball ball) {
-            targetBall = ball;
-            UpdateBossStateOnBallCollide();
-            health--;
-            figure.Hit();
-            face.SetHurtFace(state);
-            if (health <= 0) {
-                Deactivate();
+        void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.collider.CompareTag("Ball"))
+            {
+                targetBall = collision.collider.GetComponent<Ball>();
+                UpdateBossStateOnBallCollide();
+                health--;
+                figure.Hit();
+                face.SetHurtFace(state);
+                if (health <= 0)
+                {
+                    Deactivate();
+                }
+                ResolveCurrentStateOnBallCollide(targetBall);
+                stateCounter++;
             }
-            ResolveCurrentStateOnBallCollide(ball);
-            stateCounter++;
         }
 
         private void Deactivate() {
