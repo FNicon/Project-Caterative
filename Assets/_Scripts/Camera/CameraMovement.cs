@@ -13,6 +13,8 @@ public class CameraMovement : MonoBehaviour
     public Vector2[] relativeDistancesOfObjects;
     public float lowestObjectPositionInCamera = 2f;
     CameraTargetTracker tracker;
+    public Path cameraPath;
+    private int currentPathSegment = 0;
 
     void Awake()
     {
@@ -63,20 +65,24 @@ public class CameraMovement : MonoBehaviour
         {
             Transform relativeObject = objectsRelativeToCamera[i].transform;
             relativeObject.position = new Vector2 (
-            relativeObject.position.x,
+            transform.position.x,
             transform.position.y + relativeDistancesOfObjects[i].y);
         }
     }
 
     private void UpdateTargetPosition()
     {
+        if (transform.position.y >= cameraPath.GetNodePosition(currentPathSegment).y)
+        {
+            currentPathSegment = currentPathSegment + 1;
+        }
         GameObject target = tracker.GetClosestTarget();
         if (target != null)
         {
             noTarget = false;
             if (target.transform.position.y - transform.position.y > lowestObjectPositionInCamera)
             {
-                targetPosition = new Vector3(0, target.transform.position.y - lowestObjectPositionInCamera, -10);
+                targetPosition = new Vector3(cameraPath.GetNodePosition(currentPathSegment).x, target.transform.position.y - lowestObjectPositionInCamera, -10);
             }
         } else
         {

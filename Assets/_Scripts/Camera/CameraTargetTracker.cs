@@ -14,6 +14,7 @@ public class CameraTargetTracker : MonoBehaviour
 
     void OnEnable()
     {
+        //Player harusnya tetap bisa bergerak meskipun ada brick. Brick ini kan kayak chest gitu. Ada yang ngasih trap, kosong maupun kucing.
         /*foreach (var brick in Resources.FindObjectsOfTypeAll<Brick>())
         {
             targets.Add(brick.gameObject);
