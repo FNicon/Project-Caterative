@@ -2,20 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerControllerAndroid : MonoBehaviour {
-
-
+public class PlayerControllerAndroid : MonoBehaviour
+{
 	private bool isDragging;
 	private float distance;
 	private Vector3 offset;
 	private Transform player;
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 			
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
 		
 	}
 	/*

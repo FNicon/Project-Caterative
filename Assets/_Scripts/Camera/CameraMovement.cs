@@ -14,7 +14,8 @@ public class CameraMovement : MonoBehaviour
     public float lowestObjectPositionInCamera = 2f;
     CameraTargetTracker tracker;
 
-    void Awake() {
+    void Awake()
+    {
         tracker = GetComponent<CameraTargetTracker>();
     }
 
@@ -33,16 +34,15 @@ public class CameraMovement : MonoBehaviour
         }
         UpdateTargetPosition();
     }
-	
+
     private float GetDistanceToTargetPerSecond()
     {
         float partialDistanceToTarget = Vector2.Distance(transform.position, targetPosition) * moveFactor;
-        
+        float distancePerSecond;        
         if (partialDistanceToTarget > maxDistancePerSecond)
         {
             distancePerSecond = maxDistancePerSecond;
-        }
-        else
+        } else
         {
             distancePerSecond = partialDistanceToTarget;
         }
@@ -51,8 +51,8 @@ public class CameraMovement : MonoBehaviour
     private void MoveCamera(float distancePerSecond)
     {
         Vector3 newPosition = Vector3.MoveTowards(
-            transform.position, targetPosition,
-            distancePerSecond * Time.deltaTime
+        transform.position, targetPosition,
+        distancePerSecond * Time.deltaTime
         );
         transform.position = newPosition;
     }
@@ -62,9 +62,9 @@ public class CameraMovement : MonoBehaviour
         for (int i = 0; i < objectsRelativeToCamera.Count; i++)
         {
             Transform relativeObject = objectsRelativeToCamera[i].transform;
-				relativeObject.position = new Vector2 (
-					relativeObject.position.x,
-					transform.position.y + relativeDistancesOfObjects [i].y);
+            relativeObject.position = new Vector2 (
+            relativeObject.position.x,
+            transform.position.y + relativeDistancesOfObjects[i].y);
         }
     }
 
@@ -78,8 +78,7 @@ public class CameraMovement : MonoBehaviour
             {
                 targetPosition = new Vector3(0, target.transform.position.y - lowestObjectPositionInCamera, -10);
             }
-        }
-        else
+        } else
         {
             noTarget = true;
             targetPosition = new Vector3(0, 0, -10);
