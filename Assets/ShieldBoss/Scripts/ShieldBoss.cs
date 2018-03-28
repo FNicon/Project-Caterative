@@ -5,10 +5,8 @@ using System;
 
 using Caterative.Brick.Balls;
 
-namespace Caterative.Brick.TheShieldBoss
-{
-    public class ShieldBoss : MonoBehaviour, ICollidable
-    {
+namespace Caterative.Brick.TheShieldBoss {
+    public class ShieldBoss : MonoBehaviour, ICollidable {
         Shield shield;
         ShieldBossFigure figure;
         ShieldBossFace face;
@@ -23,49 +21,37 @@ namespace Caterative.Brick.TheShieldBoss
         public float moveDistancePerSecond = 2;
         public float happyRotationPerSecond = 25;
 
-        void Awake()
-        {
+        void Awake() {
             shield = GetComponentInChildren<Shield>();
             figure = GetComponentInChildren<ShieldBossFigure>();
             face = GetComponentInChildren<ShieldBossFace>();
         }
 
-        void OnEnable()
-        {
-            BallDestroyer.Instance.OnBallDestroy += UpdateStateOnBallDestroy;
+        void OnEnable() {
+            BallDestroyer.OnBallDestroy += UpdateStateOnBallDestroy;
         }
 
-        void OnDisable()
-        {
-            BallDestroyer.Instance.OnBallDestroy -= UpdateStateOnBallDestroy;
+        void OnDisable() {
+            BallDestroyer.OnBallDestroy -= UpdateStateOnBallDestroy;
         }
 
-        void Start()
-        {
+        void Start() {
             shield.DirectTowards(225f);
             face.SetAnnoyedFace();
         }
 
-        void Update()
-        {
-            if (targetBall != null)
-            {
-                switch (state)
-                {
+        void Update() {
+            if (targetBall != null) {
+                switch (state) {
                     case State.Angry:
-                        if (targetBall.transform.position.y > transform.position.y)
-                        {
-                            if (targetBall.transform.position.x > transform.position.x)
-                            {
+                        if (targetBall.transform.position.y > transform.position.y) {
+                            if (targetBall.transform.position.x > transform.position.x) {
                                 shield.DirectTowards(87, 0.06f);
                             } else {
                                 shield.DirectTowards(93, 0.06f);
                             }
-                        }
-                        else
-                        {
-                            if (targetBall.transform.position.x > transform.position.x)
-                            {
+                        } else {
+                            if (targetBall.transform.position.x > transform.position.x) {
                                 shield.DirectTowards(273, 0.06f);
                             } else {
                                 shield.DirectTowards(267, 0.06f);
@@ -79,52 +65,43 @@ namespace Caterative.Brick.TheShieldBoss
             }
         }
 
-        void ICollidable.OnCollideWithBall(Ball ball)
-        {
+        void ICollidable.OnCollideWithBall(Ball ball) {
             targetBall = ball;
             UpdateBossStateOnBallCollide();
             health--;
             figure.Hit();
             face.SetHurtFace(state);
-            if (health <= 0)
-            {
+            if (health <= 0) {
                 Deactivate();
             }
             ResolveCurrentStateOnBallCollide(ball);
             stateCounter++;
         }
 
-        private void Deactivate()
-        {
+        private void Deactivate() {
             transform.position = new Vector2(-10, 100);
         }
 
-        private void UpdateStateOnBallDestroy(Ball whichBall)
-        {
-            if (BallManager.Instance.CountActiveBall() == 0)
-            {
+        private void UpdateStateOnBallDestroy(Ball whichBall) {
+            if (BallManager.Instance.CountActiveBall() == 0) {
                 state = State.Happy;
                 face.SetSurpriseHappyFace();
             }
         }
 
-        private void UpdateBossStateOnBallCollide()
-        {
-            switch (state)
-            {
+        private void UpdateBossStateOnBallCollide() {
+            switch (state) {
                 case State.Happy:
                     state = State.Annoyed;
                     break;
                 case State.Annoyed:
-                    if (stateCounter >= annoyedStateLength * subStateLength)
-                    {
+                    if (stateCounter >= annoyedStateLength * subStateLength) {
                         stateCounter = 0;
                         state = State.Angry;
                     }
                     break;
                 case State.Angry:
-                    if (stateCounter >= angryStateLength * subStateLength)
-                    {
+                    if (stateCounter >= angryStateLength * subStateLength) {
                         stateCounter = 0;
                         state = State.Annoyed;
                     }
@@ -132,10 +109,8 @@ namespace Caterative.Brick.TheShieldBoss
             }
         }
 
-        private void ResolveCurrentStateOnBallCollide(Ball ball)
-        {
-            switch (state)
-            {
+        private void ResolveCurrentStateOnBallCollide(Ball ball) {
+            switch (state) {
                 case State.Annoyed:
                     RedirectShieldTowardsBall(ball);
                     AnnoyedMode(ball);
@@ -147,69 +122,49 @@ namespace Caterative.Brick.TheShieldBoss
         }
 
 
-        private void AnnoyedMode(Ball ball)
-        {
+        private void AnnoyedMode(Ball ball) {
             shield.setBoostDeflect(false);
-            if (transform.position.x != 0)
-            {
+            if (transform.position.x != 0) {
                 StopAllCoroutines();
                 StartCoroutine(MoveTowards(new Vector2(0, transform.position.y)));
             }
             redirectShieldCounter = stateCounter % subStateLength;
-            if (redirectShieldCounter == subStateLength - 1)
-            {
+            if (redirectShieldCounter == subStateLength - 1) {
                 redirectShieldCounter = 0;
                 RedirectShieldTowardsBall(ball);
             }
-
         }
 
-        private void AngryShieldMode(Ball ball)
-        {
+        private void AngryShieldMode(Ball ball) {
             shield.setBoostDeflect(true);
             StopAllCoroutines();
-            if (ball.transform.position.x > transform.position.x)
-            {
+            if (ball.transform.position.x > transform.position.x) {
                 StartCoroutine(MoveTowards(new Vector2(-1, transform.position.y)));
-            }
-            else
-            {
+            } else {
                 StartCoroutine(MoveTowards(new Vector2(1, transform.position.y)));
             }
         }
 
-        private IEnumerator MoveTowards(Vector2 targetPos)
-        {
-            while (transform.position.x != targetPos.x)
-            {
+        private IEnumerator MoveTowards(Vector2 targetPos) {
+            while (transform.position.x != targetPos.x) {
                 transform.localPosition = Vector2.MoveTowards(transform.position, targetPos, moveDistancePerSecond * Time.deltaTime);
                 yield return new WaitForEndOfFrame();
             }
         }
 
-        private void RedirectShieldTowardsBall(Ball incomingBall)
-        {
+        private void RedirectShieldTowardsBall(Ball incomingBall) {
             Vector2 ballRelativePos = incomingBall.transform.position - transform.position;
             float angleToRotate;
-            if (ballRelativePos.x > 0)
-            {
-                if (ballRelativePos.y > 0)
-                {
+            if (ballRelativePos.x > 0) {
+                if (ballRelativePos.y > 0) {
                     angleToRotate = 45f;
-                }
-                else
-                {
+                } else {
                     angleToRotate = 315f;
                 }
-            }
-            else
-            {
-                if (ballRelativePos.y > 0)
-                {
+            } else {
+                if (ballRelativePos.y > 0) {
                     angleToRotate = 135f;
-                }
-                else
-                {
+                } else {
                     angleToRotate = 225f;
                 }
             }

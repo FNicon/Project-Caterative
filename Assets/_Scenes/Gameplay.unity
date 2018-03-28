@@ -281,9 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7c467fa2f508ec46a02310336df92a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetLine: {fileID: 467068980}
   launchSpeed: 5
-  ballsPool: {fileID: 507102096}
 --- !u!114 &48066913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -420,9 +418,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e4c4cbb661bf9a449ca14c08ed3d1b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballPools: {fileID: 507102097}
-  aim: {fileID: 48066912}
-  life: {fileID: 48066913}
 --- !u!1 &415048045
 GameObject:
   m_ObjectHideFlags: 0
@@ -1179,6 +1174,58 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1001 &677812767
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4652693454123006, guid: c6f484b110062c347baacfc3f75afa56, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4652693454123006, guid: c6f484b110062c347baacfc3f75afa56, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4652693454123006, guid: c6f484b110062c347baacfc3f75afa56, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4652693454123006, guid: c6f484b110062c347baacfc3f75afa56, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4652693454123006, guid: c6f484b110062c347baacfc3f75afa56, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4652693454123006, guid: c6f484b110062c347baacfc3f75afa56, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4652693454123006, guid: c6f484b110062c347baacfc3f75afa56, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4652693454123006, guid: c6f484b110062c347baacfc3f75afa56, type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114029447365052916, guid: c6f484b110062c347baacfc3f75afa56,
+        type: 2}
+      propertyPath: targetBall
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114117708168140580, guid: c6f484b110062c347baacfc3f75afa56,
+        type: 2}
+      propertyPath: pupilTarget
+      value: 
+      objectReference: {fileID: 1952582699}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: c6f484b110062c347baacfc3f75afa56, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &678865384
 GameObject:
   m_ObjectHideFlags: 0
@@ -1644,7 +1691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bricks:
-  - {fileID: 1645475955}
+  - {fileID: 0}
   spawnArea: {fileID: 1296234753}
   spawnIndex: 0
 --- !u!1 &1266090017
@@ -2207,6 +2254,7 @@ GameObject:
   - component: {fileID: 1828358768}
   - component: {fileID: 1828358767}
   - component: {fileID: 1828358771}
+  - component: {fileID: 1828358772}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2288,7 +2336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10f1eff7682ecb147a092fdb6fb867e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistancePerFrame: 8
+  maxDistancePerSecond: 8
   moveFactor: 0.1
   objectsRelativeToCamera:
   - {fileID: 48066906}
@@ -2298,7 +2346,18 @@ MonoBehaviour:
   - {x: 0, y: -5}
   - {x: 0, y: 0}
   - {x: 0, y: 8}
-  spawner: {fileID: 1245496639}
+  lowestObjectPositionInCamera: 2
+--- !u!114 &1828358772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1828358766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f3cbab3c1fb7d340aed705e40dbaad6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1828880876
 GameObject:
   m_ObjectHideFlags: 0
