@@ -1,44 +1,72 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using Caterative.Brick.TheShieldBoss;
 using UnityEngine;
 
 public class CameraTargetTracker : MonoBehaviour
 {
     List<GameObject> targets;
+    public Path cameraPath;
+    public int currentTargetIndex = 0;
+    new private Transform camera;
+    GameObject closestTarget;
 
     void Awake()
     {
+        camera = Camera.main.transform;
         targets = new List<GameObject>();
+        if (cameraPath == null)
+        {
+            Debug.LogError("[CameraTargetTracker] Camera Path object is null! IF IN DOUBT, put, in the scene, the example prefab found in the _Prefabs and assign it to CameraTargetTracker script!");
+        }
     }
 
     void OnEnable()
     {
-        foreach (var brick in Resources.FindObjectsOfTypeAll<Brick>())
+        for (int i = 0; i < cameraPath.pathNodes.Length; i++)
         {
-            targets.Add(brick.gameObject);
-        }
-        ShieldBoss shieldBoss = FindObjectOfType<ShieldBoss>();
-        if (shieldBoss !=null) {
-            targets.Add(shieldBoss.gameObject);
-        }
-        CameraEnd end = FindObjectOfType<CameraEnd>();
-        if (end != null)
-        {
-            targets.Add(end.gameObject);
+            targets.Add(cameraPath.pathNodes[i].gameObject);
         }
     }
 
     public GameObject GetClosestTarget()
     {
-        GameObject closestTarget = targets[0];
-        for (int i = 1; i < targets.Count; i++)
+        if (targets.Count > 0)
         {
-            if (targets[i].transform.position.y < closestTarget.transform.position.y)
+            closestTarget = null;
+            for (int i = 0; i < targets.Count; i++)
             {
-                closestTarget = targets[i];
+
+                if (ResolveTarget(closestTarget, i))
+                {
+                    closestTarget = targets[i];
+                }
             }
+            return closestTarget;
         }
-        return closestTarget;
+        else
+        {
+            return null;
+        }
+    }
+
+    private bool ResolveTarget(GameObject closestTarget, int i)
+    {
+        if (closestTarget == null && targets[i].activeSelf == true) {
+            return true;
+        } else {
+            return targets[i].activeSelf == true
+                    && Vector2.Distance(targets[i].transform.position, camera.position)
+                       < Vector2.Distance(closestTarget.transform.position, camera.position);   
+        }
+    }
+
+    public GameObject GetCurrentTargetByIndex()
+    {
+        if (currentTargetIndex >= targets.Count)
+        {
+            Debug.LogWarning("[CameraTargetTracker] Target Index exceeds the number of target - 1, used Modulo value instead");
+        }
+        return targets[currentTargetIndex % targets.Count];
     }
 }

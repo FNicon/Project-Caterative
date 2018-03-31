@@ -8,10 +8,12 @@ public class Brick : MonoBehaviour
     private int currentBrickLife = 1;
     public Transform bricksPool;
     public BrickDestroyEffect destroyEffect;
+    public BrickDropper dropper;
 
     void Awake()
     {
         destroyEffect = GetComponent<BrickDestroyEffect>();
+        dropper = GetComponent<BrickDropper>();
     }
 
     void OnCollisionEnter2D(Collision2D other)
@@ -27,12 +29,13 @@ public class Brick : MonoBehaviour
         if (currentBrickLife <= 0)
         {
             destroyEffect.Play(transform.position);
-            RelocateBrick();
+            RelocateBrickToPool();
         }
     }
 
-    void RelocateBrick()
+    void RelocateBrickToPool()
     {
+        dropper.DropAll();
         this.transform.SetParent(bricksPool);
         this.transform.position = bricksPool.transform.position;
     }

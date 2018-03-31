@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 
-public class VectorRotation {
-	public static Vector2 RotateVector(Vector2 vector,float angle) {
+public class VectorRotation
+{
+	public static Vector2 RotateVector(Vector2 vector,float angle)
+	{
 		Vector2 rotatedVector = vector;
 		float _x = rotatedVector.x;
 		float _y = rotatedVector.y;

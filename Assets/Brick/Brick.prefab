@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 61041954636240434}
   - component: {fileID: 114159238391941658}
   - component: {fileID: 114340802571306988}
+  - component: {fileID: 114230111223813974}
   m_Layer: 10
   m_Name: Brick
   m_TagString: Untagged
@@ -111,6 +112,19 @@ MonoBehaviour:
   brickLife: 1
   bricksPool: {fileID: 0}
   destroyEffect: {fileID: 0}
+  dropper: {fileID: 0}
+--- !u!114 &114230111223813974
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1214805341394516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4102e68d28c2b6b45a79e201878a1b96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thingsToDrop: []
 --- !u!114 &114340802571306988
 MonoBehaviour:
   m_ObjectHideFlags: 1
