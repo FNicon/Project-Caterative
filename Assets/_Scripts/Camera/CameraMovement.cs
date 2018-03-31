@@ -98,6 +98,6 @@ public class CameraMovement : MonoBehaviour
 
     private void UpdateToIndexTargetPosition()
     {
-        targetPosition = tracker.GetCurrentTargetByIndex();
+        targetPosition = tracker.GetCurrentTargetByIndex().transform.position;
     }
 }

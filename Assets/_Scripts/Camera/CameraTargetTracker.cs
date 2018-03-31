@@ -23,26 +23,9 @@ public class CameraTargetTracker : MonoBehaviour
 
     void OnEnable()
     {
-        //Player harusnya tetap bisa bergerak meskipun ada brick. Brick ini kan kayak chest gitu. Ada yang ngasih trap, kosong maupun kucing.
-        /*foreach (var brick in Resources.FindObjectsOfTypeAll<Brick>())
-        {
-            targets.Add(brick.gameObject);
-        }*/
-        /*
-        ShieldBoss shieldBoss = FindObjectOfType<ShieldBoss>();
-        if (shieldBoss !=null)
-        {
-            targets.Add(shieldBoss.gameObject);
-        }
-        */
-        for (int i = 0; i < cameraPath.pathNodes.Length - 1; i++)
+        for (int i = 0; i < cameraPath.pathNodes.Length; i++)
         {
             targets.Add(cameraPath.pathNodes[i].gameObject);
-        }
-        CameraEnd end = FindObjectOfType<CameraEnd>();
-        if (end != null)
-        {
-            targets.Add(end.gameObject);
         }
     }
 
@@ -78,12 +61,12 @@ public class CameraTargetTracker : MonoBehaviour
         }
     }
 
-    public Vector3 GetCurrentTargetByIndex()
+    public GameObject GetCurrentTargetByIndex()
     {
         if (currentTargetIndex >= targets.Count)
         {
             Debug.LogWarning("[CameraTargetTracker] Target Index exceeds the number of target - 1, used Modulo value instead");
         }
-        return targets[currentTargetIndex % targets.Count].transform.position;
+        return targets[currentTargetIndex % targets.Count];
     }
 }
