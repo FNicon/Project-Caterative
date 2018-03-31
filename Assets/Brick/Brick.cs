@@ -12,6 +12,11 @@ public class Brick : MonoBehaviour
 
     void Awake()
     {
+        bricksPool = transform.parent;
+        if (bricksPool == null)
+        {
+            Debug.LogError("[Brick] Brick is not set as a child of a pool!");
+        }
         destroyEffect = GetComponent<BrickDestroyEffect>();
         dropper = GetComponent<BrickDropper>();
     }
