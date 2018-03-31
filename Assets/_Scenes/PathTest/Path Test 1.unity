@@ -1563,6 +1563,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 4362919973722974, guid: 68219d6469d8d6f4db460e5254d91e97, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 27.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 4362919973722974, guid: 68219d6469d8d6f4db460e5254d91e97, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 3.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 4571310136234006, guid: 68219d6469d8d6f4db460e5254d91e97, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 47.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 4571310136234006, guid: 68219d6469d8d6f4db460e5254d91e97, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.56
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68219d6469d8d6f4db460e5254d91e97, type: 2}
   m_IsPrefabParent: 0
@@ -1881,6 +1897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f3cbab3c1fb7d340aed705e40dbaad6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraPath: {fileID: 0}
 --- !u!114 &1093365499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1901,7 +1918,6 @@ MonoBehaviour:
   - {x: 0, y: 6.25}
   - {x: 0, y: -6.25}
   lowestObjectPositionInCamera: 2
-  cameraPath: {fileID: 901024422}
 --- !u!81 &1093365500
 AudioListener:
   m_ObjectHideFlags: 0

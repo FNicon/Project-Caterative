@@ -13,16 +13,12 @@ public class CameraMovement : MonoBehaviour
     public Vector2[] relativeDistancesOfObjects;
     public float lowestObjectPositionInCamera = 2f;
     CameraTargetTracker tracker;
-    public Path cameraPath;
-    private int currentPathSegment = 0;
 
     void Awake()
     {
         tracker = GetComponent<CameraTargetTracker>();
-        if (cameraPath == null)
-        {
-            Debug.LogError("[CameraMovement] Camera Path object is null! IF IN DOUBT,  use the example prefab found in the _Scenes/PathTest and assign it to CameraMovement script!");
-        }
+        Debug.LogWarning("[CameraMovement] If the camera is not moving, try deactivating Node GameObject from the smallest :)");
+        Debug.Log("[CameraMovement] This script no longer holds the any Path. CameraTargetTracker holds it instead.");
     }
 
     void Start()
@@ -55,11 +51,12 @@ public class CameraMovement : MonoBehaviour
         }
         return (distancePerSecond);
     }
+
     private void MoveCamera(float distancePerSecond)
     {
         Vector3 newPosition = Vector3.MoveTowards(
-        transform.position, targetPosition,
-        distancePerSecond * Time.deltaTime
+            transform.position, targetPosition,
+            distancePerSecond * Time.deltaTime
         );
         transform.position = newPosition;
     }
@@ -70,24 +67,24 @@ public class CameraMovement : MonoBehaviour
         {
             Transform relativeObject = objectsRelativeToCamera[i].transform;
             relativeObject.position = new Vector2(
-            transform.position.x,
-            transform.position.y + relativeDistancesOfObjects[i].y);
+                transform.position.x,
+                transform.position.y + relativeDistancesOfObjects[i].y
+            );
         }
     }
 
     private void UpdateTargetPosition()
     {
-        if (transform.position.y >= cameraPath.GetNodePosition(currentPathSegment).y)
-        {
-            currentPathSegment = currentPathSegment + 1;
-        }
         GameObject target = tracker.GetClosestTarget();
         if (target != null)
         {
             noTarget = false;
             if (target.transform.position.y - transform.position.y > lowestObjectPositionInCamera)
             {
-                targetPosition = new Vector3(cameraPath.GetNodePosition(currentPathSegment).x, target.transform.position.y - lowestObjectPositionInCamera, -10);
+                targetPosition = new Vector3(
+                    target.transform.position.x,
+                    target.transform.position.y,
+                    -10);
             }
         }
         else

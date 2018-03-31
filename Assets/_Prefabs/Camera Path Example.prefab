@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4985551759838878}
   - component: {fileID: 114110678827678622}
+  - component: {fileID: 114221069747735390}
   m_Layer: 0
   m_Name: Camera Path Example
   m_TagString: Untagged
@@ -80,7 +81,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1702889465133190}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.5, y: 28, z: 0}
+  m_LocalPosition: {x: 3.39, y: 27.94, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4985551759838878}
@@ -93,7 +94,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1953638772198352}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.5, y: 28, z: 0}
+  m_LocalPosition: {x: -0.56, y: 47.74, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4985551759838878}
@@ -140,10 +141,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pathNodes:
-  - {fileID: 4985551759838878}
   - {fileID: 4899963192697466}
   - {fileID: 4362919973722974}
   - {fileID: 4571310136234006}
+--- !u!114 &114221069747735390
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1169653980936818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 032109e957f940b4aa90ad312aac3f6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: {fileID: 114110678827678622}
 --- !u!114 &114392026955503460
 MonoBehaviour:
   m_ObjectHideFlags: 1

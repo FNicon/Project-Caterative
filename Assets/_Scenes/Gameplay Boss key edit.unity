@@ -749,6 +749,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7008f8815d8a6534eb098da36e38e74e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &358921538
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1953638772198352, guid: 68219d6469d8d6f4db460e5254d91e97,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 358921539}
+  - component: {fileID: 358921540}
+  m_Layer: 0
+  m_Name: Node 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &358921539
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4571310136234006, guid: 68219d6469d8d6f4db460e5254d91e97,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 358921538}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.45, y: 6.36, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1778001754}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &358921540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114392026955503460, guid: 68219d6469d8d6f4db460e5254d91e97,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 358921538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56db913d177655142859ee1c13299369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &393803046
 GameObject:
   m_ObjectHideFlags: 0
@@ -948,7 +991,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4652693454123006, guid: c6f484b110062c347baacfc3f75afa56, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 4
+      value: 27.470001
       objectReference: {fileID: 0}
     - target: {fileID: 4652693454123006, guid: c6f484b110062c347baacfc3f75afa56, type: 2}
       propertyPath: m_LocalPosition.z
@@ -983,6 +1026,10 @@ Prefab:
         type: 2}
       propertyPath: health
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1898915299984690, guid: c6f484b110062c347baacfc3f75afa56, type: 2}
+      propertyPath: m_TagString
+      value: Target
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6f484b110062c347baacfc3f75afa56, type: 2}
@@ -1281,7 +1328,7 @@ GameObject:
   - component: {fileID: 606732326}
   m_Layer: 0
   m_Name: ShieldMinionA
-  m_TagString: Destructible
+  m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1324,7 +1371,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 606732325}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3, y: 0.99, z: 0}
+  m_LocalPosition: {x: -1.3, y: 24.460001, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children:
   - {fileID: 2062658798}
@@ -2148,6 +2195,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 114208543100071774, guid: 740f91c2ed2997d429f5b2669cd58318,
+        type: 2}
+      propertyPath: playerMaxY
+      value: -3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 740f91c2ed2997d429f5b2669cd58318, type: 2}
   m_IsPrefabParent: 0
@@ -2206,6 +2258,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1051536814
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1584571667726694, guid: 68219d6469d8d6f4db460e5254d91e97,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1051536815}
+  m_Layer: 0
+  m_Name: Node 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1051536815
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4899963192697466, guid: 68219d6469d8d6f4db460e5254d91e97,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1051536814}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1778001754}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1054862656
 GameObject:
   m_ObjectHideFlags: 0
@@ -2765,7 +2847,6 @@ MonoBehaviour:
   - {x: 0, y: 6.25}
   - {x: 0, y: -6.25}
   lowestObjectPositionInCamera: 2
-  cameraPath: {fileID: 1686383225}
 --- !u!81 &1252191824
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2840,6 +2921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f3cbab3c1fb7d340aed705e40dbaad6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraPath: {fileID: 1778001753}
 --- !u!1 &1253613607
 GameObject:
   m_ObjectHideFlags: 0
@@ -3196,7 +3278,7 @@ GameObject:
   - component: {fileID: 1383178079}
   m_Layer: 0
   m_Name: ShieldMinionC
-  m_TagString: Destructible
+  m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3238,7 +3320,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1383178078}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 23.470001, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children:
   - {fileID: 1874533218}
@@ -3721,54 +3803,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7008f8815d8a6534eb098da36e38e74e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &1686383224
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4985551759838878, guid: 68219d6469d8d6f4db460e5254d91e97, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4985551759838878, guid: 68219d6469d8d6f4db460e5254d91e97, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4985551759838878, guid: 68219d6469d8d6f4db460e5254d91e97, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4985551759838878, guid: 68219d6469d8d6f4db460e5254d91e97, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4985551759838878, guid: 68219d6469d8d6f4db460e5254d91e97, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4985551759838878, guid: 68219d6469d8d6f4db460e5254d91e97, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4985551759838878, guid: 68219d6469d8d6f4db460e5254d91e97, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4985551759838878, guid: 68219d6469d8d6f4db460e5254d91e97, type: 2}
-      propertyPath: m_RootOrder
-      value: 23
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 68219d6469d8d6f4db460e5254d91e97, type: 2}
-  m_IsPrefabParent: 0
---- !u!114 &1686383225 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114110678827678622, guid: 68219d6469d8d6f4db460e5254d91e97,
-    type: 2}
-  m_PrefabInternal: {fileID: 1686383224}
-  m_Script: {fileID: 11500000, guid: 4ca4aeaa9638faa4a87c2a63d353a135, type: 3}
 --- !u!1 &1700693722
 GameObject:
   m_ObjectHideFlags: 0
@@ -3916,6 +3950,36 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &1764040302
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1702889465133190, guid: 68219d6469d8d6f4db460e5254d91e97,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1764040303}
+  m_Layer: 0
+  m_Name: Node 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1764040303
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4362919973722974, guid: 68219d6469d8d6f4db460e5254d91e97,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1764040302}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2, y: 4.03, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1778001754}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1767736692
 GameObject:
   m_ObjectHideFlags: 0
@@ -3943,6 +4007,70 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1778001751
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1169653980936818, guid: 68219d6469d8d6f4db460e5254d91e97,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1778001754}
+  - component: {fileID: 1778001753}
+  - component: {fileID: 1778001752}
+  m_Layer: 0
+  m_Name: Camera Path for Shield Level
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1778001752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114221069747735390, guid: 68219d6469d8d6f4db460e5254d91e97,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1778001751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 032109e957f940b4aa90ad312aac3f6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: {fileID: 1778001753}
+--- !u!114 &1778001753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114110678827678622, guid: 68219d6469d8d6f4db460e5254d91e97,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1778001751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ca4aeaa9638faa4a87c2a63d353a135, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pathNodes:
+  - {fileID: 1051536815}
+  - {fileID: 1764040303}
+  - {fileID: 358921539}
+--- !u!4 &1778001754
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4985551759838878, guid: 68219d6469d8d6f4db460e5254d91e97,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1778001751}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1051536815}
+  - {fileID: 1764040303}
+  - {fileID: 358921539}
+  m_Father: {fileID: 0}
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1874533217
 GameObject:
@@ -4077,7 +4205,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1896370975}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 18.34, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4096,7 +4224,7 @@ GameObject:
   - component: {fileID: 1995639535}
   m_Layer: 0
   m_Name: ShieldMinionB
-  m_TagString: Destructible
+  m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4138,7 +4266,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1995639534}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.38, y: 0.97, z: 0}
+  m_LocalPosition: {x: 1.38, y: 24.44, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children:
   - {fileID: 1156429725}
