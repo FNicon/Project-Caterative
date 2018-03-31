@@ -4,37 +4,41 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    private bool noTarget;
     private Vector3 targetPosition;
     private float distancePerSecond;
     public float maxDistancePerSecond = 8;
     public float moveFactor = 0.1f;
     public List<GameObject> objectsRelativeToCamera;
     public Vector2[] relativeDistancesOfObjects;
-    public float lowestObjectPositionInCamera = 2f;
     CameraTargetTracker tracker;
+    public bool isUpdatingToClosestTarget = true;
+    public bool canTargetLowerPosition = false;
 
     void Awake()
     {
         tracker = GetComponent<CameraTargetTracker>();
-        Debug.LogWarning("[CameraMovement] If the camera is not moving, try deactivating Node GameObject from the smallest :)");
+        Debug.LogWarning("[CameraMovement] If the camera is not moving, try either:\n deactivating Node GameObject from the smallest XOR changing CameraTargetTracker's currentTargetIndex value :)");
         Debug.Log("[CameraMovement] This script no longer holds the any Path. CameraTargetTracker holds it instead.");
     }
 
     void Start()
     {
         targetPosition = transform.position;
-        UpdateTargetPosition();
+        UpdateToIndexTargetPosition();
     }
 
     void Update()
     {
-        if (!noTarget)
+        MoveCamera(GetDistanceToTargetPerSecond());
+        MoveObjectsRelativeToCamera();
+        if (isUpdatingToClosestTarget)
         {
-            MoveCamera(GetDistanceToTargetPerSecond());
-            MoveObjectsRelativeToCamera();
+            UpdateClosestTargetPosition();
         }
-        UpdateTargetPosition();
+        else
+        {
+            UpdateToIndexTargetPosition();
+        }
     }
 
     private float GetDistanceToTargetPerSecond()
@@ -73,13 +77,12 @@ public class CameraMovement : MonoBehaviour
         }
     }
 
-    private void UpdateTargetPosition()
+    private void UpdateClosestTargetPosition()
     {
         GameObject target = tracker.GetClosestTarget();
         if (target != null)
         {
-            noTarget = false;
-            if (target.transform.position.y - transform.position.y > lowestObjectPositionInCamera)
+            if (canTargetLowerPosition || target.transform.position.y - transform.position.y > 0)
             {
                 targetPosition = new Vector3(
                     target.transform.position.x,
@@ -89,8 +92,12 @@ public class CameraMovement : MonoBehaviour
         }
         else
         {
-            noTarget = true;
             targetPosition = new Vector3(0, 0, -10);
         }
+    }
+
+    private void UpdateToIndexTargetPosition()
+    {
+        targetPosition = tracker.GetCurrentTargetByIndex();
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +7,9 @@ public class CameraTargetTracker : MonoBehaviour
 {
     List<GameObject> targets;
     public Path cameraPath;
+    public int currentTargetIndex = 0;
     new private Transform camera;
+    GameObject closestTarget;
 
     void Awake()
     {
@@ -36,11 +39,6 @@ public class CameraTargetTracker : MonoBehaviour
         {
             targets.Add(cameraPath.pathNodes[i].gameObject);
         }
-        TargetDetectionArea targetArea = FindObjectOfType<TargetDetectionArea>();
-        if (targetArea != null)
-        {
-            targets.Add(targetArea.gameObject);
-        }
         CameraEnd end = FindObjectOfType<CameraEnd>();
         if (end != null)
         {
@@ -52,7 +50,7 @@ public class CameraTargetTracker : MonoBehaviour
     {
         if (targets.Count > 0)
         {
-            GameObject closestTarget = null;
+            closestTarget = null;
             for (int i = 0; i < targets.Count; i++)
             {
 
@@ -78,5 +76,14 @@ public class CameraTargetTracker : MonoBehaviour
                     && Vector2.Distance(targets[i].transform.position, camera.position)
                        < Vector2.Distance(closestTarget.transform.position, camera.position);   
         }
+    }
+
+    public Vector3 GetCurrentTargetByIndex()
+    {
+        if (currentTargetIndex >= targets.Count)
+        {
+            Debug.LogWarning("[CameraTargetTracker] Target Index exceeds the number of target - 1, used Modulo value instead");
+        }
+        return targets[currentTargetIndex % targets.Count].transform.position;
     }
 }
