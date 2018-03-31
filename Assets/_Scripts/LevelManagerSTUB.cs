@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShieldLevelManagerSTUB : MonoBehaviour
+public class LevelManagerSTUB : MonoBehaviour
 {
     public GameObject gameOverPanel;
     public Text textLife;

@@ -16,21 +16,32 @@ namespace Caterative.Brick.TheShieldBoss
         {
             sprite = GetComponent<SpriteRenderer>();
         }
+        void Start()
+        {
+            
+        }
 
         void Update()
         {
+            if (GameManager.Instance.GetBall().active)
+            {
+                SetTarget(GameManager.Instance.GetBall().transform);
+            } else
+            {
+                SetTarget(GameManager.Instance.GetAim().transform);
+            }
             Vector2 relativeTargetPosition = pupilTarget.position - transform.position;
             transform.localPosition = new Vector2(
                 maxPupilPosition.x * (
                     Mathf.Abs(relativeTargetPosition.x) > targetPositionThreshold.x ?
-                        Mathf.Sign(relativeTargetPosition.x) * targetPositionThreshold.x :
-                        relativeTargetPosition.x
+                    Mathf.Sign(relativeTargetPosition.x) * targetPositionThreshold.x :
+                    relativeTargetPosition.x
                     / targetPositionThreshold.x),
                 maxPupilPosition.y * (
-                    Mathf.Abs(relativeTargetPosition.y) > targetPositionThreshold.y ?
-                        Mathf.Sign(relativeTargetPosition.y) * targetPositionThreshold.y :
-                        relativeTargetPosition.y
-                    / targetPositionThreshold.y)
+                Mathf.Abs(relativeTargetPosition.y) > targetPositionThreshold.y ?
+                Mathf.Sign(relativeTargetPosition.y) * targetPositionThreshold.y :
+                relativeTargetPosition.y
+                / targetPositionThreshold.y)
             );
         }
 

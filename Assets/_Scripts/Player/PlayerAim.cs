@@ -24,7 +24,8 @@ public class PlayerAim : MonoBehaviour
         {
             targetLine.positionCount = 2;
             UpdateLaunchDirection();
-        } else {
+        } else
+        {
             targetLine.positionCount = 0;
         }
     }
@@ -34,8 +35,7 @@ public class PlayerAim : MonoBehaviour
         launchDirection = 90 + ((transform.position.x / 2) * -45);
         startLaunchLocation = new Vector2(
             transform.position.x * 1.25f,
-            transform.position.y + 0.5f
-        );
+            transform.position.y + 0.5f);
         targetLine.SetPosition(0, startLaunchLocation);
         Vector2 launchVector = VectorRotation.RotateVector(Vector2.right, launchDirection);
         int layerMask = LayerMask.GetMask("Bricks", "Balls");
@@ -43,8 +43,7 @@ public class PlayerAim : MonoBehaviour
         if (hit.collider != null)
         {
             targetLaunchLocation = hit.point;
-        }
-        else
+        } else
         {
             targetLaunchLocation = startLaunchLocation + (launchVector * 20);
         }
@@ -53,11 +52,11 @@ public class PlayerAim : MonoBehaviour
 
     public void Shoot()
     {
-        if (ballToLaunch != null)
-        {
-            ballToLaunch.transform.position = startLaunchLocation;
-            ballToLaunch.LaunchTowardsAngle(launchSpeed, launchDirection);
-            ballToLaunch = null;
+    if (ballToLaunch != null)
+    {
+        ballToLaunch.transform.position = startLaunchLocation;
+        ballToLaunch.LaunchTowardsAngle(launchSpeed, launchDirection);
+        ballToLaunch = null;
         }
     }
 
