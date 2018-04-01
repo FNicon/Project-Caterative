@@ -52,15 +52,6 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour {
         }
     }
 
-    bool isDestructed = false;
-
-    public void Destruct() {
-        T toDestroy = _instance;
-        _instance = null;
-        Destroy(toDestroy);
-        isDestructed = true;
-    }
-
     private static bool applicationIsQuitting = false;
     /// <summary>
     /// When Unity quits, it destroys objects in a random order.
@@ -70,15 +61,8 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour {
     /// even after stopping playing the Application. Really bad!
     /// So, this was made to be sure we're not creating that buggy ghost object.
     /// </summary>
-    public void OnDestroy() {
-        if (this == _instance) {
-            if (!isDestructed) {
-                applicationIsQuitting = true;
-            } else {
-                applicationIsQuitting = false;
-            }
-        } else {
-            Debug.Log("[Singleton] Newly created instance of '" + typeof(T).ToString() + "' is now destroyed because we already have one instance");
-        }
+    public void OnDestroy()
+    {
+        applicationIsQuitting = true;
     }
 }

@@ -177,9 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77f3550859fc20f49a0a466ad9aafb10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textLife: {fileID: 1700693723}
   maxLife: 5
-  gameOverPanel: {fileID: 1387188270}
 --- !u!114 &90253934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,7 +234,7 @@ MonoBehaviour:
   playerController: {fileID: 90253936}
   playerAim: {fileID: 90253934}
   playerLife: {fileID: 90253933}
-  camera: {fileID: 1252191822}
+  currentCamera: {fileID: 1252191822}
   playerMaxY: -1
   playerMinY: -5
 --- !u!50 &90253939
@@ -378,6 +376,7 @@ GameObject:
   m_Component:
   - component: {fileID: 196379766}
   - component: {fileID: 196379765}
+  - component: {fileID: 196379767}
   m_Layer: 0
   m_Name: Wave Manager
   m_TagString: Untagged
@@ -410,6 +409,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &196379767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 196379764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd774df9efc707d4f9540e389421954e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverPanel: {fileID: 1387188270}
+  textLife: {fileID: 1700693723}
 --- !u!1 &220021622
 GameObject:
   m_ObjectHideFlags: 0
@@ -1711,6 +1723,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brickLife: 1
   bricksPool: {fileID: 220021623}
+  dropper: {fileID: 0}
 --- !u!61 &984950265
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1763,8 +1776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b3218c7889b01a4793e4cc445c3fa2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bricks:
-  - {fileID: 0}
+  bricks: []
   spawnArea: {fileID: 1616608378}
   spawnIndex: 0
 --- !u!4 &1000835987
@@ -2347,6 +2359,7 @@ MonoBehaviour:
   - {x: 0, y: -6.25}
   - {x: 0, y: 6.25}
   lowestObjectPositionInCamera: 2
+  cameraPath: {fileID: 1987103191}
 --- !u!81 &1252191824
 AudioListener:
   m_ObjectHideFlags: 0
@@ -3013,7 +3026,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd3cfc5867de9ae43861a9d197986b02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
 --- !u!1 &1456865226
 GameObject:
   m_ObjectHideFlags: 0
@@ -3678,6 +3690,54 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1001 &1987103190
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4985551759838878, guid: 68219d6469d8d6f4db460e5254d91e97, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985551759838878, guid: 68219d6469d8d6f4db460e5254d91e97, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985551759838878, guid: 68219d6469d8d6f4db460e5254d91e97, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985551759838878, guid: 68219d6469d8d6f4db460e5254d91e97, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985551759838878, guid: 68219d6469d8d6f4db460e5254d91e97, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985551759838878, guid: 68219d6469d8d6f4db460e5254d91e97, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985551759838878, guid: 68219d6469d8d6f4db460e5254d91e97, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4985551759838878, guid: 68219d6469d8d6f4db460e5254d91e97, type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 68219d6469d8d6f4db460e5254d91e97, type: 2}
+  m_IsPrefabParent: 0
+--- !u!114 &1987103191 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114110678827678622, guid: 68219d6469d8d6f4db460e5254d91e97,
+    type: 2}
+  m_PrefabInternal: {fileID: 1987103190}
+  m_Script: {fileID: 11500000, guid: 4ca4aeaa9638faa4a87c2a63d353a135, type: 3}
 --- !u!1 &2003608785
 GameObject:
   m_ObjectHideFlags: 0

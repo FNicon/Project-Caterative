@@ -7,7 +7,22 @@ public class Brick : MonoBehaviour
     public int brickLife = 1;
     private int currentBrickLife = 1;
     public Transform bricksPool;
+    public BrickDestroyEffect destroyEffect;
     public BrickDropper dropper;
+
+    void Awake()
+    {
+        if (bricksPool == null)
+        {
+            bricksPool = transform.parent;
+        }
+        if (bricksPool == null)
+        {
+            Debug.LogError("[Brick] Either Brick's pool is not assigned OR Brick is not set as a child of a pool!");
+        }
+        destroyEffect = GetComponent<BrickDestroyEffect>();
+        dropper = GetComponent<BrickDropper>();
+    }
 
     void OnCollisionEnter2D(Collision2D other)
     {
@@ -21,6 +36,7 @@ public class Brick : MonoBehaviour
         currentBrickLife = currentBrickLife - 1;
         if (currentBrickLife <= 0)
         {
+            destroyEffect.Play(transform.position);
             RelocateBrickToPool();
         }
     }

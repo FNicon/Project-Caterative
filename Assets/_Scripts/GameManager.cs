@@ -24,7 +24,7 @@ public class GameManager : Singleton<GameManager>
         BallDestroyer.OnBallDestroy += OnBallDestroy;
     }
 
-    void OnDisable()
+    void OnApplicationQuit()
     {
         BallDestroyer.OnBallDestroy -= OnBallDestroy;
     }
