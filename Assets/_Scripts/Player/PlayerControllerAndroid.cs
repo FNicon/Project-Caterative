@@ -4,14 +4,6 @@ using UnityEngine;
 
 public class PlayerControllerAndroid : MonoBehaviour
 {
-
-    public Camera mainCamera;
-    private bool isDragging;
-    private float distance;
-    private Vector3 offset;
-    private Transform player;
-    // Use this for initialization
-
     void Start()
     {
 
@@ -21,6 +13,12 @@ public class PlayerControllerAndroid : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public bool IsInputFire()
+    {
+        Touch touch = Input.GetTouch(0);
+        return(touch.phase == TouchPhase.Ended);
     }
 
     public Vector2 ReadInput()
@@ -42,8 +40,8 @@ public class PlayerControllerAndroid : MonoBehaviour
                 }
                 else
 				{
-					float followTouchX = Mathf.Lerp(transform.position.x, touchedPos.x, 0.3f);
-					float followTouchY = Mathf.Lerp(transform.position.y, touchedPos.y, 0.3f);
+					float followTouchX = Mathf.Lerp(transform.position.x, touchedPos.x, 0.2f);
+					float followTouchY = Mathf.Lerp(transform.position.y, touchedPos.y, 0.2f);
 					return new Vector2(followTouchX, followTouchY);
 				}
             }

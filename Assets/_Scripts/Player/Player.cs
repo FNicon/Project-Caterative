@@ -22,36 +22,56 @@ public class Player : MonoBehaviour
     }
 
     // Update is called once per frame
+    void Update()
+    {
+#if UNITY_EDITOR
+        if (playerLife.IsAlive())
+        {
+            if (playerController.IsInputFire())
+            {
+                playerAim.Shoot();
+            }
+        }
+
+#elif UNITY_ANDROID
+			if (playerLife.IsAlive()) 
+            {
+                if(playerControllerAndroid.IsInputFire())
+                {
+                    playerAim.Shoot();
+                }
+			}
+#endif
+    }
+    
     void FixedUpdate()
     {
 #if UNITY_EDITOR
         if (playerLife.IsAlive())
         {
             Move(playerController.ReadInput());
-            if (playerController.IsInputFire())
-            {
-                playerAim.Shoot();
-            }
-            ConstraintPlayerMovement();
         }
 
 #elif UNITY_ANDROID
-			if (playerLife.IsAlive()) {
+			if (playerLife.IsAlive()) 
+            {
 				MoveAndroid(playerControllerAndroid.ReadInput());
 			}
-			ConstraintPlayerMovement();
+			//ConstraintPlayerMovement();
 #endif
     }
 
     void Move(Vector2 input)
     {
         Vector2 deltaVelocity = new Vector2(input.x * playerSpeed, input.y * playerSpeed);
-        playerBody.velocity = deltaVelocity;
+        Vector2 destination = (Vector2)transform.position + deltaVelocity;
+        playerBody.MovePosition(ConstraintMovement(destination));
+        //playerBody.velocity = deltaVelocity;
     }
 
     void MoveAndroid(Vector2 input)
     {
-        playerBody.MovePosition(input);
+        playerBody.MovePosition(ConstraintMovement(input));
         Debug.Log("Rigidbody Pos" + playerBody.position);
     }
 
@@ -64,6 +84,13 @@ public class Player : MonoBehaviour
         Debug.Log("Min Y = " + MinY);
         Debug.Log("Camera pos " + cameraTransform.position.y);
         transform.position = new Vector2(transform.position.x, Mathf.Clamp(transform.position.y, MinY, MaxY));
+    }
+
+    Vector2 ConstraintMovement(Vector2 input)
+    {
+        float MaxY = playerMaxY + cameraTransform.position.y;
+        float MinY = playerMinY + cameraTransform.position.y;
+        return new Vector2(input.x, Mathf.Clamp(input.y, MinY, MaxY));
     }
 }
 
