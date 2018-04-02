@@ -10,6 +10,12 @@ public class BrickDropper : MonoBehaviour
 		for (int i = 0; i < thingsToDrop.Length; i++)
 		{
 			thingsToDrop[i].transform.position = transform.position;
+			if (thingsToDrop[i].GetComponent<CatBehaviour>() != null) {
+				thingsToDrop[i].GetComponent<CatBehaviour>().isInArena = true;
+			}
+			if (thingsToDrop[i].GetComponent<TrapBehaviour>() != null) {
+				thingsToDrop[i].GetComponent<TrapBehaviour>().SpreadTrap();
+			}
 		}
 	}
 }

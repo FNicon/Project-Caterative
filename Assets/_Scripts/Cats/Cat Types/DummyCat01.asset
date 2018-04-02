@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a652fb7b9b621c41a5ebb0a2fcf2c02, type: 3}
+  m_Name: DummyCat01
+  m_EditorClassIdentifier: 
+  catName: Dummy
+  catSprite: {fileID: 21300000, guid: 29f60e42f97a586489dba52218a22f45, type: 3}
+  catImages: []
+  catStory: It is just a dummy cat.
