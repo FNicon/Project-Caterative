@@ -448,11 +448,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 5
   playerController: {fileID: 114284354524584470}
+  playerControllerAndroid: {fileID: 0}
   playerAim: {fileID: 114951980213658464}
   playerLife: {fileID: 114426391148186432}
-  currentCamera: {fileID: 0}
   playerMaxY: -1
   playerMinY: -5
+  isStun: 0
+  stunView: {fileID: 212270445935154522}
 --- !u!114 &114284354524584470
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -488,6 +490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   launchSpeed: 5
+  cooldownTime: 0
 --- !u!120 &120432473124139636
 LineRenderer:
   m_ObjectHideFlags: 1

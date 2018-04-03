@@ -9,7 +9,18 @@ namespace Caterative.Brick.Balls
         public float maxSpeed;
         public float minSpeed;
         public int speedIterator;
-        private Rigidbody2D ballBody;
+        private Rigidbody2D m_ballBody;
+        private Rigidbody2D ballBody
+        {
+            get
+            {
+                if (m_ballBody == null)
+                {
+                    m_ballBody = GetComponent<Rigidbody2D>();
+                }
+                return this.m_ballBody;
+            }
+        }
         private TrailRenderer m_trail;
         public TrailRenderer trail
         {
@@ -19,7 +30,7 @@ namespace Caterative.Brick.Balls
                 {
                     m_trail = GetComponentInChildren<TrailRenderer>();
                 }
-                return m_trail;
+                return this.m_trail;
             }
             private set
             {
@@ -30,7 +41,6 @@ namespace Caterative.Brick.Balls
 
         void Awake()
         {
-            ballBody = GetComponent<Rigidbody2D>();
             trail = GetComponentInChildren<TrailRenderer>();
             active = false;
         }
