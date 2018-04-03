@@ -27,21 +27,19 @@ public class Player : MonoBehaviour
 #if UNITY_EDITOR
         if (playerLife.IsAlive())
         {
-            Move(playerController.ReadInput());
             if (playerController.IsInputFire())
             {
                 playerAim.Shoot();
             }
         }
-
 #elif UNITY_ANDROID
-			if (playerLife.IsAlive()) 
+        if (playerLife.IsAlive()) 
+        {
+            if(playerControllerAndroid.IsInputFire())
             {
-                if(playerControllerAndroid.IsInputFire())
-                {
-                    playerAim.Shoot();
-                }
-			}
+                playerAim.Shoot();
+            }
+        }
 #endif
     }
     
@@ -52,20 +50,13 @@ public class Player : MonoBehaviour
         {
             Move(playerController.ReadInput());
         }
-
 #elif UNITY_ANDROID
-			if (playerLife.IsAlive()) 
-            {
-				MoveAndroid(playerControllerAndroid.ReadInput());
-			}
-			//ConstraintPlayerMovement();
-            ConstraintPlayerMovement();
+        if (playerLife.IsAlive()) 
+        {
+            MoveAndroid(playerControllerAndroid.ReadInput());
         }
-#elif UNITY_ANDROID
-		if (playerLife.IsAlive())
-		{
-			Move(playerControllerAndroid.ReadInput());
-		}
+			//ConstraintPlayerMovement();
+            //ConstraintPlayerMovement();
 #endif
     }
 
@@ -80,17 +71,17 @@ public class Player : MonoBehaviour
     void MoveAndroid(Vector2 input)
     {
         playerBody.MovePosition(ConstraintMovement(input));
-        Debug.Log("Rigidbody Pos" + playerBody.position);
+        //Debug.Log("Rigidbody Pos" + playerBody.position);
     }
 
     void ConstraintPlayerMovement()
     {
         float MaxY = playerMaxY + cameraTransform.position.y;
         float MinY = playerMinY + cameraTransform.position.y;
-        Debug.Log("Player pos = " + transform.position.y);
+        /*Debug.Log("Player pos = " + transform.position.y);
         Debug.Log("Max Y = " + MaxY);
         Debug.Log("Min Y = " + MinY);
-        Debug.Log("Camera pos " + cameraTransform.position.y);
+        Debug.Log("Camera pos " + cameraTransform.position.y);*/
         transform.position = new Vector2(transform.position.x, Mathf.Clamp(transform.position.y, MinY, MaxY));
     }
 

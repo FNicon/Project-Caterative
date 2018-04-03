@@ -6,5 +6,5 @@ using UnityEngine;
 public class TrapType : ScriptableObject {
 	public Sprite trapSprites;
 	public bool isDamage;
-	public bool isStun;
+	public float stunTime;
 }
