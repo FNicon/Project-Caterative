@@ -10,24 +10,41 @@ namespace Caterative.Brick.TheShieldBoss
     public class ShieldBoss : MonoBehaviour
     {
         Shield shield;
-        ShieldBossFigure figure;
-        ShieldBossFace face;
         public int health = 60;
         public int subStateLength = 3;
         public int annoyedStateLength = 2;
         public int angryStateLength = 1;
-        public State state;
+        private State m_state;
+        public State state
+        {
+            get
+            {
+                return this.m_state;
+            }
+            set
+            {
+                this.m_state = value;
+                InvokeOnStateChange();
+            }
+        }
         public Ball targetBall;
         int redirectShieldCounter = 0;
         int stateCounter;
         public float moveDistancePerSecond = 2;
         public float happyRotationPerSecond = 25;
+        public delegate void StateEvent(ShieldBoss boss);
+        public static event StateEvent OnStateChange;
+        private void InvokeOnStateChange()
+        {
+            if (OnStateChange != null)
+            {
+                OnStateChange(this);
+            }
+        }
 
         void Awake()
         {
             shield = GetComponentInChildren<Shield>();
-            figure = GetComponentInChildren<ShieldBossFigure>();
-            face = GetComponentInChildren<ShieldBossFace>();
         }
 
         void OnEnable()
@@ -43,7 +60,7 @@ namespace Caterative.Brick.TheShieldBoss
         void Start()
         {
             shield.DirectTowards(225f);
-            face.SetAnnoyedFace();
+            state = State.Annoyed;
         }
 
         void Update()
@@ -63,7 +80,8 @@ namespace Caterative.Brick.TheShieldBoss
                             {
                                 shield.DirectTowards(93, 0.06f);
                             }
-                        } else
+                        }
+                        else
                         {
                             if (targetBall.transform.position.x > transform.position.x)
                             {
@@ -89,15 +107,22 @@ namespace Caterative.Brick.TheShieldBoss
                 targetBall = collision.collider.GetComponent<Ball>();
                 UpdateBossStateOnBallCollide();
                 health--;
-                figure.Hit();
-                face.SetHurtFace(state);
+                ResolveCurrentStateOnBallCollide(targetBall);
+                stateCounter++;
                 if (health <= 0)
                 {
                     Deactivate();
                 }
-                ResolveCurrentStateOnBallCollide(targetBall);
-                stateCounter++;
+                StopAllCoroutines();
+                StartCoroutine(InvokeTemporalHurtState(state));
             }
+        }
+
+        private IEnumerator InvokeTemporalHurtState(State previousState)
+        {
+            state = State.Hurt;
+            yield return new WaitForSeconds(0f); //TODO resolve quick state change
+            state = previousState;
         }
 
         private void Deactivate()
@@ -110,7 +135,6 @@ namespace Caterative.Brick.TheShieldBoss
             if (BallManager.Instance.CountActiveBall() == 0)
             {
                 state = State.Happy;
-                face.SetSurpriseHappyFace();
             }
         }
 
@@ -176,7 +200,8 @@ namespace Caterative.Brick.TheShieldBoss
             if (ball.transform.position.x > transform.position.x)
             {
                 StartCoroutine(MoveTowards(new Vector2(-1, transform.position.y)));
-            } else
+            }
+            else
             {
                 StartCoroutine(MoveTowards(new Vector2(1, transform.position.y)));
             }
@@ -200,16 +225,19 @@ namespace Caterative.Brick.TheShieldBoss
                 if (ballRelativePos.y > 0)
                 {
                     angleToRotate = 45f;
-                } else
+                }
+                else
                 {
                     angleToRotate = 315f;
                 }
-            } else
+            }
+            else
             {
                 if (ballRelativePos.y > 0)
                 {
                     angleToRotate = 135f;
-                } else
+                }
+                else
                 {
                     angleToRotate = 225f;
                 }
