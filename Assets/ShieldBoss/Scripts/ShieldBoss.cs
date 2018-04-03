@@ -32,12 +32,12 @@ namespace Caterative.Brick.TheShieldBoss
 
         void OnEnable()
         {
-            BallDestroyer.Instance.OnBallDestroy += UpdateStateOnBallDestroy;
+            BallDestroyer.OnBallDestroy += UpdateStateOnBallDestroy;
         }
 
-        void OnDisable()
+        void OnApplicationQuit()
         {
-            BallDestroyer.Instance.OnBallDestroy -= UpdateStateOnBallDestroy;
+            BallDestroyer.OnBallDestroy -= UpdateStateOnBallDestroy;
         }
 
         void Start()
@@ -63,8 +63,7 @@ namespace Caterative.Brick.TheShieldBoss
                             {
                                 shield.DirectTowards(93, 0.06f);
                             }
-                        }
-                        else
+                        } else
                         {
                             if (targetBall.transform.position.x > transform.position.x)
                             {
@@ -168,7 +167,6 @@ namespace Caterative.Brick.TheShieldBoss
                 redirectShieldCounter = 0;
                 RedirectShieldTowardsBall(ball);
             }
-
         }
 
         private void AngryShieldMode(Ball ball)
@@ -178,8 +176,7 @@ namespace Caterative.Brick.TheShieldBoss
             if (ball.transform.position.x > transform.position.x)
             {
                 StartCoroutine(MoveTowards(new Vector2(-1, transform.position.y)));
-            }
-            else
+            } else
             {
                 StartCoroutine(MoveTowards(new Vector2(1, transform.position.y)));
             }
@@ -203,19 +200,16 @@ namespace Caterative.Brick.TheShieldBoss
                 if (ballRelativePos.y > 0)
                 {
                     angleToRotate = 45f;
-                }
-                else
+                } else
                 {
                     angleToRotate = 315f;
                 }
-            }
-            else
+            } else
             {
                 if (ballRelativePos.y > 0)
                 {
                     angleToRotate = 135f;
-                }
-                else
+                } else
                 {
                     angleToRotate = 225f;
                 }

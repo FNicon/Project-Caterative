@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerControllerAndroid : MonoBehaviour
 {
+	private bool isDragging;
+	private float distance;
+	private Vector3 offset;
+	private Transform player;
     void Start()
     {
 

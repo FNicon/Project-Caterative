@@ -38,18 +38,13 @@ namespace Caterative.Brick.TheShieldBoss
         private IEnumerator RotateCoroutine(float targetAngle)
         {
             float currentAngle, clampedAngle, angleToRotate;
-            do
-            {
+            do {
                 currentAngle = transform.rotation.eulerAngles.z > 0 ? transform.rotation.eulerAngles.z % 360 : transform.rotation.eulerAngles.z + 360;
-                if (Mathf.Abs(currentAngle - targetAngle) > 0.01f)
-                {
+                if (Mathf.Abs(currentAngle - targetAngle) > 0.01f) {
                     clampedAngle = targetAngle % 360;
-                    if (Mathf.Abs(transform.rotation.eulerAngles.z - clampedAngle) < 180)
-                    {
+                    if (Mathf.Abs(transform.rotation.eulerAngles.z - clampedAngle) < 180) {
                         angleToRotate = (clampedAngle - transform.rotation.eulerAngles.z) * rotateFactor;
-                    }
-                    else
-                    {
+                    } else {
                         angleToRotate = (clampedAngle - (transform.rotation.eulerAngles.z - 360)) * rotateFactor;
                     }
                     transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + angleToRotate);

@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
 #if UNITY_EDITOR
         if (playerLife.IsAlive())
         {
+            Move(playerController.ReadInput());
             if (playerController.IsInputFire())
             {
                 playerAim.Shoot();
@@ -58,6 +59,13 @@ public class Player : MonoBehaviour
 				MoveAndroid(playerControllerAndroid.ReadInput());
 			}
 			//ConstraintPlayerMovement();
+            ConstraintPlayerMovement();
+        }
+#elif UNITY_ANDROID
+		if (playerLife.IsAlive())
+		{
+			Move(playerControllerAndroid.ReadInput());
+		}
 #endif
     }
 

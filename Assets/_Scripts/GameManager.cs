@@ -8,32 +8,35 @@ public class GameManager : Singleton<GameManager>
 {
     PlayerAim aim;
     PlayerLife life;
-    ShieldPupil pupil;
+    //ShieldPupil pupil;
     Ball ball;
 
     void Awake()
     {
         aim = FindObjectOfType<PlayerAim>();
         life = FindObjectOfType<PlayerLife>();
-        pupil = FindObjectOfType<ShieldPupil>();
+        //pupil = FindObjectOfType<ShieldPupil>();
         ball = FindObjectOfType<Ball>();
     }
 
     void OnEnable()
     {
-        BallDestroyer.Instance.OnBallDestroy += OnBallDestroy;
+        BallDestroyer.OnBallDestroy += OnBallDestroy;
     }
 
-    void OnDisable()
+    void OnApplicationQuit()
     {
-        BallDestroyer.Instance.OnBallDestroy -= OnBallDestroy;
+        BallDestroyer.OnBallDestroy -= OnBallDestroy;
     }
 
-    void Update() {
-        if (ball.active) {
-            pupil.SetTarget(ball.transform);
-        } else {
-            pupil.SetTarget(aim.transform);
+    void Update()
+    {
+        if (ball.active)
+        {
+            //pupil.SetTarget(ball.transform);
+        } else
+        {
+            //pupil.SetTarget(aim.transform);
         }
     }
 
@@ -44,7 +47,20 @@ public class GameManager : Singleton<GameManager>
 
     public void OnBallDestroy(Ball ball)
     {
-        life.GetDamage();
+        if (BallManager.Instance.CountActiveBall() <= 0)
+        {
+            life.GetDamage();
+        }
         GameManager.Instance.ReadyTheBall();
+    }
+
+    public Ball GetBall()
+    {
+        return (ball);
+    }
+
+    public PlayerAim GetAim()
+    {
+        return (aim);
     }
 }

@@ -636,9 +636,9 @@ PlayerSettings:
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: 873724b2-c961-45cd-a130-f6050c22189a
+  cloudProjectId: 020d3818-1698-440f-9d05-7c54ddfb79b3
   projectName: Project-Caterative
-  organizationId: f_nico
+  organizationId: afaiq
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
