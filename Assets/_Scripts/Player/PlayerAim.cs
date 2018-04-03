@@ -11,6 +11,7 @@ public class PlayerAim : MonoBehaviour
     public float launchSpeed;
     private Vector2 startLaunchLocation;
     private Vector2 targetLaunchLocation;
+    public float cooldownTime;
 
     void Awake()
     {
@@ -52,12 +53,17 @@ public class PlayerAim : MonoBehaviour
 
     public void Shoot()
     {
-    if (ballToLaunch != null)
-    {
-        ballToLaunch.transform.position = startLaunchLocation;
-        ballToLaunch.LaunchTowardsAngle(launchSpeed, launchDirection);
-        ballToLaunch = null;
+        if (ballToLaunch != null)
+        {
+            ballToLaunch.transform.position = startLaunchLocation;
+            ballToLaunch.LaunchTowardsAngle(launchSpeed, launchDirection);
+            ballToLaunch = null;
+            StartCoroutine(Cooldown());
         }
+    }
+    IEnumerator Cooldown() {
+        yield return new WaitForSeconds(cooldownTime);
+        ReloadBall(BallManager.Instance.GetAvailableBall());
     }
 
     public void ReloadBall(Ball ball)
