@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace Caterative.Brick.TheShieldBoss
 {
+    [Obsolete("Originally this script is for managing face features, but now they can take care of themselves reading directly to ShieldBoss (Dependency Inversion is in the works)")]
     public class ShieldBossFace : MonoBehaviour
     {
         public Sprite annoyedEye;
