@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Trap : MonoBehaviour {
+	public TrapType trapType;
 	// Use this for initialization
 	void Start () {
 		
@@ -16,7 +17,14 @@ public class Trap : MonoBehaviour {
 	{
 		if (other.collider.CompareTag("Player"))
 		{
-			Debug.Log("Trap Triggered! -1");
+			if (other.transform.GetComponent<Player>()!=null) {
+				Player playerData = other.transform.GetComponent<Player>();
+				if (!playerData.isStun) {
+					playerData.StartCoroutine(playerData.StunPlayer(trapType.stunTime));
+				}
+			}
+			transform.position = new Vector2(-7,0);
+			//Debug.Log("Trap Triggered! -1");
 		}
 	}
 }

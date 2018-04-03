@@ -11,11 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78d7b1dd153b21a44b7ca4c4215dac57, type: 3}
   m_Name: DummyTrap01
   m_EditorClassIdentifier: 
-  trapComponents:
-  - {fileID: 1456987064696700, guid: 0f73f49a92e26354f9cd66f89f2359b5, type: 2}
-  - {fileID: 1456987064696700, guid: 0f73f49a92e26354f9cd66f89f2359b5, type: 2}
-  trapSprites:
-  - {fileID: 0}
-  - {fileID: 0}
+  trapSprites: {fileID: 0}
   isDamage: 0
-  isStun: 0
+  stunTime: 2

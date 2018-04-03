@@ -13,10 +13,14 @@ public class Player : MonoBehaviour
     public PlayerLife playerLife;
     public float playerMaxY;
     public float playerMinY;
+    public bool isStun;
+    public SpriteRenderer stunView;
 
     // Use this for initialization
     void Awake()
     {
+        stunView.enabled = false;
+        isStun = false;
         playerBody = gameObject.GetComponent<Rigidbody2D>();
         cameraTransform = Camera.main.transform;
     }
@@ -24,48 +28,56 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-#if UNITY_EDITOR
-        if (playerLife.IsAlive())
+        if (IsAbleToMove())
         {
-            if (playerController.IsInputFire())
-            {
-                playerAim.Shoot();
-            }
+            #if UNITY_EDITOR
+                if (playerController.IsInputFire())
+                {
+                    playerAim.Shoot();
+                }
+            #elif UNITY_ANDROID
+                if(playerControllerAndroid.IsInputFire())
+                {
+                    playerAim.Shoot();
+                }
+            #endif
         }
-#elif UNITY_ANDROID
-        if (playerLife.IsAlive()) 
-        {
-            if(playerControllerAndroid.IsInputFire())
-            {
-                playerAim.Shoot();
-            }
-        }
-#endif
     }
     
     void FixedUpdate()
     {
-#if UNITY_EDITOR
-        if (playerLife.IsAlive())
+        ConstraintPlayerMovement();
+        if (IsAbleToMove())
         {
-            Move(playerController.ReadInput());
+            #if UNITY_EDITOR
+                Move(playerController.ReadInput());
+                //ConstraintPlayerMovement();
+            #elif UNITY_ANDROID
+                MoveAndroid(playerControllerAndroid.ReadInput());
+                //ConstraintPlayerMovement();
+            #endif
         }
-#elif UNITY_ANDROID
-        if (playerLife.IsAlive()) 
-        {
-            MoveAndroid(playerControllerAndroid.ReadInput());
-        }
-			//ConstraintPlayerMovement();
-            //ConstraintPlayerMovement();
-#endif
+    }
+    private bool IsAbleToMove() {
+        return (playerLife.IsAlive() && !isStun);
+    }
+
+    public IEnumerator StunPlayer(float stunTime)
+    {
+        isStun = true;
+        stunView.enabled = true;
+        playerBody.velocity = new Vector2(0,0);
+        yield return new WaitForSeconds(stunTime);
+        isStun = false;
+        stunView.enabled = false;
     }
 
     void Move(Vector2 input)
     {
         Vector2 deltaVelocity = new Vector2(input.x * playerSpeed, input.y * playerSpeed);
         Vector2 destination = (Vector2)transform.position + deltaVelocity;
-        playerBody.MovePosition(ConstraintMovement(destination));
-        //playerBody.velocity = deltaVelocity;
+        //playerBody.MovePosition(ConstraintMovement(destination));
+        playerBody.velocity = deltaVelocity;
     }
 
     void MoveAndroid(Vector2 input)

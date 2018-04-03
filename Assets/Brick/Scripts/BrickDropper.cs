@@ -13,8 +13,8 @@ public class BrickDropper : MonoBehaviour
 			if (thingsToDrop[i].GetComponent<CatBehaviour>() != null) {
 				thingsToDrop[i].GetComponent<CatBehaviour>().isInArena = true;
 			}
-			if (thingsToDrop[i].GetComponent<TrapBehaviour>() != null) {
-				thingsToDrop[i].GetComponent<TrapBehaviour>().SpreadTrap();
+			if (thingsToDrop[i].GetComponent<TrapSpawner>() != null) {
+				thingsToDrop[i].GetComponent<TrapSpawner>().SpreadTrap();
 			}
 		}
 	}
