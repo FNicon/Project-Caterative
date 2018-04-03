@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: DummyCat01
   m_EditorClassIdentifier: 
   catName: Dummy
-  catSprite: {fileID: 21300000, guid: 29f60e42f97a586489dba52218a22f45, type: 3}
+  catSprite: {fileID: 21300000, guid: 94c87ad6108e7b6479ba4dce0ca7399e, type: 3}
   catImages: []
   catStory: It is just a dummy cat.
+  isAlreadySaved: 0

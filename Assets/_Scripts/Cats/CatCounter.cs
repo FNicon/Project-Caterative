@@ -19,6 +19,7 @@ public class CatCounter : MonoBehaviour {
 		catAmount = catAmount + 1;
 		UpdateText();
 	}
+	
 	void UpdateText() {
 		catText.text = "Cat : " + catAmount.ToString();
 	}
