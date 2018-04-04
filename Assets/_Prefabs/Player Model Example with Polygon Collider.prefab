@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114841758807543370}
   - component: {fileID: 114518915270838454}
   - component: {fileID: 114632693400397774}
+  - component: {fileID: 114764133502017870}
   m_Layer: 8
   m_Name: Player Model Example with Polygon Collider
   m_TagString: Player
@@ -284,13 +285,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 10
   playerController: {fileID: 114841758807543370}
-  playerControllerAndroid: {fileID: 0}
+  playerControllerAndroid: {fileID: 114764133502017870}
   playerAim: {fileID: 114518915270838454}
   playerLife: {fileID: 114632693400397774}
   playerMaxY: -3
   playerMinY: -5
   isStun: 0
   stunView: {fileID: 212057937332434300}
+--- !u!114 &114764133502017870
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1313601649603402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cd5630a2cb7b9b4c87302b9bc204c2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114841758807543370
 MonoBehaviour:
   m_ObjectHideFlags: 1
