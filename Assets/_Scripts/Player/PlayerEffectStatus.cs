@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerEffectStatus : MonoBehaviour {
 	private bool isStun;
 	public SpriteRenderer stunView;
+	public AudioSource stunSFX;
 	// Use this for initialization
 	void Awake ()
 	{
@@ -18,6 +19,7 @@ public class PlayerEffectStatus : MonoBehaviour {
 	{
 		isStun = true;
 		stunView.enabled = true;
+		stunSFX.Play();
 		//playerBody.velocity = new Vector2(0,0);
 		yield return new WaitForSeconds(stunTime);
 		isStun = false;

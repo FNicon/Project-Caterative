@@ -21,6 +21,11 @@ public class PlayerLife : MonoBehaviour
         currentLife = currentLife - 1;
         OnLifeChange(player,currentLife);
     }
+    public void GetHealth()
+    {
+        currentLife = currentLife + 1;
+        OnLifeChange(player,currentLife);
+    }
 
     public void SetLifeToMax()
     {
