@@ -11,14 +11,15 @@ namespace Caterative.Brick.Balls
         public delegate void BallEvent(Ball whichBall);
         public event BallEvent OnBallCollide;
         public event BallEvent OnBallTrigger;
-        List<Ball> balls;
+        List<GameObject> balls;
 
         void Awake()
         {
-            balls = new List<Ball>((Ball[])Resources.FindObjectsOfTypeAll(typeof(Ball)));
+            //balls = new List<Ball>((Ball[])).FindObjectsOfTypeAll(typeof(Ball));
+            balls = new List<GameObject>(GameObject.FindGameObjectsWithTag("Ball"));
             foreach (var ball in balls)
             {
-                ball.Deactivate();
+                ball.GetComponent<Ball>().Deactivate();
             }
         }
 
@@ -28,9 +29,9 @@ namespace Caterative.Brick.Balls
             int i = 0;
             while (availableBall == null && i < balls.Count)
             {
-                if (balls[i].active == false)
+                if (balls[i].GetComponent<Ball>().active == false)
                 {
-                    availableBall = balls[i];
+                    availableBall = balls[i].GetComponent<Ball>();
                 }
                 i++;
             }
@@ -42,7 +43,7 @@ namespace Caterative.Brick.Balls
             int count = 0;
             foreach (var ball in balls)
             {
-                if (ball.active)
+                if (ball.GetComponent<Ball>().active)
                 {
                     count++;
                 }
