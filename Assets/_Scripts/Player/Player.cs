@@ -13,14 +13,11 @@ public class Player : MonoBehaviour
     public PlayerLife playerLife;
     public float playerMaxY;
     public float playerMinY;
-    public bool isStun;
-    public SpriteRenderer stunView;
+    public PlayerEffectStatus playerStatus;
 
     // Use this for initialization
     void Awake()
     {
-        stunView.enabled = false;
-        isStun = false;
         playerBody = gameObject.GetComponent<Rigidbody2D>();
         cameraTransform = Camera.main.transform;
     }
@@ -59,17 +56,7 @@ public class Player : MonoBehaviour
         }
     }
     private bool IsAbleToMove() {
-        return (playerLife.IsAlive() && !isStun);
-    }
-
-    public IEnumerator StunPlayer(float stunTime)
-    {
-        isStun = true;
-        stunView.enabled = true;
-        playerBody.velocity = new Vector2(0,0);
-        yield return new WaitForSeconds(stunTime);
-        isStun = false;
-        stunView.enabled = false;
+        return (playerLife.IsAlive() && !playerStatus.isStun);
     }
 
     void Move(Vector2 input)

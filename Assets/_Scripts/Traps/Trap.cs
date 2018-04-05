@@ -18,7 +18,7 @@ public class Trap : MonoBehaviour {
 		if (other.collider.CompareTag("Player"))
 		{
 			if (other.transform.GetComponent<Player>()!=null) {
-				Player playerData = other.transform.GetComponent<Player>();
+				PlayerEffectStatus playerData = other.transform.GetComponent<PlayerEffectStatus>();
 				if (!playerData.isStun) {
 					playerData.StartCoroutine(playerData.StunPlayer(trapType.stunTime));
 				}
