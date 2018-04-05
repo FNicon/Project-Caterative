@@ -37,7 +37,6 @@ public class CatBehaviour : MonoBehaviour
 				isInArena = false;
 				counter.AddCat();
 				cat.isAlreadySaved = true;
-				Debug.Log("Cat Saved! +1");
 			}
 		} else {
 			if (isInArena) {

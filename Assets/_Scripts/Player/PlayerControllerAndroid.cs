@@ -8,16 +8,6 @@ public class PlayerControllerAndroid : MonoBehaviour
 	private float distance;
 	private Vector3 offset;
 	private Transform player;
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public bool IsInputFire()
     {
