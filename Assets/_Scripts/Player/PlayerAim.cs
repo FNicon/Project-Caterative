@@ -58,7 +58,11 @@ public class PlayerAim : MonoBehaviour
             ballToLaunch.transform.position = startLaunchLocation;
             ballToLaunch.LaunchTowardsAngle(launchSpeed, launchDirection);
             ballToLaunch = null;
-            StartCoroutine(Cooldown());
+            Debug.Log(BallManager.Instance.CountActiveBall());
+            if (BallManager.Instance.GetAvailableBall() != null)
+            {
+                StartCoroutine(Cooldown());
+            }
         }
     }
     IEnumerator Cooldown() {
