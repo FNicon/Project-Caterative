@@ -8,6 +8,7 @@ namespace Caterative.Brick.TheShieldBoss
     {
         Annoyed,
         Angry,
-        Happy
+        Happy,
+        Hurt
     }
 }

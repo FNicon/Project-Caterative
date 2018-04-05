@@ -9,36 +9,63 @@ namespace Caterative.Brick.Balls
         public float maxSpeed;
         public float minSpeed;
         public int speedIterator;
-        private Rigidbody2D ballBody;
-        private TrailRenderer trail;
+        private Rigidbody2D m_ballBody;
+        private Rigidbody2D ballBody
+        {
+            get
+            {
+                if (m_ballBody == null)
+                {
+                    m_ballBody = GetComponent<Rigidbody2D>();
+                }
+                return this.m_ballBody;
+            }
+        }
+        private TrailRenderer m_trail;
+        public TrailRenderer trail
+        {
+            get
+            {
+                if (m_trail == null)
+                {
+                    m_trail = GetComponentInChildren<TrailRenderer>();
+                }
+                return this.m_trail;
+            }
+            private set
+            {
+                this.m_trail = value;
+            }
+        }
         public bool active { get; protected set; }
 
         void Awake()
         {
-            ballBody = GetComponent<Rigidbody2D>();
             trail = GetComponentInChildren<TrailRenderer>();
             active = false;
         }
 
-		void FixedUpdate()
+        void FixedUpdate()
         {
-			if ((Mathf.Abs(ballBody.velocity.x) > maxSpeed) || (Mathf.Abs(ballBody.velocity.y) > maxSpeed))
+            if ((Mathf.Abs(ballBody.velocity.x) > maxSpeed) || (Mathf.Abs(ballBody.velocity.y) > maxSpeed))
             {
-				ballBody.velocity = maxSpeed * (ballBody.velocity.normalized);
-				speedIterator = 0;
-			} else if ((ballBody.velocity.x < minSpeed) || (ballBody.velocity.y < minSpeed))
+                ballBody.velocity = maxSpeed * (ballBody.velocity.normalized);
+                speedIterator = 0;
+            }
+            else if ((ballBody.velocity.x < minSpeed) || (ballBody.velocity.y < minSpeed))
             {
-				ballBody.velocity = (minSpeed + speedIterator) * (ballBody.velocity.normalized);
-				speedIterator = speedIterator + 1;
-			} else
+                ballBody.velocity = (minSpeed + speedIterator) * (ballBody.velocity.normalized);
+                speedIterator = speedIterator + 1;
+            }
+            else
             {
-				ballBody.velocity = new Vector2(ballBody.velocity.x, ballBody.velocity.y);
-			}
-			if (speedIterator > 10)
+                ballBody.velocity = new Vector2(ballBody.velocity.x, ballBody.velocity.y);
+            }
+            if (speedIterator > 10)
             {
-				speedIterator = 0;
-			}
-		}
+                speedIterator = 0;
+            }
+        }
 
         public void LaunchTowardsAngle(float initialSpeed, float direction)
         {
