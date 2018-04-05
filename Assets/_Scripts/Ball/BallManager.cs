@@ -50,6 +50,18 @@ namespace Caterative.Brick.Balls
             }
             return count;
         }
+        public int CountNonActiveBall()
+        {
+            int count = 0;
+            foreach (var ball in balls)
+            {
+                if (!ball.GetComponent<Ball>().active)
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
 
         internal void InvokeOnBallCollide(Ball ball)
         {
