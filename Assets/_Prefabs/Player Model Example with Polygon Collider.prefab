@@ -311,12 +311,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d2078f664ca1fe47837ca1348d824c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 114841758807543370}
-  playerControllerAndroid: {fileID: 114764133502017870}
-  playerAim: {fileID: 114518915270838454}
-  playerLife: {fileID: 114632693400397774}
-  playerStatus: {fileID: 114386832739420196}
-  playerMovement: {fileID: 114656190163364616}
 --- !u!114 &114764133502017870
 MonoBehaviour:
   m_ObjectHideFlags: 1
