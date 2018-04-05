@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-	public PlayerController playerController;
-	public PlayerControllerAndroid playerControllerAndroid;
-	public PlayerAim playerAim;
-	public PlayerLife playerLife;
-	public PlayerEffectStatus playerStatus;
-	public PlayerMovement playerMovement;
+	private PlayerAim playerAim;
+	private PlayerController playerController;
+	private PlayerControllerAndroid playerControllerAndroid;
+	private PlayerEffectStatus playerEffectStatus;
+	private PlayerLife playerLife;
+	private PlayerMovement playerMovement;
+	private void Awake() {
+		playerAim = gameObject.GetComponent<PlayerAim>();
+		playerController = gameObject.GetComponent<PlayerController>();
+		playerControllerAndroid = gameObject.GetComponent<PlayerControllerAndroid>();
+		playerEffectStatus = gameObject.GetComponent<PlayerEffectStatus>();
+		playerLife = gameObject.GetComponent<PlayerLife>();
+		playerMovement = gameObject.GetComponent<PlayerMovement>();
+	}
 	private bool IsAbleToMove()
 	{
-		return (playerLife.IsAlive() && !playerStatus.IsCurrentlyStun());
+		return (playerLife.IsAlive() && !playerEffectStatus.IsCurrentlyStun());
 	}
 	void Update()
 	{
