@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerEffectStatus : MonoBehaviour {
-	public bool isStun;
+	private bool isStun;
 	public SpriteRenderer stunView;
 	// Use this for initialization
 	void Awake ()
@@ -11,10 +11,8 @@ public class PlayerEffectStatus : MonoBehaviour {
 		stunView.enabled = false;
 		isStun = false;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	public bool IsCurrentlyStun() {
+		return (isStun);
 	}
 	public IEnumerator StunPlayer(float stunTime)
 	{

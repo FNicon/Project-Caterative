@@ -25,6 +25,8 @@ GameObject:
   - component: {fileID: 114518915270838454}
   - component: {fileID: 114632693400397774}
   - component: {fileID: 114764133502017870}
+  - component: {fileID: 114386832739420196}
+  - component: {fileID: 114656190163364616}
   m_Layer: 8
   m_Name: Player Model Example with Polygon Collider
   m_TagString: Player
@@ -247,6 +249,18 @@ PolygonCollider2D:
       - {x: -0.7130078, y: -0.05992222}
       - {x: 0.7237403, y: -0.048723698}
       - {x: 0.7890899, y: 0.00026845932}
+--- !u!114 &114386832739420196
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1313601649603402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 722d6af8f615166479c01e1f0785b6a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stunView: {fileID: 212057937332434300}
 --- !u!114 &114518915270838454
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -259,7 +273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   launchSpeed: 5
-  cooldownTime: 3
+  cooldownTime: 10
 --- !u!114 &114632693400397774
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -272,6 +286,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxLife: 5
+--- !u!114 &114656190163364616
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1313601649603402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 482520db602fa554ba04be03604350e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMaxY: -3
+  playerMinY: -5
+  playerSpeed: 5
 --- !u!114 &114710827090202198
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -283,15 +311,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d2078f664ca1fe47837ca1348d824c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 10
   playerController: {fileID: 114841758807543370}
   playerControllerAndroid: {fileID: 114764133502017870}
   playerAim: {fileID: 114518915270838454}
   playerLife: {fileID: 114632693400397774}
-  playerMaxY: -3
-  playerMinY: -5
-  isStun: 0
-  stunView: {fileID: 212057937332434300}
+  playerStatus: {fileID: 114386832739420196}
+  playerMovement: {fileID: 114656190163364616}
 --- !u!114 &114764133502017870
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -19,12 +19,11 @@ public class Trap : MonoBehaviour {
 		{
 			if (other.transform.GetComponent<Player>()!=null) {
 				PlayerEffectStatus playerData = other.transform.GetComponent<PlayerEffectStatus>();
-				if (!playerData.isStun) {
+				if (!playerData.IsCurrentlyStun()) {
 					playerData.StartCoroutine(playerData.StunPlayer(trapType.stunTime));
 				}
 			}
 			transform.position = new Vector2(-7,0);
-			//Debug.Log("Trap Triggered! -1");
 		}
 	}
 }
