@@ -50,8 +50,13 @@ public class GameManager : Singleton<GameManager>
         if (BallManager.Instance.CountActiveBall() <= 0)
         {
             life.GetDamage();
+            StartCoroutine(DamageCooldown(0.5f));
         }
+    }
+    IEnumerator DamageCooldown(float cooldownTime) {
+        yield return new WaitForSeconds(cooldownTime);
         GameManager.Instance.ReadyTheBall();
+        aim.RestartCoolDown();
     }
 
     public Ball GetBall()

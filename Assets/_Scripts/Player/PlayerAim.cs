@@ -12,7 +12,8 @@ public class PlayerAim : MonoBehaviour
     private Vector2 startLaunchLocation;
     private Vector2 targetLaunchLocation;
     public float cooldownTime;
-
+    private float cooldownCountDown;
+    private bool isStillReload = false;
     void Awake()
     {
         targetLine = GetComponentInChildren<LineRenderer>();
@@ -58,16 +59,30 @@ public class PlayerAim : MonoBehaviour
             ballToLaunch.transform.position = startLaunchLocation;
             ballToLaunch.LaunchTowardsAngle(launchSpeed, launchDirection);
             ballToLaunch = null;
-            Debug.Log(BallManager.Instance.CountActiveBall());
-            if (BallManager.Instance.GetAvailableBall() != null)
+            //Debug.Log(BallManager.Instance.CountActiveBall());
+            if ((BallManager.Instance.CountNonActiveBall() > 0) && (!isStillReload))
             {
+                isStillReload = true;
+                cooldownCountDown = cooldownTime;
                 StartCoroutine(Cooldown());
             }
         }
     }
+    public void RestartCoolDown() {
+        StopAllCoroutines();
+        cooldownCountDown = cooldownTime;
+        isStillReload = false;
+    }
     IEnumerator Cooldown() {
-        yield return new WaitForSeconds(cooldownTime);
-        ReloadBall(BallManager.Instance.GetAvailableBall());
+        yield return new WaitForSeconds(1);
+        cooldownCountDown = cooldownCountDown - 1;
+        if (cooldownCountDown <= 0)
+        {
+            isStillReload = false;
+            ReloadBall(BallManager.Instance.GetAvailableBall());
+        } else {
+            StartCoroutine(Cooldown());
+        }
     }
 
     public void ReloadBall(Ball ball)

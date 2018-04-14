@@ -80,6 +80,8 @@ namespace Caterative.Brick.Balls
         {
             active = false;
             trail.enabled = false;
+            gameObject.transform.position = new Vector2(-10,0);
+            ballBody.velocity = new Vector2(0,0);            
         }
 
         void OnCollisionEnter2D(Collision2D collision)
