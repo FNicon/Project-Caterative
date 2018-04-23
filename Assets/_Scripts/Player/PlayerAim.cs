@@ -18,11 +18,11 @@ public class PlayerAim : MonoBehaviour
         {
             playerAimViewer.targetLine.positionCount = 2;
             //Shoot();
+            playerAimViewer.UpdateLaunchDirection();
         } else
         {
             playerAimViewer.targetLine.positionCount = 0;
         }
-        playerAimViewer.UpdateLaunchDirection();
     }
 
     public void Shoot()

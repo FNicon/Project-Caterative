@@ -15,6 +15,7 @@ public class PlayerShootEmUp : MonoBehaviour {
 		GameObject newBall = Instantiate(createdBall, new Vector2(
 				transform.position.x - 7, transform.position.y), 
 				transform.rotation);
+		BallManager.Instance.AddBall(newBall);
 		ReloadBall(newBall.GetComponent<Ball>());
 	}
 	void Update()
@@ -28,13 +29,6 @@ public class PlayerShootEmUp : MonoBehaviour {
 			//targetLine.positionCount = 0;
 		}
 		playerAimViewer.UpdateLaunchDirection();
-		/*if (isInfinityBall && BallManager.Instance.CountNonActiveBall() <= 0)
-		{
-			Instantiate(ball, new Vector2(
-				transform.position.x - 7, transform.position.y), 
-				transform.rotation);
-			BallManager.Instance.UpdateBallsList();
-		}*/
 	}
 
 	public void Shoot()
@@ -68,6 +62,7 @@ public class PlayerShootEmUp : MonoBehaviour {
 			GameObject newBall = Instantiate(createdBall, new Vector2(
 				transform.position.x - 7, transform.position.y), 
 				transform.rotation);
+			BallManager.Instance.AddBall(newBall);
 			ReloadBall(newBall.GetComponent<Ball>());
 		} else {
 			StartCoroutine(Cooldown());

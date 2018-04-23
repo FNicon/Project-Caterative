@@ -36,4 +36,10 @@ public class PlayerLife : MonoBehaviour
     {
         return (currentLife > 0);
     }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.collider.CompareTag("Target")) {
+            GetDamage();
+        }
+    }
 }

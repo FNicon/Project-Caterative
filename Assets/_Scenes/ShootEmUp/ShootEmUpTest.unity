@@ -8069,7 +8069,12 @@ Prefab:
     - target: {fileID: 114518915270838454, guid: 6b4900735a725af40b4e349b5b8475b3,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114656190163364616, guid: 6b4900735a725af40b4e349b5b8475b3,
+        type: 2}
+      propertyPath: playerMaxY
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6b4900735a725af40b4e349b5b8475b3, type: 2}
@@ -8434,13 +8439,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1956994743}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9fdf1e88bd6a92f4db0202559a19a089, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   launchSpeed: 5
-  cooldownTime: 1
+  cooldownTime: 2
   playerAimViewer: {fileID: 1956994744}
   createdBall: {fileID: 1622730722418626, guid: 4c53a68c871bfd74eb5a5f27790ab52c,
     type: 2}
