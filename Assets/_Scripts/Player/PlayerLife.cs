@@ -10,6 +10,7 @@ public class PlayerLife : MonoBehaviour
     public int currentLife { get; private set; }
     public int maxLife;
     private Player player;
+    public CameraShake hurtEffect;
 
     void Awake()
     {
@@ -18,6 +19,7 @@ public class PlayerLife : MonoBehaviour
 
     public void GetDamage()
     {
+        hurtEffect.Shake();
         currentLife = currentLife - 1;
         OnLifeChange(player,currentLife);
     }
