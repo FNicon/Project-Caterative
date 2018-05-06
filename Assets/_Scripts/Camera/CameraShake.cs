@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CameraShake : MonoBehaviour {
 	private float countTime;
-	private Vector3 startShakePosition;
 	public float shakeTime;
 	public float magnitude;
 	public float timeMultiplier;
@@ -17,14 +16,13 @@ public class CameraShake : MonoBehaviour {
 	void Update () {
 	}
 	public void Shake() {
-		startShakePosition = transform.position;
 		float xForce = magnitude;
 		StartCoroutine(shaking(xForce));
 	}
 	IEnumerator shaking(float xForce) {
 		transform.position = Vector3.MoveTowards(
 			transform.position, 
-			new Vector3(startShakePosition.x + xForce,startShakePosition.y, transform.position.z),
+			new Vector3(xForce,transform.position.y,transform.position.z),
 			Time.deltaTime * timeMultiplier
 		);
 		countTime = countTime + 0.1f;
@@ -35,9 +33,7 @@ public class CameraShake : MonoBehaviour {
 			yield return new WaitForSeconds(0.1f);
 			StartCoroutine(shaking(-xForce));
 		} else {
-			transform.position = Vector3.MoveTowards(
-				transform.position,startShakePosition,Time.deltaTime * timeMultiplier
-			);
+			transform.position = new Vector3(0,transform.position.y,transform.position.z);
 			countTime = 0;
 			yield return new WaitForSeconds(0.1f);
 		}
