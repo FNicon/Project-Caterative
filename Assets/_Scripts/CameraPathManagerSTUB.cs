@@ -8,7 +8,8 @@ public class CameraPathManagerSTUB : MonoBehaviour
 
     void Awake()
     {
-        tracker = Camera.main.GetComponent<CameraTargetTracker>();
+        tracker = FindObjectOfType<CameraTargetTracker>();
+        //tracker = Camera.main.GetComponent<CameraTargetTracker>();
     }
 
     void Update()

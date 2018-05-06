@@ -22,6 +22,9 @@ namespace Caterative.Brick.Balls
                 ball.GetComponent<Ball>().Deactivate();
             }
         }
+        public void AddBall(GameObject newBall) {
+            balls.Add(newBall);
+        }
 
         public Ball GetAvailableBall()
         {
