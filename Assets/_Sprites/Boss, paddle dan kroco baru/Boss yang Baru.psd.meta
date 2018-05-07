@@ -1,7 +1,51 @@
 fileFormatVersion: 2
 guid: 6dbcc691f8c8583408e4dcc0d207f31f
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Boss yang Baru_0
+    21300002: Boss yang Baru_1
+    21300004: Boss yang Baru_2
+    21300006: Boss yang Baru_3
+    21300008: Boss yang Baru_4
+    21300010: Boss yang Baru_5
+    21300012: Boss yang Baru_6
+    21300014: Boss yang Baru_7
+    21300016: Boss yang Baru_8
+    21300018: Boss yang Baru_9
+    21300020: Boss yang Baru_10
+    21300022: Boss yang Baru_11
+    21300024: Boss yang Baru_12
+    21300026: Boss yang Baru_13
+    21300028: Boss yang Baru_14
+    21300030: Boss yang Baru_15
+    21300032: Boss yang Baru_16
+    21300034: Boss yang Baru_17
+    21300036: Boss yang Baru_18
+    21300038: Boss yang Baru_19
+    21300040: Boss yang Baru_20
+    21300042: Boss yang Baru_21
+    21300044: Boss yang Baru_22
+    21300046: Boss yang Baru_23
+    21300048: Boss yang Baru_24
+    21300050: Boss yang Baru_25
+    21300052: Boss yang Baru_26
+    21300054: Boss yang Baru_27
+    21300056: Boss yang Baru_28
+    21300058: Boss yang Baru_29
+    21300060: Boss yang Baru_30
+    21300062: Boss yang Baru_31
+    21300064: Boss yang Baru_32
+    21300066: Boss yang Baru_33
+    21300068: Boss yang Baru_34
+    21300070: Boss yang Baru_35
+    21300072: Boss yang Baru_36
+    21300074: Boss yang Baru_37
+    21300076: Boss yang Baru_38
+    21300078: Boss yang Baru_39
+    21300080: Boss yang Baru_40
+    21300082: Boss yang Baru_41
+    21300084: Boss yang Baru_42
+    21300086: Boss yang Baru_43
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -38,12 +82,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 400
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -67,9 +111,911 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Boss yang Baru_0
+      rect:
+        serializedVersion: 2
+        x: 2797
+        y: 3005
+        width: 271
+        height: 171
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aca8358f96cff8848ab10470b3c30994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_1
+      rect:
+        serializedVersion: 2
+        x: 3124
+        y: 3005
+        width: 273
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95edea38faf87dd4d934c6abceafc693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_2
+      rect:
+        serializedVersion: 2
+        x: 3443
+        y: 3003
+        width: 273
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e80b740566523e748ae548bd85cd8d2c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_3
+      rect:
+        serializedVersion: 2
+        x: 3899
+        y: 3078
+        width: 241
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2464710977daef242bc35bb579d6f6e1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_4
+      rect:
+        serializedVersion: 2
+        x: 4155
+        y: 3088
+        width: 204
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ec8aeadc08e8b449b60d229541ccfd4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_5
+      rect:
+        serializedVersion: 2
+        x: 4430
+        y: 2542
+        width: 519
+        height: 714
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8422e6631db722546978691ea7227799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_6
+      rect:
+        serializedVersion: 2
+        x: 2802
+        y: 2810
+        width: 273
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc8d4e8d55a788646b646e1194b72155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_7
+      rect:
+        serializedVersion: 2
+        x: 3119
+        y: 2810
+        width: 275
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ceb3124d73456ba4d8785f4f2f12d1e7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_8
+      rect:
+        serializedVersion: 2
+        x: 3482
+        y: 2743
+        width: 275
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c81c830b74b2c20439bd1ed2859a4ee1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_9
+      rect:
+        serializedVersion: 2
+        x: 3796
+        y: 2671
+        width: 332
+        height: 319
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 075f443dda0d6e9448e8da16054b4df1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_10
+      rect:
+        serializedVersion: 2
+        x: 4172
+        y: 2715
+        width: 192
+        height: 205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 354a3a75bc40f3443ab4038fe612985f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_11
+      rect:
+        serializedVersion: 2
+        x: 2639
+        y: 2320
+        width: 331
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc39419120e194a478afd954bffd94e4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_12
+      rect:
+        serializedVersion: 2
+        x: 3002
+        y: 2317
+        width: 331
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49aba9ff1cd372348893f0e3b50be357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_13
+      rect:
+        serializedVersion: 2
+        x: 3365
+        y: 2310
+        width: 331
+        height: 319
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1283046a0ce200343af7cdbab34f3191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_14
+      rect:
+        serializedVersion: 2
+        x: 3714
+        y: 2310
+        width: 331
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ea1850ee4dcd1f4d826c02c873eb39d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_15
+      rect:
+        serializedVersion: 2
+        x: 4062
+        y: 2305
+        width: 332
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9541eadd24196c4383f382dc5971936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_16
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 1652
+        width: 151
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3326354fa1d61714894fad2600950649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_17
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 1875
+        width: 336
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4ee9a6aa653e9b40bb57cbb260cf581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_18
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 1631
+        width: 156
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb94eeba78744014f95d4a66c01cd0c7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_19
+      rect:
+        serializedVersion: 2
+        x: 1130
+        y: 1527
+        width: 526
+        height: 510
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49f126f031765ce40b7acd4d2cbbec41
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_20
+      rect:
+        serializedVersion: 2
+        x: 1733
+        y: 1714
+        width: 331
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bfcb79ae66fd3941957c678a03d5c7c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_21
+      rect:
+        serializedVersion: 2
+        x: 2200
+        y: 1549
+        width: 524
+        height: 510
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d7ad212b6a9b3c479dd9a2ac94c12a1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_22
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 1817
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64d32badb6d99bd418d511d8da0c084d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_23
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 1757
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28360389685357d49b521fd6a755aa4b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_24
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 1731
+        width: 26
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3500770f56922714b86d6001f0d007fd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_25
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 1559
+        width: 339
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a9304100e53d8a46b42a50029b4c624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_26
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 1633
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76cfe1be17016104a90119443e3823ed
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_27
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 1332
+        width: 336
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 980611fcd9b48f24f9bf0556e8b1dbcd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_28
+      rect:
+        serializedVersion: 2
+        x: 1257
+        y: 1300
+        width: 68
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5222c2250fb6f649b2c77ee5c9fbd68
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_29
+      rect:
+        serializedVersion: 2
+        x: 1398
+        y: 1310
+        width: 75
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4533822d33c184c4c9210575b15227b5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_30
+      rect:
+        serializedVersion: 2
+        x: 1756
+        y: 1457
+        width: 51
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94d79b207d717d04288843eb562f504a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_31
+      rect:
+        serializedVersion: 2
+        x: 1905
+        y: 1437
+        width: 105
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c7b6a17bc20ac34f904c43f3aa3fdc6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_32
+      rect:
+        serializedVersion: 2
+        x: 2326
+        y: 1323
+        width: 69
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c388c67990c5d37498ca3d2e47a41678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_33
+      rect:
+        serializedVersion: 2
+        x: 2466
+        y: 1332
+        width: 75
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed6a159f245956547b13145f89915ef9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_34
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 1067
+        width: 159
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b036b1a4a48a8646b19429a4c633c55
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_35
+      rect:
+        serializedVersion: 2
+        x: 837
+        y: 1044
+        width: 159
+        height: 361
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44e89171042295046a4e8ea19022b792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_36
+      rect:
+        serializedVersion: 2
+        x: 1734
+        y: 1267
+        width: 95
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99ffe9e82fe62e0429b9bcfc7008c06b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_37
+      rect:
+        serializedVersion: 2
+        x: 1939
+        y: 1264
+        width: 37
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a646b2e48f619941b634e9b87b9a4f1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_38
+      rect:
+        serializedVersion: 2
+        x: 2266
+        y: 1140
+        width: 431
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73944e0161183534ba07f9832fcb1e25
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_39
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 1231
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d54f0ab460f0564db7584170a58afab
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_40
+      rect:
+        serializedVersion: 2
+        x: 1198
+        y: 1117
+        width: 431
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1a27e11f959d4f47be6b703e2b85191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_41
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 1170
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cba9ec915d64fe488a802d56e42a520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_42
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 1145
+        width: 27
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24b767444f60e5d4abf04fdb131d842a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss yang Baru_43
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 974
+        width: 345
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef8cf35849348eb489c5121260e1cc67
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
