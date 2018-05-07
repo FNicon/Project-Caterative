@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: DummyCat03
   m_EditorClassIdentifier: 
   catName: Dummy03
-  catSprite: {fileID: 21300000, guid: 7fd0a260206dd7c42aa952b94d03e0e6, type: 3}
+  catSprite: {fileID: 21300000, guid: d40a6e84905a6f441a437a437dbc5f45, type: 3}
   catImages: []
   catStory: 
   isAlreadySaved: 0
