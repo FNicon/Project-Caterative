@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 61225787000356596}
   - component: {fileID: 50681984858271914}
   - component: {fileID: 114227141020832502}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Traps01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,6 +142,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:

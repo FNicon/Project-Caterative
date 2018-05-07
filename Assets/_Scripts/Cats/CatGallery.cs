@@ -28,6 +28,7 @@ public class CatGallery : MonoBehaviour {
 				galleryObjects[i].GetComponentInChildren<Text>().text = catsList[i].catName;
 			} else {
 				galleryObjects[i].GetComponentsInChildren<Image>()[1].sprite = unknownSpriteTemplate;
+				galleryObjects[i].GetComponentsInChildren<Image>()[1].color = new Vector4(0,0,0,255);
 				galleryObjects[i].GetComponentInChildren<Text>().text = "unknown";
 			}
 		}

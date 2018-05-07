@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ball
   - Target
+  - Destructible
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Bricks
   - Border
   - Balls
-  - 
+  - Trap
   - 
   - 
   - 
