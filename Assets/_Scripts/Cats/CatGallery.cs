@@ -25,11 +25,13 @@ public class CatGallery : MonoBehaviour {
 			galleryObjects[i].GetComponent<RectTransform>().localScale = new Vector3(1,1,1);
 			if (catsList[i].isAlreadySaved) {
 				galleryObjects[i].GetComponentsInChildren<Image>()[1].sprite = catsList[i].catSprite;
-				galleryObjects[i].GetComponentInChildren<Text>().text = catsList[i].catName;
+				galleryObjects[i].GetComponentsInChildren<Image>()[1].SetNativeSize();
+				//galleryObjects[i].GetComponentInChildren<Text>().text = catsList[i].catName;
 			} else {
 				galleryObjects[i].GetComponentsInChildren<Image>()[1].sprite = unknownSpriteTemplate;
-				galleryObjects[i].GetComponentsInChildren<Image>()[1].color = new Vector4(0,0,0,255);
-				galleryObjects[i].GetComponentInChildren<Text>().text = "unknown";
+				galleryObjects[i].GetComponentsInChildren<Image>()[1].SetNativeSize();
+				//galleryObjects[i].GetComponentsInChildren<Image>()[1].color = new Vector4(0,0,0,255);
+				//galleryObjects[i].GetComponentInChildren<Text>().text = "unknown";
 			}
 		}
 	}

@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour {
 	public void Move(Vector2 input)
 	{
 		Vector2 deltaVelocity = new Vector2(input.x * playerSpeed, input.y * playerSpeed);
-		Vector2 destination = (Vector2)transform.position + deltaVelocity;
+		//Vector2 destination = (Vector2)transform.position + deltaVelocity;
 		//playerBody.MovePosition(ConstraintMovement(destination));
 		playerBody.velocity = deltaVelocity;
 	}

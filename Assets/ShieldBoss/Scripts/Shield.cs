@@ -11,14 +11,14 @@ namespace Caterative.Brick.TheShieldBoss
         ShieldObject shieldObject;
         Animator shieldObjectAnimator;
         public float rotateFactor = 0.1f;
-        new Collider2D collider;
+        //new Collider2D collider;
         public bool boostDeflect;
 
         void Awake()
         {
             shieldObject = GetComponentInChildren<ShieldObject>();
             shieldObjectAnimator = shieldObject.GetComponent<Animator>();
-            collider = GetComponent<Collider2D>();
+            //collider = GetComponent<Collider2D>();
         }
 
         void OnCollisionEnter2D(Collision2D collision)

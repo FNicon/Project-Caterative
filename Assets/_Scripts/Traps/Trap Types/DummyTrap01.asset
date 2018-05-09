@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Name: DummyTrap01
   m_EditorClassIdentifier: 
   trapSprites: {fileID: 0}
-  isDamage: 0
+  isDamage: 1
   stunTime: 2

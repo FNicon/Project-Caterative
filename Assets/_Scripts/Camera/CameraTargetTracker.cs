@@ -8,12 +8,12 @@ public class CameraTargetTracker : MonoBehaviour
     List<GameObject> targets;
     public Path cameraPath;
     public int currentTargetIndex = 0;
-    new private Transform camera;
+    private Transform cameraTracker;
     GameObject closestTarget;
 
     void Awake()
     {
-        camera = Camera.main.transform;
+        cameraTracker = Camera.main.transform;
         targets = new List<GameObject>();
         if (cameraPath == null)
         {
@@ -56,8 +56,8 @@ public class CameraTargetTracker : MonoBehaviour
             return true;
         } else {
             return targets[i].activeSelf == true
-                    && Vector2.Distance(targets[i].transform.position, camera.position)
-                       < Vector2.Distance(closestTarget.transform.position, camera.position);   
+                    && Vector2.Distance(targets[i].transform.position, cameraTracker.position)
+                       < Vector2.Distance(closestTarget.transform.position, cameraTracker.position);   
         }
     }
 

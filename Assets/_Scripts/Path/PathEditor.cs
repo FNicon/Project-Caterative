@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
+/*using UnityEditor;
 
-[ExecuteInEditMode]
+[ExecuteInEditMode]*/
 public class PathEditor : MonoBehaviour
-{
+{/*
 	public Path path;
 	private void OnDrawGizmos()
 	{
@@ -14,5 +14,5 @@ public class PathEditor : MonoBehaviour
 			Handles.DrawDottedLine(path.pathNodes[i].position,path.pathNodes[i+1].position,3.0f);
 		}
 	}
-
+*/
 }

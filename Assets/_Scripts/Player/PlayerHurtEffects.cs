@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using EZCameraShake;
 
 public class PlayerHurtEffects : MonoBehaviour {
@@ -9,6 +10,7 @@ public class PlayerHurtEffects : MonoBehaviour {
 	public float shakeFadeInTime;
 	public float shakeFadeOutTime;
 	public SpriteRenderer playerSprite;
+	public Image redEffect;
 	public Color hurtColor;
 	public Color originalColor;
 	private Color newColor;
@@ -16,6 +18,7 @@ public class PlayerHurtEffects : MonoBehaviour {
 	public float colorChangePerSecond;
 	// Use this for initialization
 	void Start () {
+		redEffect.enabled = false;
 		originalColor = playerSprite.color;
 	}
 	
@@ -41,6 +44,7 @@ public class PlayerHurtEffects : MonoBehaviour {
 	}
 	IEnumerator HurtFadeOut() {
 		newColor = originalColor;
+		redEffect.enabled = false;
 		StartCoroutine(Fade(shakeFadeInTime));
 		yield return new WaitUntil(IsPlayerOriginalColor);
 	}
@@ -53,6 +57,7 @@ public class PlayerHurtEffects : MonoBehaviour {
 	}
 	IEnumerator HurtFadeIn() {
 		newColor = hurtColor;
+		redEffect.enabled = true;
 		StartCoroutine(Fade(shakeFadeInTime));
 		yield return new WaitUntil(IsPlayerHurtColor);
 		StartCoroutine(HurtFadeOut());

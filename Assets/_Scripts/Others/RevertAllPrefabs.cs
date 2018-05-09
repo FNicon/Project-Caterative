@@ -1,11 +1,11 @@
-﻿     using UnityEngine;
+﻿/*     using UnityEngine;
      using UnityEditor;
-     using System.Collections.Generic;
+     using System.Collections.Generic;*/
      
      /// <summary>
      /// http://answers.unity3d.com/questions/144453/reverting-several-gameobjects-to-prefab-settings-a.html
      /// </summary>
-     public class RevertPrefabInstance : UnityEditor.Editor
+     /*public class RevertPrefabInstance : UnityEditor.Editor
      {
          [MenuItem( "Tools/Revert Selected Prefabs %&#r" )]
          static void Revert()
@@ -68,4 +68,4 @@
              }
              return wasValidAtEitherLevel;
          }
-     }
+     }*/

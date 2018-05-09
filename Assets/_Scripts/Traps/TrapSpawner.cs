@@ -7,7 +7,8 @@ public class TrapSpawner : MonoBehaviour
 	public GameObject objectTrap;
 	public void SpreadTrap()
 	{
-		GameObject trap = Instantiate(objectTrap,this.transform.position,this.transform.rotation);
+		Instantiate(objectTrap,this.transform.position,this.transform.rotation);
+		//GameObject trap = Instantiate(objectTrap,this.transform.position,this.transform.rotation);
 		//gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(1,1);
 		/*for (int i=0; i < trapType.trapComponents.Length; i++)
 		{

@@ -9,11 +9,11 @@ public class BackgroundRepeater : MonoBehaviour
     public GameObject background2;
     GameObject[] twoBackground;
     float spriteHeightInUnit;
-    new Transform camera;
+    Transform cameraRepeater;
 
     void Awake()
     {
-        camera = Camera.main.transform;
+        cameraRepeater = Camera.main.transform;
         spriteHeightInUnit = (backgroundToRepeat.rect.yMax - backgroundToRepeat.rect.yMin) / backgroundToRepeat.pixelsPerUnit;
         background1.GetComponent<SpriteRenderer>().sprite = backgroundToRepeat;
         background2.GetComponent<SpriteRenderer>().sprite = backgroundToRepeat;
@@ -28,13 +28,13 @@ public class BackgroundRepeater : MonoBehaviour
     {
         foreach (var bg in twoBackground)
         {
-            if (bg.transform.position.y - camera.position.y > spriteHeightInUnit)
+            if (bg.transform.position.y - cameraRepeater.position.y > spriteHeightInUnit)
             {
                 bg.transform.position = new Vector2(
                     0, bg.transform.position.y - (2 * spriteHeightInUnit)
                 );
             }
-            else if (bg.transform.position.y - camera.position.y < -1 * spriteHeightInUnit)
+            else if (bg.transform.position.y - cameraRepeater.position.y < -1 * spriteHeightInUnit)
             {
                 bg.transform.position = new Vector2(
                     0, bg.transform.position.y + (2 * spriteHeightInUnit)

@@ -22,6 +22,9 @@ public class Trap : MonoBehaviour {
 				if (!playerData.IsCurrentlyStun()) {
 					playerData.StartCoroutine(playerData.StunPlayer(trapType.stunTime));
 				}
+				if (trapType.isDamage) {
+					other.transform.GetComponent<PlayerLife>().GetDamage();
+				}
 			}
 			transform.position = new Vector2(-7,0);
 		}

@@ -6,7 +6,7 @@ public class PathMovement : MonoBehaviour
 {
 	public Path pathToFollow;
 	public int currentSegment = 0;
-	private bool isLastSegment = false;
+	//private bool isLastSegment = false;
 	public int moveToward = 1;
 	void Update ()
 	{
