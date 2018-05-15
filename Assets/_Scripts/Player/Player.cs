@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
 	private PlayerEffectStatus playerEffectStatus;
 	private PlayerLife playerLife;
 	private PlayerMovement playerMovement;
+	public bool isWin;
 	private void Awake() {
 		playerAim = gameObject.GetComponent<PlayerAim>();
 		playerController = gameObject.GetComponent<PlayerController>();
@@ -18,9 +19,9 @@ public class Player : MonoBehaviour
 		playerLife = gameObject.GetComponent<PlayerLife>();
 		playerMovement = gameObject.GetComponent<PlayerMovement>();
 	}
-	private bool IsAbleToMove()
+	public bool IsAbleToMove()
 	{
-		return (playerLife.IsAlive() && !playerEffectStatus.IsCurrentlyStun());
+		return (playerLife.IsAlive() && !playerEffectStatus.IsCurrentlyStun() && !isWin);
 	}
 	void Update()
 	{

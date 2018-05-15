@@ -47,11 +47,13 @@ public class GameManager : Singleton<GameManager>
 
     public void OnBallDestroy(Ball ball)
     {
-        if (BallManager.Instance.CountActiveBall() <= 0)
+        /*if (BallManager.Instance.CountActiveBall() <= 0)
         {
             life.GetDamage();
             StartCoroutine(DamageCooldown(0.5f));
-        }
+        }*/
+        life.GetDamage();
+        StartCoroutine(DamageCooldown(0.5f));
     }
     IEnumerator DamageCooldown(float cooldownTime) {
         yield return new WaitForSeconds(cooldownTime);

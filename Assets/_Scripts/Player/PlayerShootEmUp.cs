@@ -11,6 +11,7 @@ public class PlayerShootEmUp : MonoBehaviour {
 	private bool isStillReload = false;
 	public PlayerAimViewer playerAimViewer;
 	public GameObject createdBall;
+	public Player player;
 	private void Awake() {
 		GameObject newBall = Instantiate(createdBall, new Vector2(
 				transform.position.x - 7, transform.position.y), 
@@ -33,7 +34,7 @@ public class PlayerShootEmUp : MonoBehaviour {
 
 	public void Shoot()
 	{
-		if (ballToLaunch != null)
+		if (ballToLaunch != null && player.IsAbleToMove())
 		{
 			ballToLaunch.transform.position = playerAimViewer.startLaunchLocation;
 			ballToLaunch.LaunchTowardsAngle(launchSpeed, playerAimViewer.launchDirection);

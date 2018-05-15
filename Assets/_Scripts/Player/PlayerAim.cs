@@ -11,6 +11,7 @@ public class PlayerAim : MonoBehaviour
     private float cooldownCountDown;
     private bool isStillReload = false;
     public PlayerAimViewer playerAimViewer;
+    public Player player;
 
     void Update()
     {
@@ -27,7 +28,7 @@ public class PlayerAim : MonoBehaviour
 
     public void Shoot()
     {
-        if (ballToLaunch != null)
+        if (ballToLaunch != null && player.IsAbleToMove())
         {
             ballToLaunch.transform.position = playerAimViewer.startLaunchLocation;
             ballToLaunch.LaunchTowardsAngle(launchSpeed, playerAimViewer.launchDirection);

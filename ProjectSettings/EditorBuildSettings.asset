@@ -14,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Test/ShootEmUp/ShootEmUpTest.unity
     guid: 62d69a752e54a764e9db8d58c55f1a41
+  - enabled: 1
+    path: Assets/_Scenes/Intro/IntroStory.unity
+    guid: 84802c5d4108a5f4a9a9da9664f978a0
+  - enabled: 1
+    path: Assets/_Scenes/Intro/LevelSelect.unity
+    guid: 6ff6058f813dc4140945be8b4de69244
+  - enabled: 1
+    path: Assets/_Scenes/Test/ShootEmUp/ShootEmUpTest2.unity
+    guid: a2b1a81b122f3db4b983a6026778f036
   m_configObjects: {}
