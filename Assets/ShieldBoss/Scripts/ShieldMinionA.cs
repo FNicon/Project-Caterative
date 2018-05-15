@@ -47,6 +47,7 @@ namespace Caterative.Brick.TheShieldBoss
         private void Deactivate()
         {
             transform.position = new Vector2(-10, 100);
+            gameObject.SetActive(false);
         }
 
 
