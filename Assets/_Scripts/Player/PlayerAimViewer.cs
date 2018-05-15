@@ -21,7 +21,7 @@ public class PlayerAimViewer : MonoBehaviour {
 	
     public void UpdateLaunchDirection()
     {
-        //targetLine.positionCount = 2;
+        targetLine.positionCount = 2;
         launchDirection = 90 + ((transform.position.x / 2) * -45);
         startLaunchLocation = new Vector2(
             transform.position.x * 1.25f,
