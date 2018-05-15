@@ -40,6 +40,10 @@ namespace Caterative.Brick.TheShieldBoss
         private void ResolveStateChange(ShieldBoss boss)
         {
             state = boss.state;
+            if (boss.targetBall != null)
+            {
+                pupilTarget = boss.targetBall.transform;
+            }
         }
 
         void Update()
@@ -53,7 +57,6 @@ namespace Caterative.Brick.TheShieldBoss
                 case State.Annoyed:
                     if (hurtTimer <= 0)
                     {
-                        SetTarget();
                         SetSprite(annoyedPupil);
                         PupilFollowTargetUpdate();
                     }
@@ -76,7 +79,6 @@ namespace Caterative.Brick.TheShieldBoss
                 case State.Angry:
                     if (hurtTimer <= 0)
                     {
-                        SetTarget();
                         SetSprite(angryPupil);
                         PupilFollowTargetUpdate();
                     }
@@ -94,33 +96,21 @@ namespace Caterative.Brick.TheShieldBoss
 
         private void PupilFollowTargetUpdate()
         {
-            Vector2 relativeTargetPosition = pupilTarget.position - transform.position;
-            transform.localPosition = new Vector2(
-                maxPupilPosition.x * (
-                    Mathf.Abs(relativeTargetPosition.x) > targetPositionThreshold.x ?
-                    Mathf.Sign(relativeTargetPosition.x) * targetPositionThreshold.x :
-                    relativeTargetPosition.x
-                    / targetPositionThreshold.x),
-                maxPupilPosition.y * (
-                Mathf.Abs(relativeTargetPosition.y) > targetPositionThreshold.y ?
-                Mathf.Sign(relativeTargetPosition.y) * targetPositionThreshold.y :
-                relativeTargetPosition.y
-                / targetPositionThreshold.y)
-            );
-        }
-
-        public void SetTarget()
-        {
-            if (pupilTarget == null)
+            if (pupilTarget != null)
             {
-                if (GameManager.Instance.GetBall().active)
-                {
-                    this.pupilTarget = GameManager.Instance.GetBall().transform;
-                }
-                else
-                {
-                    this.pupilTarget = GameManager.Instance.GetAim().transform;
-                }
+                Vector2 relativeTargetPosition = pupilTarget.position - transform.position;
+                transform.localPosition = new Vector2(
+                    maxPupilPosition.x * (
+                        Mathf.Abs(relativeTargetPosition.x) > targetPositionThreshold.x ?
+                        Mathf.Sign(relativeTargetPosition.x) * targetPositionThreshold.x :
+                        relativeTargetPosition.x
+                        / targetPositionThreshold.x),
+                    maxPupilPosition.y * (
+                    Mathf.Abs(relativeTargetPosition.y) > targetPositionThreshold.y ?
+                    Mathf.Sign(relativeTargetPosition.y) * targetPositionThreshold.y :
+                    relativeTargetPosition.y
+                    / targetPositionThreshold.y)
+                );
             }
         }
 

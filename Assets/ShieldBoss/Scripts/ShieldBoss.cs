@@ -97,6 +97,10 @@ namespace Caterative.Brick.TheShieldBoss
                         shield.transform.Rotate(0, 0, happyRotationPerSecond * Time.deltaTime);
                         break;
                 }
+            } else {
+                state = State.Happy;
+                shield.StopAllCoroutines();
+                shield.transform.Rotate(0, 0, happyRotationPerSecond * Time.deltaTime);
             }
         }
 

@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 namespace Caterative.Brick.Balls
 {
@@ -21,7 +21,22 @@ namespace Caterative.Brick.Balls
             {
                 ball.GetComponent<Ball>().Deactivate();
             }
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
+
+        void OnApplicationQuit() {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
+
+        private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
+        {
+            balls = new List<GameObject>(GameObject.FindGameObjectsWithTag("Ball"));
+            foreach (var ball in balls)
+            {
+                ball.GetComponent<Ball>().Deactivate();
+            }   
+        }
+
         public void AddBall(GameObject newBall) {
             balls.Add(newBall);
         }

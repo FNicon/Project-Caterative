@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
 	private PlayerAim playerAim;
 	private PlayerController playerController;
-	//private PlayerControllerAndroid playerControllerAndroid;
+	private PlayerControllerAndroid playerControllerAndroid;
 	private PlayerEffectStatus playerEffectStatus;
 	private PlayerLife playerLife;
 	private PlayerMovement playerMovement;
@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
 	private void Awake() {
 		playerAim = gameObject.GetComponent<PlayerAim>();
 		playerController = gameObject.GetComponent<PlayerController>();
-		//playerControllerAndroid = gameObject.GetComponent<PlayerControllerAndroid>();
+		playerControllerAndroid = gameObject.GetComponent<PlayerControllerAndroid>();
 		playerEffectStatus = gameObject.GetComponent<PlayerEffectStatus>();
 		playerLife = gameObject.GetComponent<PlayerLife>();
 		playerMovement = gameObject.GetComponent<PlayerMovement>();
@@ -27,14 +27,18 @@ public class Player : MonoBehaviour
 	{
 		if (IsAbleToMove())
 		{
-				if (playerController.IsInputFire())
-				{
-					playerAim.Shoot();
-				}
-				/*if(playerControllerAndroid.IsInputFire())
-				{
-					playerAim.Shoot();
-				}*/
+			#if UNITY_EDITOR || UNITY_STANDALONE_WIN
+			if (playerController.IsInputFire())
+			{
+				playerAim.Shoot();
+			}
+			#endif
+			#if UNITY_ANDROID && !UNITY_EDITOR
+			if(playerControllerAndroid.IsInputFire())
+			{
+				playerAim.Shoot();
+			}
+			#endif
 		}
 	}
 
@@ -43,8 +47,12 @@ public class Player : MonoBehaviour
 		playerMovement.ConstraintPlayerMovement();
 		if (IsAbleToMove())
 		{
+			#if UNITY_EDITOR || UNITY_STANDALONE_WIN
 			playerMovement.Move(playerController.ReadInput());
-			//playerMovement.MoveAndroid(playerControllerAndroid.ReadInput());
+			#endif
+			#if UNITY_ANDROID && !UNITY_EDITOR
+			playerMovement.MoveAndroid(playerControllerAndroid.ReadInput());
+			#endif
 		}
 	}
 }
