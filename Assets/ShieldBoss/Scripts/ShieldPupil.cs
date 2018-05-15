@@ -40,6 +40,7 @@ namespace Caterative.Brick.TheShieldBoss
         private void ResolveStateChange(ShieldBoss boss)
         {
             state = boss.state;
+            pupilTarget = boss.targetBall.transform;
         }
 
         void Update()
@@ -53,7 +54,6 @@ namespace Caterative.Brick.TheShieldBoss
                 case State.Annoyed:
                     if (hurtTimer <= 0)
                     {
-                        SetTarget();
                         SetSprite(annoyedPupil);
                         PupilFollowTargetUpdate();
                     }
@@ -76,7 +76,6 @@ namespace Caterative.Brick.TheShieldBoss
                 case State.Angry:
                     if (hurtTimer <= 0)
                     {
-                        SetTarget();
                         SetSprite(angryPupil);
                         PupilFollowTargetUpdate();
                     }
@@ -107,21 +106,6 @@ namespace Caterative.Brick.TheShieldBoss
                 relativeTargetPosition.y
                 / targetPositionThreshold.y)
             );
-        }
-
-        public void SetTarget()
-        {
-            if (pupilTarget == null)
-            {
-                if (GameManager.Instance.GetBall().active)
-                {
-                    this.pupilTarget = GameManager.Instance.GetBall().transform;
-                }
-                else
-                {
-                    this.pupilTarget = GameManager.Instance.GetAim().transform;
-                }
-            }
         }
 
         public void SetSprite(Sprite sprite)
