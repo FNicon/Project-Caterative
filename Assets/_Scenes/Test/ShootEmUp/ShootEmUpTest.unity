@@ -7047,7 +7047,7 @@ MonoBehaviour:
   shield: {fileID: 170537227}
   WINPANEL: {fileID: 480410890}
   LOSEPANEL: {fileID: 1851197818}
-  player: {fileID: 1956994754}
+  player: {fileID: 0}
 --- !u!1 &1377851855
 GameObject:
   m_ObjectHideFlags: 0

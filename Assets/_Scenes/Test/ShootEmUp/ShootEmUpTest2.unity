@@ -8378,7 +8378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverPanel: {fileID: 966717079}
-  textLife: {fileID: 1792681194}
+  textLife: {fileID: 0}
 --- !u!114 &1242312440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11095,17 +11095,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 30
       objectReference: {fileID: 0}
-    - target: {fileID: 223909364099856182, guid: 6b4900735a725af40b4e349b5b8475b3,
-        type: 2}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 492407268}
-    - target: {fileID: 224398571777805640, guid: 6b4900735a725af40b4e349b5b8475b3,
+    - target: {fileID: 224002760956240484, guid: 6b4900735a725af40b4e349b5b8475b3,
         type: 2}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 224398571777805640, guid: 6b4900735a725af40b4e349b5b8475b3,
+    - target: {fileID: 224002760956240484, guid: 6b4900735a725af40b4e349b5b8475b3,
         type: 2}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -11123,12 +11118,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6b4900735a725af40b4e349b5b8475b3, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1792681194 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114857078189005398, guid: 6b4900735a725af40b4e349b5b8475b3,
-    type: 2}
-  m_PrefabInternal: {fileID: 1792681193}
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!114 &1792681195 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114710827090202198, guid: 6b4900735a725af40b4e349b5b8475b3,
@@ -11550,6 +11539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 032109e957f940b4aa90ad312aac3f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  path: {fileID: 0}
 --- !u!1 &1833962185
 GameObject:
   m_ObjectHideFlags: 0

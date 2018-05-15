@@ -42,7 +42,7 @@ public class LevelManagerSTUB : MonoBehaviour
     public void RevivePlayer()
     {
         playerLife.SetLifeToMax();
-        textLife.text = playerLife.currentLife.ToString();
+        //textLife.text = playerLife.currentLife.ToString();
         gameOverPanel.SetActive(false);
     }
 
