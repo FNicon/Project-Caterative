@@ -27,7 +27,7 @@ public class LevelManagerSTUB : MonoBehaviour
 
     private void ResolveLifeChange(Player player, int currentLife)
     {
-        textLife.text = playerLife.currentLife.ToString();
+        //textLife.text = playerLife.currentLife.ToString();
         if (currentLife <= 0)
         {
             GameOver();

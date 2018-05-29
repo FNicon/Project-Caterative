@@ -7055,7 +7055,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1056155734
 Transform:
   m_ObjectHideFlags: 0
@@ -10052,6 +10052,10 @@ Prefab:
       propertyPath: m_Name
       value: UnBreakable Brick (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 1514708473464380, guid: dd6df91163c34df44bcb63d6e56cdbc5, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dd6df91163c34df44bcb63d6e56cdbc5, type: 2}
   m_IsPrefabParent: 0
@@ -10549,6 +10553,22 @@ Prefab:
         type: 2}
       propertyPath: health
       value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4255483323704044, guid: 22d238727f7907b44b3838bd74520afb, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4533607404084448, guid: 22d238727f7907b44b3838bd74520afb, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4004308191678528, guid: 22d238727f7907b44b3838bd74520afb, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4328151882252690, guid: 22d238727f7907b44b3838bd74520afb, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 22d238727f7907b44b3838bd74520afb, type: 2}
